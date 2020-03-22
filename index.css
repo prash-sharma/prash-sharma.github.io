@@ -22,12 +22,12 @@ margin: 0;
 .applist{
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: black;
     color: cadetblue;
     margin: 4px;
     width: 200px;
     height: 32px;
-    align-items: center;
     text-decoration: none;
     border-radius: 8px;
 }
