@@ -1,0 +1,37 @@
+body{
+display: flex;
+flex-direction: column;
+background-color:darkolivegreen;
+justify-content: center;
+margin: 0;
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: darkolivegreen;
+    height: 100px;
+    width: auto;
+    align-items: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    font-size: 30px;
+}
+
+.applist{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: cadetblue;
+    margin: 4px;
+    width: 200px;
+    height: 32px;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.applist:hover{
+    background-color: darkslategrey; 
+}
