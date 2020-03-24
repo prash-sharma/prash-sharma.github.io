@@ -9,9 +9,9 @@ margin: 0;
 .heading{
     display: flex;
     justify-content: center;
-    background-color:gray;
-    color: darkolivegreen;
-    height: 100px;
+    background-color: rgb(73, 52, 207);
+    color:white;
+    height: 64px;
     width: auto;
     align-items: center;
     text-transform: uppercase;
@@ -23,9 +23,11 @@ margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:gray;
-    color: cadetblue;
-    margin: 4px;
+    background-color: slateblue;
+    /*background-color: darkslategray;*/
+    color:white;
+    margin: auto;
+    margin-bottom: 16px;
     width: 200px;
     height: 32px;
     text-decoration: none;
@@ -33,5 +35,6 @@ margin: 0;
 }
 
 .applist:hover{
-    background-color: darkslategrey; 
+    /*background-color: slateblue; */
+    background-color: slategray;
 }
