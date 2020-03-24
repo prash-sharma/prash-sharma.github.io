@@ -5,12 +5,18 @@
 body{
     background-color:black;
     color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 .clock{
     width: 400px;
     height: 400px;
-    background-color: rgb(124, 6, 6);
+    background-color:slateblue;
     border-radius: 50%;
     border: 3px solid white;
     position: relative;
@@ -26,7 +32,7 @@ body{
     height: 100%;
     text-align: center;
     transform: rotate(var(--rotation));
-    color: white;
+    color: black;
 }
 
 .clock .number1 { --rotation: 30deg;}
@@ -42,12 +48,48 @@ body{
 .clock .number11 { --rotation: 330deg;}
 
 .clock .hand{
+    --rotation: 0;
     position: absolute;
-    background-color: black;
+    background-color: white;
     left: 50%;
-    height: 50%;
-    width: 15px;
+    bottom: 50%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translateX(-50%) rotate(calc(var(--rotation)*1deg)) ;
+}
 
+.clock::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color: black;
+    width: 15px;
+    height: 15px;
+    z-index: 11;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.clock .hand.second{
+    height: 45%;
+    width: 3px;
+    background-color: red;
+}
+
+.clock .hand.minute{
+    height: 40%;
+    width: 6px;
+    background-color: black;
+}
+
+.clock .hand.hour{
+    height: 35%;
+    width: 9px;
+    background-color: black;
 }
 
 .button{
@@ -63,7 +105,6 @@ body{
     border: none;
     border-radius: 8px;
     margin: auto;
-    margin-top: 128px;
 }
 
 .button:hover{
