@@ -5,6 +5,7 @@ body{
     margin: 0;
     background-color: black;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .banner{
@@ -19,7 +20,7 @@ body{
 }
 
 #time{
-    color: maroon;
+    color: slateblue;
     background-color:black;
     width: auto;
     height: 100px;
