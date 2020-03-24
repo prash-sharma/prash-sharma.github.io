@@ -15,6 +15,9 @@ body{
     border-radius: 50%;
     border: 3px solid white;
     position: relative;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 .clock .number{
@@ -24,6 +27,7 @@ body{
     height: 100%;
     text-align: center;
     transform: rotate(var(--rotation));
+    color: white;
 }
 
 .clock .number1 { --rotation: 30deg;}
@@ -45,4 +49,23 @@ body{
     height: 50%;
     width: 15px;
 
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:gray;
+    height: 30px;
+    width: 100px;
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    margin: auto;
+}
+
+.button:hover{
+    background-color: darkgrey;
 }
