@@ -3,24 +3,23 @@ body{
     justify-content: center;
     flex-direction: column;
     margin: 0;
-    background-color: darkolivegreen;
+    background-color: black;
     min-height: 100vh;
 }
 
 .banner{
     color: whitesmoke;
+    justify-content: center;
+    align-items: center;
     height: 100px;
     width: auto;
     background-color: black;
     text-transform: uppercase;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom:5px;
 }
 
 #time{
-    color: rgb(180, 59, 99);
+    color: maroon;
     background-color:black;
     width: auto;
     height: 100px;
@@ -36,7 +35,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background-color:slategray;
     height: 30px;
     width: 100px;
     font-size: 15px;
@@ -44,8 +43,10 @@ body{
     text-decoration: none;
     border: none;
     border-radius: 8px;
+    margin: auto;
+    margin-top: 128px;
 }
 
 .button:hover{
-    background-color: gray;
+    background-color: slateblue;
 }
