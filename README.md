@@ -1,3 +1,3 @@
-# Digital-clock
- A digital clock
+# My apps
+
 https://prash-sharma.github.io/index
