@@ -16,13 +16,11 @@ body{
 .clock{
     width: 400px;
     height: 400px;
-    background-color:slateblue;
     border-radius: 50%;
-    border: 3px solid white;
     position: relative;
     margin: auto;
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
 }
 
 .clock .number{
@@ -32,7 +30,8 @@ body{
     height: 100%;
     text-align: center;
     transform: rotate(var(--rotation));
-    color: black;
+    color: white;
+    font-size: 20px;
 }
 
 .clock .number1 { --rotation: 30deg;}
@@ -65,7 +64,7 @@ body{
     position: absolute;
     left: 50%;
     top: 50%;
-    background-color: black;
+    background-color: red;
     width: 15px;
     height: 15px;
     z-index: 11;
@@ -83,13 +82,13 @@ body{
 .clock .hand.minute{
     height: 40%;
     width: 6px;
-    background-color: black;
+    background-color: white;
 }
 
 .clock .hand.hour{
     height: 35%;
     width: 9px;
-    background-color: black;
+    background-color: white;
 }
 
 .button{
@@ -105,8 +104,20 @@ body{
     border: none;
     border-radius: 8px;
     margin: auto;
+    margin-bottom: 5px;
 }
 
 .button:hover{
     background-color: slateblue;
+}
+
+#digitaltime{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 50px;
+    color: slateblue;
+    margin-bottom: 30px;
+    font-size: 20px;
 }
