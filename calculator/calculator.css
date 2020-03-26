@@ -1,4 +1,41 @@
+*, *::after, ::before{
+    box-sizing: border-box;
+}
+
+
 body{
-    background-color: darkslategrey;
+    background-color: cadetblue;
+    padding: 0;
+    margin: 0;
+}
+
+
+.calculator-grid{
     display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    
+}
+
+.calculator-grid >button{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid black;
+    outline: none;
+}
+
+.calculator-grid > button:hover{
+    background-color: steelblue;
+}
+
+.span-two{
+    grid-column: span 2;
+}
+
+.output{
+    grid-column: 1/-1;
+    background-color: rgb(77, 64, 64);
 }
