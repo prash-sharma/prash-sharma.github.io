@@ -1,12 +1,13 @@
 body{
-    background-color: grey;
-    text-align: center;
+    background-color: whitesmoke;
+    
 }
 
 .container{
     border: 1px solid red;
     margin: 0 auto;
     width: 75%;
+    text-align: center;
 }
 
 .container-item-1 {
@@ -21,6 +22,7 @@ body{
     width: 300px;
     border: 1px solid green;
     margin: 8px;
+    box-shadow: 10px 10px 10px rgb(180, 41, 41);
 }
 
 .btn{
@@ -31,11 +33,10 @@ body{
     font-size: 16px;
     border-radius: 8px;
     margin-bottom: 16px;
+    outline: none;
 }
 
 .btn:hover{
     background-color: rgb(142, 165, 230);
-    cursor: pointer;
-    
-    
+    cursor: pointer;    
 }
