@@ -6,7 +6,7 @@ body{
 .container{
     border: 1px solid red;
     margin: 0 auto;
-    width: 75%;
+    width: 75%; 
     text-align: center;
 }
 
@@ -20,9 +20,9 @@ body{
 .container-item-1 > img {
     height: 200px;
     width: 300px;
-    border: 1px solid green;
+    
     margin: 8px;
-    box-shadow: 10px 10px 10px rgb(180, 41, 41);
+    box-shadow: 10px 10px 10px rgb(158, 143, 143);
 }
 
 .btn{
