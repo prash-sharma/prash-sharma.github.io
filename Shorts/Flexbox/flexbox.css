@@ -1,0 +1,27 @@
+.fb-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgreen;
+    height: 800px;
+    
+}
+
+.fb-item{
+    width: 200px;
+    margin: 10px;
+    border: 3px solid gray;
+    background-color: green;  
+}
+
+.fb-item-1{
+    min-height: 100px;
+}
+
+.fb-item-2{
+    min-height: 200px;
+}
+
+.fb-item-3{
+    min-height: 300px;
+}
