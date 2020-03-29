@@ -1,3 +1,5 @@
+// let Vs var
+
 let iAmGlobal = "iAmGlobal";
 
 console.log(iAmGlobal)
