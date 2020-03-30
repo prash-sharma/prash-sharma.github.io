@@ -4,14 +4,46 @@ let myToDos = {
     meetDone: 0,
 }
 
-function meetingTotal(todo, meet = 0){
-    return todo.meetings = todo.meetings + meet;
+function addMeeting(todo, meet = 0){
+    todo.meetings = todo.meetings + meet;
     
 }
 
-// console.log(meetingTotal(myToDos, 3));
-
-
-function doneCount(done, meet = 0){
-    done.
+for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    
 }
+
+addMeeting(myToDos, 5); //meetings: 5, meetDone: 0
+console.log(myToDos);
+
+function meetDone(todo, meet = 0){
+    todo.meetDone = meet;
+}
+
+meetDone(myToDos, 3)
+
+console.log(myToDos);
+
+let result = myToDos.meetings - myToDos.meetDone;
+console.log(`Meetings left for ${myToDos.day} is ${result}`);
+
+
+
+// function resetDay(todo) {
+//     todo.meetings = 0;
+//     todo.meetDone = 0;
+// }
+
+// function getSummaryOfDay(todo) {
+//     let meetLeft = todo.meetings + todo.meetDone;
+//     return `You've ${meetLeft} meetings left today`;
+// }
+
+// addMeeting(myToDos, 4);
+// addMeeting(myToDos, 2)
+// meetDone(myToDos, 5);
+
+// console.log(myToDos);
+
+// console.log(getSummaryOfDay(myToDos));
