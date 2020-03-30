@@ -39,10 +39,12 @@ body{
 
 .btn.button-primary{
     background-color: blue;
+    outline: none;
 }
 
 .btn.button-danger{
     background-color: red;
+    outline: none;
 }
 
 .btn:hover{
