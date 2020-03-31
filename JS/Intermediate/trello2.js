@@ -4,18 +4,24 @@ let myToDos = {
     meetDone: 0,
 }
 
-function addMeeting(todo, meet = 0){
-    todo.meetings = todo.meetings + meet;
+function addMeeting(todo, meet1 = 0, meet2 = 0){
+    todo.meetings = meet1;
+    todo.meetDone = meet2;
     
 }
 
-for (let i = 0; i < array.length; i++) {
-    const element = array[i];
-    
-}
+
+addMeeting(myToDos, 7, 3);
+
+console.log(myToDos);
+
+let results = myToDos.meetings - myToDos.meetDone;
+console.log(results)
+
 
 addMeeting(myToDos, 5); //meetings: 5, meetDone: 0
-console.log(myToDos);
+console.log(` Test ${myToDos.meetings}`);
+
 
 function meetDone(todo, meet = 0){
     todo.meetDone = meet;
