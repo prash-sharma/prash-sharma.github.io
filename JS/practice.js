@@ -1,13 +1,64 @@
-const championsLeague = [];
+// ASSIGNMENT - 1: Return all item & index of an array using array.foreach() method.
+/*
+const cLTeams = [];
 
-championsLeague.push('Man Utd')
-championsLeague.push('AC Milan')
-championsLeague.push('PSG')
-championsLeague.push('Juventus')
-championsLeague.push('Arsenal')
-championsLeague.push('Man City')
-championsLeague.push('Spurs')
-championsLeague.push('Dortmund')
-championsLeague.push('Barca')
+cLTeams.push('Man Utd')
+cLTeams.push('AC Milan')
+cLTeams.push('PSG')
+cLTeams.push('Juventus')
+cLTeams.push('Arsenal')
+cLTeams.push('Man City')
+cLTeams.push('Spurs')
+cLTeams.push('Dortmund')
+cLTeams.push('Barca')
+cLTeams.push('Ajax')
 
-console.log(championsLeague.length);
+cLTeams.forEach((clubName, index) => {console.log(clubName, index);})
+*/
+
+
+// ASSIGNMENT - 2: Update todo list object and display results
+/*
+let taskListMon = {
+    day: 'Monday',
+    tasks: 0,
+    completed: 0,
+}
+
+let taskListTue = {
+    day: 'Tuesday',
+    tasks: 0,
+    completed: 0,
+}
+
+let updateTasks = (obj, tasksValue = 0, completedvalue = 0) => {
+    obj.tasks = obj.tasks + tasksValue;
+    obj.completed = obj.completed + completedvalue;
+}
+
+updateTasks (taskListMon, 10, 4)
+updateTasks (taskListTue, 10, 10)
+
+console.log(taskListMon);
+console.log(taskListTue);
+
+let taskRemaining = (obj) => {
+    remainingCount = obj.tasks - obj.completed;
+    console.log(`${obj.day} Remaining tasks = ${remainingCount}`);
+    if (remainingCount == 0){
+        console.log('Well done')
+    } else {
+        console.log('Keep focussed')
+    }
+}
+
+let reset = (obj) => {
+    obj.tasks = 0;
+    obj.completed = 0;
+}
+
+taskRemaining (taskListMon);
+taskRemaining (taskListTue);
+*/
+
+// ASSIGNMENT - 3: TO DO
