@@ -29,7 +29,7 @@ console.log(numbers);
 // console.log(numbers.unshift('a'));
 // console.log(numbers);
 
-numbers.slice(2, 0, "newvalue");
+numbers.splice(2, 0, "newvalue");
 console.log(numbers);
 
 numbers.splice(0, 0, 'newvalue');
