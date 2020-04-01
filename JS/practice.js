@@ -1,23 +1,26 @@
 // ASSIGNMENT - 1: Return all item & index of an array using array.foreach() method.
 /*
-const cLTeams = [];
+let arr = [];
 
-cLTeams.push('Man Utd')
-cLTeams.push('AC Milan')
-cLTeams.push('PSG')
-cLTeams.push('Juventus')
-cLTeams.push('Arsenal')
-cLTeams.push('Man City')
-cLTeams.push('Spurs')
-cLTeams.push('Dortmund')
-cLTeams.push('Barca')
-cLTeams.push('Ajax')
+arr.push('Man Utd')
+arr.push('AC Milan')
+arr.push('PSG')
+arr.push('Juventus')
+arr.push('Arsenal')
+arr.push('Man City')
 
-cLTeams.forEach((clubName, index) => {console.log(clubName, index);})
+console.log(arr);
+
+let x = arr.indexOf('Arsenal')
+
+console.log(x);
+
+
+arr.forEach((itemvalue, index) => console.log(index+1, itemvalue))
+
 */
 
-
-// ASSIGNMENT - 2: Update todo list object and display results
+// ASSIGNMENT - 2: Update todo list object via an external function and display results
 /*
 let taskListMon = {
     day: 'Monday',
@@ -62,24 +65,84 @@ taskRemaining (taskListTue);
 */
 
 // ASSIGNMENT - 3: TO DO - https://www.youtube.com/watch?v=0wN-L9CG3y0&list=PLRAV69dS1uWTSu9cVg8jjXW8jndOYYJPP&index=21&pbjreload=10
-
-
+// 1. Object with Methods
+// 2. Update Object element with `this` keyword
+/*
 let taskListMon = {
     day: 'Mon',
     tasks: 0,
     completed: 0,
-    myFunction: function(){
-        console.log(this);
+    updateTasks: function(tasks, completed){
+        this.tasks = this.tasks + tasks;
+        this.completed = this.completed + completed;
     },
+    taskRemaining: function(){
+        result = this.tasks - this.completed;
+        return (`Tasks remaining is ${result}`);
+    }   
 }
 
-let taskListTue = {
-    day: 'Tue',
-    tasks: 0,
-    completed: 0,
-    myFunction: () =>{
-
-    },
+reset = (obj) => {
+    obj.tasks = 0;
+    obj.completed = 0;
+    obj.day = ''
 }
 
-taskListMon.myFunction();
+taskListMon.updateTasks (10, 4);
+console.log(taskListMon.taskRemaining ());
+reset(taskListMon);
+console.log(taskListMon);
+
+*/
+
+// ASSIGNMENT - 4: Search an array
+
+
+// const cLTeams = ['Man Utd', 'Arsenal', 'Spurs', 'Chelsea', 'Wolves']
+
+// console.log(cLTeams.indexOf('Man Utd'));
+
+
+const cLWinners = [{
+    clubName: 'Man Utd',
+    cLWin: true,
+}, {
+    clubName: 'Arsenal',
+    cLWin: false,
+}, {
+    clubName: 'Spurs',
+    cLWin: false,
+}, {
+    clubName: 'Chelsea',
+    cLWin: true,
+}]
+ 
+// Return the Object element which matches user's clubName string
+
+
+const indexOfObject1 = cLWinners.findIndex(
+    function (item){
+       return item.clubName === 'Spurs'
+    }
+)
+console.log(indexOfObject1);
+
+const indexOfObject2 = cLWinners.findIndex((item)=> item.clubName === "Chelsea")
+
+console.log(indexOfObject2);
+
+// cLWinners.splice(2, 0, {clubName: 'Liverpool', cLWin : true})
+// console.log(cLWinners);
+
+// const findIndexOfAnObj = cLWinners.findIndex(
+//     function(item){
+//         console.log(item);
+        
+//         return item.cLWin == true
+//     }
+// )
+
+// console.log(findIndexOfAnObj);
+
+
+
