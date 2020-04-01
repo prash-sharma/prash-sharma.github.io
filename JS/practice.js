@@ -61,4 +61,25 @@ taskRemaining (taskListMon);
 taskRemaining (taskListTue);
 */
 
-// ASSIGNMENT - 3: TO DO
+// ASSIGNMENT - 3: TO DO - https://www.youtube.com/watch?v=0wN-L9CG3y0&list=PLRAV69dS1uWTSu9cVg8jjXW8jndOYYJPP&index=21&pbjreload=10
+
+
+let taskListMon = {
+    day: 'Mon',
+    tasks: 0,
+    completed: 0,
+    myFunction: function(){
+        console.log(this);
+    },
+}
+
+let taskListTue = {
+    day: 'Tue',
+    tasks: 0,
+    completed: 0,
+    myFunction: () =>{
+
+    },
+}
+
+taskListMon.myFunction();
