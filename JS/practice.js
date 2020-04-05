@@ -102,7 +102,7 @@ console.log(taskListMon);
 
 // console.log(cLTeams.indexOf('Man Utd'));
 
-
+/*
 const cLWinners = [{
     clubName: 'Man Utd',
     cLWin: true,
@@ -116,20 +116,20 @@ const cLWinners = [{
     clubName: 'Chelsea',
     cLWin: true,
 }]
- 
+ */
 // Return the Object element which matches user's clubName string
 
 
-const indexOfObject1 = cLWinners.findIndex(
-    function (item){
-       return item.clubName === 'Spurs'
-    }
-)
-console.log(indexOfObject1);
+// const indexOfObject1 = cLWinners.findIndex(
+//     function (item){
+//        return item.clubName === 'Spurs'
+//     }
+// )
+// console.log(indexOfObject1);
 
-const indexOfObject2 = cLWinners.findIndex((item)=> item.clubName === "Chelsea")
+// const indexOfObject2 = cLWinners.findIndex((item)=> item.clubName === "Chelsea")
 
-console.log(indexOfObject2);
+// console.log(indexOfObject2);
 
 // cLWinners.splice(2, 0, {clubName: 'Liverpool', cLWin : true})
 // console.log(cLWinners);
@@ -145,4 +145,15 @@ console.log(indexOfObject2);
 // console.log(findIndexOfAnObj);
 
 
+/*
+const returnObjElementOfAnArray = (arrName, objItemValue) => {
+        const index = arrName.findIndex((element) =>{
+            return element.clubName.toLowerCase() === objItemValue.toLowerCase()
+        })
+    return arrName[index]
+}
+
+let printMe = returnObjElementOfAnArray(cLWinners, 'man utd')
+
+console.log(printMe); */
 
