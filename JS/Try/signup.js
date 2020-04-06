@@ -7,7 +7,7 @@ document.querySelector('.signup').addEventListener('submit', (event)=>{
     if (p1 != p2) {
         return 'Passwords do not match'
     } else {
-        return 'Get in!!'
+        return 'Welcome in!!'
     }}
     
     let output = document.createElement('p')
