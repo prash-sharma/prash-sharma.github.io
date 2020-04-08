@@ -1,45 +1,47 @@
-
-var ul = document.getElementById('list');
-var li = ul.children;
+let ul = document.getElementById('list');
+let li = ul.children;
 
 document.getElementById('remove').addEventListener('click', removeItem);
 document.getElementById('add').addEventListener('click', addItem);
 
 
 function addItem(){
-    var input = document.getElementById('input');
-    var value = input.value;
+    let input = document.getElementById('input')
+    let inputValue = input.value;
+    let textNode = document.createTextNode(inputValue);
     
     
-    if (value == '') { 
+    // console.log(textNode);
+    
+    if (input.value == '') {
         let pErr = document.createElement('p');
-        pErr.textContent = 'Enter some value plz'
-        pErr.setAttribute('id', 'errmsg')
-        document.querySelector("#input").before(pErr);
+        let errNode = document.createTextNode('Enter some value above');
+        pErr.appendChild(errNode);
+        document.getElementById('input').after(pErr);
+        pErr.setAttribute('id', 'errmsg');
     } else {
-
-        // create list
-        let newLi = document.createElement('li')
+        // create li 
+        let newLi = document.createElement('li');
         newLi.className = 'mycheck'
-        let newLiNode = document.create
 
         // create input type checkbox
-        var newCheckBox = document.createElement('input');
+        let newCheckBox = document.createElement('input');
         newCheckBox.type = 'checkbox'
         newCheckBox.id = 'check'
 
         // create label
-        var newLabel = document.createElement('label');
-        // add the value from 'input' into label
-        newLabel.textContent = value;
-        
+        let newLabel = document.createElement('label');
+        newLabel.setAttribute('id', 'newLabel')
+        //add the value from the 'textNode' into label
+        newLabel.appendChild(textNode)
+
         // append checkbox + label into 'ul' at the top
+        newLi.appendChild(newCheckBox)
+        newLi.appendChild(newLabel)
+        ul.insertBefore(newLi, ul.childNodes[0])
+        input.value = ''
     }
 }
-
-
-
-
 
 function removeItem(){
     for (let index = 0; index < li.length; index++) {        
@@ -49,31 +51,6 @@ function removeItem(){
         }
     }
 }
-
-
-
-/* solution
-
-var ul = document.getElementById('list')
-var li = ul.children //Returns ul's li as an array li = [li, li, li, li]
-
-document.getElementById('remove').addEventListener('click', removeItem)
-
-document.getElementById('add').addEventListener('click', addItem)
-
-function removeItem() {
-    for (let index = 0; index < li.length; index++) { 
-        while (li[index] && li[index].children[0].checked) {
-            ul.removeChild(li[index])
-        }
-    }
-}
-
-function addItem() {
-    console.log('Add button clicked');
-    
-}
-*/
 
 
 /* EXAMPLES
