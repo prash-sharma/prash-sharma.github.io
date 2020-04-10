@@ -36,6 +36,10 @@ body{
     outline: none;
 }
 
+.btn.reset{
+    background-color: #fff;
+}
+
 .btn:hover{
     background-color: rgb(142, 165, 230);
     cursor: pointer;    
