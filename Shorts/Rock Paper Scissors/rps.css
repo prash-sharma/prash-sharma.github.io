@@ -1,0 +1,38 @@
+.container{
+    border: 1px solid olivedrab;
+    text-align: center;
+}
+
+.flex-box-rps{
+    display: flex;
+    border: 1px solid olive;
+    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+
+
+.flex-box-rps img:hover{
+    box-shadow: 0px 8px 8px darkblue;
+}
+
+
+#rock {
+    width: 150px;
+    height: 150x;
+    
+}
+
+#scissors {
+    width: 150px;
+    height: 150x;
+    
+}
+
+
+#paper {
+    width: 150px;
+    height: 150px;
+}
