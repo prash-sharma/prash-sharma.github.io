@@ -9,30 +9,18 @@
     padding: 10px;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
 
 }
-
-
 
 .flex-box-rps img:hover{
     box-shadow: 0px 8px 8px darkblue;
+    cursor: pointer;
 }
 
 
-#rock {
-    width: 150px;
-    height: 150x;
-    
-}
-
-#scissors {
-    width: 150px;
-    height: 150x;
-    
-}
-
-
-#paper {
+.image {
     width: 150px;
     height: 150px;
+    border: 2px solid black;
 }
