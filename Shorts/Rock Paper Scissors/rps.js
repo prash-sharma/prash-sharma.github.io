@@ -6,12 +6,6 @@
 
     results = decideWinner(humanChoice, botChoice);
     // console.log(results);
-
-    // My way with if/else
-    // var messageh1 = document.createElement('h1');
-    // messageh1.textContent = results;
-    // document.querySelector('.container').appendChild(messageh1)
-    
     
     message = finalMessage(results[0], results[1])
     console.log(message);
@@ -53,44 +47,10 @@ function finalMessage(yourScore, aiScore){
         return {'message': 'You win', 'color': 'green'};
     }
 } 
-
-
-// Who is the winner
-// My way with if/else
-// function decideWinner(human, ai){
-//     if (human === 'rock' && ai === 'rock'){
-//         return `It's a draw, we both picked the same one`
-//     } else if (human === 'rock' && ai === 'paper'){
-//         return `I lost, computer wins`
-//     } else if (human === 'rock' && ai === 'scissors'){
-//         return `I win, computer lost`
-//     } else if (human === 'paper' && ai === 'rock') {
-//         return `I win, computer lost`
-//     } else if (human === 'paper' && ai === 'paper') {
-//         return `It's a draw, we both picked the same one`
-//     } else if (human === 'paper' && ai === 'scissors') {
-//         return `I lost, computer wins`
-//     } else if (human === 'scissors' && ai === 'rock') {
-//         return `I lost, computer wins`
-//     } else if (human === 'scissors' && ai === 'paper') {
-//         return `I win, computer lost`
-//     } else {
-//         return `It's a draw, we both picked the same one`
-//     }
-// }
-
 */
 
 
-
-
-
-
-
-
-
-
-
+// --------------MY METHOD------------- //
 
 function rpsGame(yourChoice){
     var humanChoice = yourChoice.id;
@@ -111,63 +71,63 @@ function numberToChoice(number){
 
 function decideWinner(human, ai){
     if (human === 'rock' && ai === 'rock'){
-        //return `Tied`
+        // `Tied`
         let msgAndCol = {
             msg: `Draw`,
             color: 'yellow'
         }
         return msgAndCol
     } else if (human === 'rock' && ai === 'paper'){
-        //return `I lost`
+        // `I lost`
         let msgAndCol = {
             msg: `You lost`,
             color: 'red'
         }
         return msgAndCol
     } else if (human === 'rock' && ai === 'scissors'){
-        // return `I win`
+        // `I win`
         let msgAndCol = {
             msg: `You win`,
             color: 'green'
         }
         return msgAndCol
     } else if (human === 'paper' && ai === 'rock') {
-        // return `I win`
+        // `I win`
         let msgAndCol = {
             msg: `You win`,
             color: 'green'
         }
         return msgAndCol
     } else if (human === 'paper' && ai === 'paper') {
-        // return `It's a draw`
+        // `It's a draw`
         let msgAndCol = {
             msg: `Draw`,
             color: 'yellow'
         }
         return msgAndCol
     } else if (human === 'paper' && ai === 'scissors') {
-        // return `I lost`
+        // `I lost`
         let msgAndCol = {
             msg: `You lost`,
             color: 'red'
         }
         return msgAndCol
     } else if (human === 'scissors' && ai === 'rock') {
-        // return `I lost`
+        // `I lost`
         let msgAndCol = {
             msg: `You lost`,
             color: 'red'
         }
         return msgAndCol
     } else if (human === 'scissors' && ai === 'paper') {
-        // return `I win`
+        // `I win`
         let msgAndCol = {
             msg: `You win`,
             color: 'green'
         }
         return msgAndCol
     } else {
-        // return `It's a draw`
+        // `It's a draw`
         let msgAndCol = {
             msg: `Draw`,
             color: 'yellow'
@@ -175,7 +135,6 @@ function decideWinner(human, ai){
         return msgAndCol
     }
 }
-
 
 function rpsFrontEnd(humanChoice, botChoice, message){
     let imageList = {
@@ -188,24 +147,53 @@ function rpsFrontEnd(humanChoice, botChoice, message){
     document.getElementById('paper').remove();
     document.getElementById('scissors').remove();
     
+    // My Input - Image & Text
+    let humanInputDiv = document.createElement('div');
+    humanInputDiv.id = 'humanInputDiv';
+    document.getElementById('flex-box-rps-div').appendChild(humanInputDiv);
+
     let humanImageElement = document.createElement('img');
     humanImageElement.src = imageList[humanChoice];
-    humanImageElement.className = 'image';
-    document.getElementById('flex-box-rps-div').appendChild(humanImageElement);
+    humanImageElement.className = 'result-image-1';
+    document.getElementById('humanInputDiv').appendChild(humanImageElement);
+
+    let humanTextElement = document.createElement('p');
+    humanTextElement.textContent = 'My pick';
+    document.getElementById('humanInputDiv').appendChild(humanTextElement);
     
-    let resultElement = document.createElement('p');
-    resultElement.className = 'image'
+    // Result 
+    var resultDiv = document.createElement('div');
+    resultDiv.id = 'resultDiv';
+    resultDiv.style.marginBottom = '35px'
+    resultDiv.style.width = '150px'
+    document.getElementById('flex-box-rps-div').appendChild(resultDiv)
+
+    let resultElement = document.createElement('h3');
+    resultElement.className = 'result-text'
+    resultElement.style.backgroundColor = message.color;
     resultElement.textContent = message.msg;
-    document.getElementById('flex-box-rps-div').appendChild(resultElement)
+    document.getElementById('resultDiv').appendChild(resultElement)
     
+    // AI input - Image & Text
+    let botInputDiv = document.createElement('div');
+    botInputDiv.id = 'botInputDiv';
+    document.getElementById('flex-box-rps-div').appendChild(botInputDiv);
+
     let botImageElement = document.createElement('img');
     botImageElement.src = imageList[botChoice];
-    botImageElement.className = 'image'
-    document.getElementById('flex-box-rps-div').appendChild(botImageElement);
+    botImageElement.className = 'result-image-2'
+    document.getElementById('botInputDiv').appendChild(botImageElement);
+
+    let botTextElement = document.createElement('p');
+    botTextElement.textContent = 'AI pick';
+    document.getElementById('botInputDiv').appendChild(botTextElement);
 
     console.log(humanChoice);
     console.log(botChoice);
     console.log(message.msg);
     console.log(message.color);
-    
+}
+
+function reload(){
+    document.getElementById("form").reset();
 }
