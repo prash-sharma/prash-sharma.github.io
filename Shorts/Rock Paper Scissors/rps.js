@@ -1,55 +1,3 @@
-/* function rpsGame(yourChoice){
-    var humanChoice = yourChoice.id;
-    // console.log(`My choice is: ${humanChoice}`);
-    var botChoice = numberToChoice(randomToRpsInt());
-    // console.log(`Comp choice is: ${botChoice}`);
-
-    results = decideWinner(humanChoice, botChoice);
-    // console.log(results);
-    
-    message = finalMessage(results[0], results[1])
-    console.log(message);
-    
-    rpsFrontEnd (humanChoice, botChoice, message)  // (string, string, obj {msg:, .color})
-} 
-    
-function randomToRpsInt(){
-    return Math.floor(Math.random() * 3)
-}
-
-function numberToChoice(number){
-    return (['rock', 'paper', 'scissors'] [number])
-}
-
-
-// Qazi's formula :) 
-
-function decideWinner(yourChoice, aiChoice){
-    var rpsDB = {
-        'rock': {'scissors': 1, 'rock': 0.5, 'paper':0},
-        'paper': {'scissors': 0, 'rock': 1, 'paper':0.5},
-        'scissors': {'scissors': 0.5, 'rock': 0, 'paper':1}
-    };
-
-    var yourScore = rpsDB [yourChoice] [aiChoice];
-    var aiScore = rpsDB [aiChoice] [yourChoice];
-
-    return [yourScore, aiScore]
-    
-}
-
-function finalMessage(yourScore, aiScore){
-    if (yourScore === 0){
-        return {'message': 'You lost', 'color': 'red'};
-    } else if(yourScore === 0.5){
-        return {'message': 'You tied', 'color': 'yellow'};
-    } else {
-        return {'message': 'You win', 'color': 'green'};
-    }
-} 
-*/
-
-
 // --------------MY METHOD------------- //
 
 function rpsGame(yourChoice){
@@ -197,3 +145,56 @@ function rpsFrontEnd(humanChoice, botChoice, message){
 function reload(){
     document.getElementById("form").reset();
 }
+
+// Tutorial method (only a partial solution)
+
+/* function rpsGame(yourChoice){
+    var humanChoice = yourChoice.id;
+    // console.log(`My choice is: ${humanChoice}`);
+    var botChoice = numberToChoice(randomToRpsInt());
+    // console.log(`Comp choice is: ${botChoice}`);
+
+    results = decideWinner(humanChoice, botChoice);
+    // console.log(results);
+    
+    message = finalMessage(results[0], results[1])
+    console.log(message);
+    
+    rpsFrontEnd (humanChoice, botChoice, message)  // (string, string, obj {msg:, .color})
+} 
+    
+function randomToRpsInt(){
+    return Math.floor(Math.random() * 3)
+}
+
+function numberToChoice(number){
+    return (['rock', 'paper', 'scissors'] [number])
+}
+
+
+// Qazi's formula :) 
+
+function decideWinner(yourChoice, aiChoice){
+    var rpsDB = {
+        'rock': {'scissors': 1, 'rock': 0.5, 'paper':0},
+        'paper': {'scissors': 0, 'rock': 1, 'paper':0.5},
+        'scissors': {'scissors': 0.5, 'rock': 0, 'paper':1}
+    };
+
+    var yourScore = rpsDB [yourChoice] [aiChoice];
+    var aiScore = rpsDB [aiChoice] [yourChoice];
+
+    return [yourScore, aiScore]
+    
+}
+
+function finalMessage(yourScore, aiScore){
+    if (yourScore === 0){
+        return {'message': 'You lost', 'color': 'red'};
+    } else if(yourScore === 0.5){
+        return {'message': 'You tied', 'color': 'yellow'};
+    } else {
+        return {'message': 'You win', 'color': 'green'};
+    }
+} 
+*/
