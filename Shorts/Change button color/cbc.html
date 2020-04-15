@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change button color</title>
+    <link rel="stylesheet" href="cbc.css">
+</head>
+<body>
+    <h1>Change button color</h1>
+    <div class="container">
+        <form>
+            <select class="dropdown" onchange="updateColor(this)">
+                <option value="select">Select an option</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+                <option value="red">Red</option>
+                <option value="orange">Orange</option>
+                <option value="random">Random</option>
+                <option value="resest">Reset</option>
+            </select>   
+        </form>
+            
+        <div class="btn-container">
+            <button class="btn green">Green</button>
+            <button class="btn blue">Blue</button>
+            <button class="btn yellow">Yellow</button>
+            <button class="btn red">Red</button>
+            <button class="btn orange">Orange</button>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="cbc.js"></script>
+</body>
+</html>
