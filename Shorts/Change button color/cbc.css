@@ -1,0 +1,63 @@
+body{
+    text-align: center;
+    background-image: linear-gradient(grey, black);
+    height: 100vh;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.dropdown {
+    margin: 30px;
+    outline: none;
+    height: 30px;
+    font-size: small;
+}
+
+
+.btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: medium;
+    flex-wrap: wrap;
+}
+
+.btn {
+    height: 30px;
+    width: 100px;
+    border-radius: 8px;
+    font-size: medium;
+    outline: none;
+    border: none;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background: linear-gradient(to right, grey, black);
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
