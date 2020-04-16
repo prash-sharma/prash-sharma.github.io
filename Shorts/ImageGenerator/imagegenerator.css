@@ -44,3 +44,31 @@ body{
     background-color: rgb(142, 165, 230);
     cursor: pointer;    
 }
+
+.link-back-div {
+    display: flex;
+    justify-content: space-around;
+    font-size: medium;
+    flex-wrap: wrap;
+    margin: auto;
+}
+    
+.link-back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(36, 43, 51);
+    height: 30px;
+    width: 100px;
+    color: whitesmoke;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    margin: auto;
+    position: absolute;
+    bottom: 10px;
+}
+
+.link-back:hover{
+    background-color: slateblue;
+}
