@@ -69,3 +69,21 @@ body{
 .indigo {
     background-color: indigo;
 }
+
+
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(36, 43, 51);
+    height: 30px;
+    width: 100px;
+    font-size: 15px;
+    color: whitesmoke;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    margin: auto;
+    margin-bottom: 5px;
+}
