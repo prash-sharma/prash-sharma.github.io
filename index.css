@@ -1,7 +1,7 @@
 body{
 display: flex;
 flex-direction: column;
-background-color: black;
+background: linear-gradient( grey, black) fixed;
 justify-content: center;
 margin: 0;
 font-family: Arial, Helvetica, sans-serif;
