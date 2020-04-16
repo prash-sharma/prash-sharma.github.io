@@ -39,7 +39,7 @@ body{
 
 .btn:hover {
     cursor: pointer;
-    background: linear-gradient(to right, grey, black);
+    background: linear-gradient(to right, grey, rgb(97, 91, 91));
 }
 
 .green {
@@ -60,4 +60,12 @@ body{
 
 .orange {
     background-color: orange;
+}
+
+.violet {
+    background-color: violet;
+}
+
+.indigo {
+    background-color: indigo;
 }
