@@ -1,0 +1,80 @@
+body{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, grey, lightblue) fixed;
+    align-items: center;
+    width: 100%;
+}
+
+
+.btn {
+    width: 100px;
+    height: 30px;
+    border-radius: 8px;
+    font-size: medium;
+    outline: none;
+    border: none;
+}
+
+
+.row-2{
+    display: flex;
+
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+.btn.hit{
+    background-color: blue;
+}
+
+.btn.stand{
+    background-color: yellowgreen;
+}
+
+.btn.deal{
+    background-color: darkred;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.link-back-href{
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.link-back-btn{
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    bottom: 10px;
+    color: whitesmoke;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    background-color:rgb(36, 43, 51);
+    outline: none;
+}
+
+.link-back-btn:hover{
+    background-color: slateblue;
+    cursor: pointer;
+}
