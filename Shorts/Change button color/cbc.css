@@ -70,8 +70,6 @@ body{
     background-color: indigo;
 }
 
-
-
 .button{
     display: flex;
     justify-content: center;
@@ -86,4 +84,8 @@ body{
     border-radius: 8px;
     margin: auto;
     margin-bottom: 5px;
+}
+
+.button:hover{
+    background-color: slateblue;
 }
