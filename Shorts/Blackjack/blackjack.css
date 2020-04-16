@@ -1,11 +1,41 @@
-body{
+/* body{
     display: flex;
     flex-direction: column;
     background: linear-gradient(to bottom, grey, lightblue) fixed;
     align-items: center;
     width: 100%;
+} */
+
+
+.container{
+    border: 1px solid black;
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
 }
 
+.flex-blackjack-row-1, .flex-blackjack-row-2, .flex-blackjack-row-3{
+    display: flex;
+    border: 1px solid black;
+    padding: 10px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.flex-blackjack-row-1, .flex-blackjack-row-2{
+    background-image: url("images/bj.jpg");
+    color: white;
+}
+
+.flex-blackjack-row-1 div{
+    border: 2px solid black;
+    padding: 2px;
+    height: 350px;
+    text-align: center;
+    flex: 1;
+
+}
 
 .btn {
     width: 100px;
@@ -14,16 +44,12 @@ body{
     font-size: medium;
     outline: none;
     border: none;
-}
-
-
-.row-2{
-    display: flex;
-
+    margin: 16px;
 }
 
 .btn:hover{
     cursor: pointer;
+    background: linear-gradient(to right, white, grey);
 }
 
 .btn.hit{
@@ -31,7 +57,7 @@ body{
 }
 
 .btn.stand{
-    background-color: yellowgreen;
+    background-color: yellow;
 }
 
 .btn.deal{
@@ -39,14 +65,9 @@ body{
 }
 
 
-
-
-
-
-
-
-
-
+table, tr, th{
+    border: 1px solid black;
+}
 
 
 
@@ -75,6 +96,6 @@ body{
 }
 
 .link-back-btn:hover{
-    background-color: slateblue;
+    background: linear-gradient(to right, grey, black);
     cursor: pointer;
 }
