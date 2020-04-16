@@ -17,7 +17,7 @@ function imageGenerator(){
     newDiv.appendChild(image);
 
     let video = document.createElement('iFrame');
-    video.src = 'https://prash-sharma.github.io/Shorts/ImageGenerator/aanya.mp4';
+    video.src = "https://prash-sharma.github.io/Shorts/ImageGenerator/aanya.mp4";
     document.getElementById('flex-image-gen').appendChild(video);
 }
 
