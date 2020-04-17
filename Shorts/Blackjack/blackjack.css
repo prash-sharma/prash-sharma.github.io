@@ -34,7 +34,6 @@
     height: 350px;
     text-align: center;
     flex: 1;
-
 }
 
 .btn {
@@ -64,7 +63,6 @@
     background-color: darkred;
 }
 
-
 table, tr, th{
     border: 1px solid black;
 }
@@ -73,13 +71,11 @@ table, tr, th{
 
 
 
-
+/* BACK BUTTON */
 
 .link-back-href{
     display: flex;
     justify-content: center;
-    
-
 }
 
 .link-back-btn{
