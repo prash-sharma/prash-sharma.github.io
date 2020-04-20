@@ -1,6 +1,6 @@
 let blackjackGame = {
     'you': {'scoreSpan': '#your-blackjack-result', 'div': '#your-box', 'score': 0},
-    'dealer': {'scoreSpan': '#dealer-blackjack-result:', 'div': '#dealer-box', 'score': 0},
+    'dealer': {'scoreSpan': '#dealer-blackjack-result', 'div': '#dealer-box', 'score': 0},
     'cardValues': ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'],
     'cardTypes': ['C', 'D', 'H', 'S'],
     'cardsMap': {'2': 2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9, '10':10, 'J':10, 'Q':10, 'K':10, 'A': [1, 11]},
@@ -9,10 +9,16 @@ let blackjackGame = {
 const YOU = blackjackGame['you']; // const YOU = blackjackGame.you; - Another way, might work, check later
 const DEALER = blackjackGame['dealer'];
 
-const hitSound = new Audio('sounds/hit1.mp3');
+const hitSound = new Audio('sounds/hit.mp3');
+// const bustSound = new Audio('sounds/hit1.mp3');
+const winSound = new Audio('sounds/win.mp3');
+const lossSound = new Audio('sounds/loss.mp3')
 
 document.querySelector('#blackjack-hit-button').addEventListener('click', blackjackHit);
+
 document.querySelector('#blackjack-deal-button').addEventListener('click', blackjackDeal)
+
+document.querySelector('#blackjack-stand-button').addEventListener('click', standButton)
 
 function blackjackHit(){
     let cardValue = randomCardValue();
@@ -33,7 +39,7 @@ function randomCardType(){
 }
 
 function showCard(cardValue, cardType, activePlayer){
-    if (YOU.score <= 21) {
+    if (activePlayer.score <= 21) {
         let cardImage = document.createElement('img');
         cardImage.src = `images/${cardValue}${cardType}.png`;
         cardImage.style.height = '105px';
@@ -58,12 +64,12 @@ function updateScore(cardValue, activePlayer){
 
 function showScore(activePlayer){
     if (activePlayer.score > 21){
-        document.querySelector(activePlayer.scoreSpan).textContent = 'BUST!!'
-        document.querySelector(activePlayer.scoreSpan).style.color = 'red'
+        document.querySelector(activePlayer.scoreSpan).textContent = 'BUST!!';
+        document.querySelector(activePlayer.scoreSpan).style.color = 'red';
     } else if (activePlayer.score === 21) {
-        document.querySelector(activePlayer.scoreSpan).textContent = 'Blackjack, hooray!!'
+        document.querySelector(activePlayer.scoreSpan).textContent = 'Blackjack, hooray!!';
     } else {
-        document.querySelector(activePlayer['scoreSpan']).textContent = activePlayer['score'];
+        document.querySelector(activePlayer.scoreSpan).textContent = activePlayer['score'];
     }
 }    
 
@@ -71,8 +77,13 @@ function showScore(activePlayer){
 // DEAL BUTTON
 
 function blackjackDeal(){
-    removeCard(YOU)
-    removeCard(DEALER)
+    let winner = computeWinner(); 
+    
+    updateMessage(winner);
+
+    removeCard(YOU);
+    removeCard(DEALER);
+    
 }
 
 
@@ -86,12 +97,65 @@ function removeCard(remCard){
    DEALER.score = 0;
 
    document.querySelector('#your-blackjack-result').textContent = YOU.score;
-    document.querySelector('#dealer-blackjack-result').textContent = DEALER.score;
+   document.querySelector('#dealer-blackjack-result').textContent = DEALER.score;
 
-    document.querySelector('#your-blackjack-result').style.color = '#ffffff';
-    document.querySelector('#dealer-blackjack-result').style.color = '#ffffff'
+   document.querySelector('#your-blackjack-result').style.color = '#ffffff';
+   document.querySelector('#dealer-blackjack-result').style.color = '#ffffff'
 }
 
+
+// Stand button
+
+function standButton(){
+    let cardValue = randomCardValue();
+    let cardType = randomCardType(); 
+    showCard(cardValue, cardType, DEALER);
+    updateScore(cardValue, DEALER);    
+    showScore(DEALER);
+}
+
+// Compute winner between two
+
+function computeWinner(){
+    let winner;
+
+    if (YOU.score <= 21){
+        if (YOU.score > DEALER.score || DEALER.score > 21){
+            winner = YOU;
+
+        } else if (YOU.score < DEALER.score) {
+            winner = DEALER;
+
+        } else if (YOU.score === DEALER.score) {
+            console.log(`It's a draw`);
+
+        }
+
+    } else if (YOU.score >21 && DEALER.score <= 21) {
+        winner = DEALER;
+
+    } else if (YOU.score > 21 && DEALER.score > 21) {
+        console.log(`It's a draw`);
+    
+    }
+
+   return winner;     
+}
+
+function updateMessage(winner){
+    if (winner === YOU){
+        document.querySelector('#blackjack-result').textContent = 'You win';
+        document.querySelector('#blackjack-result').style.color = 'green';
+        winSound.play();
+    } else if (winner === DEALER) {
+        document.querySelector('#blackjack-result').textContent = 'You lost';
+        document.querySelector('#blackjack-result').style.color = 'red';
+        lossSound.play();
+    } else {
+        document.querySelector('#blackjack-result').textContent = `It's a draw`;
+        document.querySelector('#blackjack-result').style.color = 'black';
+    }
+}
 
 
 /*
