@@ -8,10 +8,12 @@
 
 
 .container{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 75%;
     margin: 0 auto;
     text-align: center;
+    border-radius: 8px;;
+    background: radial-gradient(grey, rgb(31, 29, 29));
 }
 
 .flex-blackjack-row-1, .flex-blackjack-row-2, .flex-blackjack-row-3{
@@ -21,6 +23,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
+    border-radius: 8px;
 }
 
 .flex-blackjack-row-1, .flex-blackjack-row-2{
@@ -68,7 +71,10 @@ table, tr, th{
 }
 
 
-
+.flex-blackjack-row-3 {
+    background: radial-gradient(grey, black);
+    border-radius: 8px;;
+}
 
 
 /* BACK BUTTON */
@@ -83,6 +89,7 @@ table, tr, th{
     height: 30px;
     position: absolute;
     bottom: 10px;
+    left: 10px;;
     color: whitesmoke;
     text-decoration: none;
     border: none;
