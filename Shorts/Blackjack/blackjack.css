@@ -3,6 +3,7 @@ body{
     flex-direction: column;
     background: radial-gradient( rgb(180, 168, 168), rgb(99, 114, 117)) fixed;
     align-items: center;
+    justify-content: center;
     }
 
 
@@ -95,7 +96,7 @@ table, tr, th{
 }
 
 table {
-    background: radial-gradient(rgb(218, 228, 218), rgba(25, 43, 122, .75));
+    background: radial-gradient(rgb(218, 228, 218), rgba(49, 53, 70, 0.75));
     border-radius: 8px;
     width: 50%;
 }
