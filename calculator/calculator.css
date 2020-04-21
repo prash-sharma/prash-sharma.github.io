@@ -4,7 +4,7 @@
 
 
 body{
-    background-color: cadetblue;
+    background: radial-gradient(grey, black);
     padding: 0;
     margin: 0;
 }
@@ -20,15 +20,16 @@ body{
     
 }
 
-.calculator-grid >button{
+.calculator-grid > button{
     cursor: pointer;
     font-size: 2rem;
-    border: 1px solid black;
+    border: 1px solid white;
     outline: none;
+    background-color: rgb(195, 240, 240);
 }
 
 .calculator-grid > button:hover{
-    background-color: steelblue;
+    background-color: teal;
 }
 
 .span-two{
@@ -36,6 +37,7 @@ body{
 }
 
 .output{
-    grid-column: 1/-1;
+    grid-column: 1 / -1;
     background-color: rgb(77, 64, 64);
+    color: white;
 }

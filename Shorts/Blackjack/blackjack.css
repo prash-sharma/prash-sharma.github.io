@@ -1,10 +1,9 @@
-/* body{
+body{
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to bottom, grey, lightblue) fixed;
+    background: radial-gradient( rgb(180, 168, 168), rgb(99, 114, 117)) fixed;
     align-items: center;
-    width: 100%;
-} */
+    }
 
 
 .container{
@@ -14,6 +13,11 @@
     text-align: center;
     border-radius: 8px;;
     background: radial-gradient(grey, rgb(31, 29, 29));
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    margin: auto;
 }
 
 .flex-blackjack-row-1, .flex-blackjack-row-2, .flex-blackjack-row-3{
@@ -26,8 +30,15 @@
     border-radius: 8px;
 }
 
-.flex-blackjack-row-1, .flex-blackjack-row-2{
-    background-image: url("images/bj.jpg");
+.flex-blackjack-row-1{
+    
+    background: radial-gradient(green, black);
+    color: rgb(206, 214, 221);
+}
+
+.flex-blackjack-row-2 {
+    
+    background: radial-gradient(rgb(23, 71, 23), black);
     color: white;
 }
 
@@ -55,15 +66,19 @@
 }
 
 .btn.hit{
-    background-color: blue;
+    background-color: rgb(47, 114, 202);
+}
+
+.btn.hit[disabled]{
+    background-color: rgb(47, 114, 202);
 }
 
 .btn.stand{
-    background-color: yellow;
+    background-color: rgb(206, 206, 81);
 }
 
 .btn.deal{
-    background-color: darkred;
+    background-color: rgb(216, 50, 50);
 }
 
 table, tr, th{
@@ -73,7 +88,20 @@ table, tr, th{
 
 .flex-blackjack-row-3 {
     background: radial-gradient(grey, black);
-    border-radius: 8px;;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+table {
+    background: radial-gradient(rgb(218, 228, 218), rgba(25, 43, 122, .75));
+    border-radius: 8px;
+    width: 50%;
+}
+
+th {
+    border-radius: 4px;
 }
 
 
