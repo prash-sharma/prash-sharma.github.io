@@ -18,10 +18,12 @@ body{
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    margin-top: 30px;
 }
 
 .dropdown {
-    margin: 30px;
+
+    margin: 100px;
     outline: none;
     height: 30px;
     font-size: small;
@@ -32,6 +34,7 @@ body{
     font-size: medium;
     flex-wrap: wrap;
     margin: auto;
+    margin-top: 50px;
 }
 
 .btn {
