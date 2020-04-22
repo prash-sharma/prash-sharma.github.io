@@ -21,6 +21,7 @@ document.querySelector('#blackjack-hit-button').addEventListener('click', blackj
 document.querySelector('#blackjack-stand-button').addEventListener('click', standButton);
 document.querySelector('#blackjack-deal-button').addEventListener('click', blackjackDeal);
 
+document.querySelector('#blackjack-stand-button').disabled = true;
 
 // HIT BUTTON
 function blackjackHit(){
@@ -29,20 +30,29 @@ function blackjackHit(){
     showCard(cardValue, cardType, YOU); // DISPLAYS CARDS
     updateScore(cardValue, YOU);    // UPDATES CARD POINTS
     showScore(YOU);
+    document.querySelector('#blackjack-stand-button').disabled = false;
+    document.querySelector('#blackjack-deal-button').disabled = true;
 }
 
 // STAND BUTTON
 function standButton(){
     hitButtonDisabled();
+    standButtonDisabled();
+    
     let winner;
 
-    if (YOU.score <= 21) {
-        do {
-            let cardValue = randomCardValue();
-            let cardType = randomCardType(); 
-            showCard(cardValue, cardType, DEALER); // Put this into an auto loop
-            updateScore(cardValue, DEALER);      
-        } while (DEALER.score <= YOU.score);
+    setInterval(generateDealerCards(), 1000);
+
+    function generateDealerCards(){
+        if (YOU.score <= 21) {
+            do {
+                let cardValue = randomCardValue();
+                let cardType = randomCardType(); 
+                showCard(cardValue, cardType, DEALER); // Put this into an auto loop
+                updateScore(cardValue, DEALER);
+                setInterval(1000);
+            } while (DEALER.score <= YOU.score);
+        }
     }
         
     showScore(DEALER);
@@ -51,7 +61,11 @@ function standButton(){
 
     updateMessage(winner);
 
-    standButtonDisabled();
+    updateScoreCard(winner);
+
+    
+
+    document.querySelector('#blackjack-deal-button').disabled = false;
 }
 
 
@@ -59,10 +73,12 @@ function standButton(){
 function blackjackDeal(){
     removeCard(YOU);
     removeCard(DEALER);
-    document.querySelector('#blackjack-result').textContent = `Let's play`
-    document.querySelector('#blackjack-result').style.color = 'whitesmoke'
-}
 
+    document.querySelector('#blackjack-result').textContent = `Let's play`;
+    document.querySelector('#blackjack-result').style.color = 'whitesmoke';
+
+    standButtonDisabled();
+}
 
 function randomCardValue(){
     let randomValueIndex = Math.floor(Math.random() * 13);
@@ -110,14 +126,16 @@ function showScore(activePlayer){
         
         hitButtonDisabled();
         
-    } else if (activePlayer == YOU && activePlayer.score === 21) {
+    } else if (activePlayer == YOU && activePlayer.score == 21) {
         document.querySelector(activePlayer.scoreSpan).textContent = 'Blackjack, hooray!!';
         
         hitButtonDisabled();
-        
-        standButton();
 
-    } else if (activePlayer.score === 21) {
+        // standButtonDisabled();
+        
+        // standButton();
+
+    } else if (activePlayer.score == 21) {
         document.querySelector(activePlayer.scoreSpan).textContent = 'Blackjack, hooray!!';
         
         hitButtonDisabled();
@@ -157,9 +175,12 @@ function standButtonDisabled() {
     document.querySelector('#blackjack-stand-button').disabled = true;
 }
 
+function dealButtonDisabled(){
+    document.querySelector('#blackjack-deal-button').disabled = true;
+}
+
 
 // COMPUTE & RETURN WINNER 
-// UPDATE THE SCORECARD FOR EACH WIN / DRAW / LOSS
 function computeWinner(){
     let winner;
 
@@ -179,25 +200,28 @@ function computeWinner(){
 
     } else if (YOU.score > 21 && DEALER.score > 21) {
         console.log(`It's a draw`);
+        
     } else if (YOU.score <= 21 && DEALER.score > 21) {
         winner = YOU;
     }               
 
-   if (winner === YOU){
-        blackjackGame.wins += 1;
-        document.querySelector('#wins').textContent = blackjackGame.wins;
-        
-   } else if (winner === DEALER){
-       blackjackGame.losses += 1;
-       document.querySelector('#losses').textContent = blackjackGame.losses;
-   } else {
-       blackjackGame.draws += 1;
-       document.querySelector('#draws').textContent = blackjackGame.draws;
-   }
-   
    return winner;
 }
 
+// UPDATE THE SCORECARD FOR EACH WIN / DRAW / LOSS
+function updateScoreCard(winner){
+    if (winner === YOU){
+        blackjackGame.wins++;
+        document.querySelector('#wins').textContent = blackjackGame.wins;
+        
+   } else if (winner === DEALER){
+       blackjackGame.losses++;
+       document.querySelector('#losses').textContent = blackjackGame.losses;
+   } else {
+       blackjackGame.draws++;
+       document.querySelector('#draws').textContent = blackjackGame.draws;
+   }
+}
 
 // ANNOUNCE RESULT (WIN, LOSS, DRAW) ON <H3>
 function updateMessage(winner){
