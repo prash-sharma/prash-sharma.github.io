@@ -10,7 +10,8 @@ body{
 
 .container{
     /* border: 1px solid black; */
-    width: 75%;
+    width: 70%;
+    height: 800%;;
     /* margin: 0 auto; */
     text-align: center;
     border-radius: 8px;;
@@ -47,7 +48,7 @@ body{
 .flex-blackjack-row-1 div{
     border: 2px solid black;
     padding: 2px;
-    height: 350px;
+    height: 300px;
     text-align: center;
     flex: 1;
 }
@@ -107,6 +108,8 @@ th {
 }
 
 
+
+
 /* BACK BUTTON */
 
 .link-back-href{
@@ -115,10 +118,11 @@ th {
 }
 
 .link-back-btn{
-    width: 100px;
+    width: 80px;
     height: 30px;
-    position: absolute;
-    bottom: 10px;
+    position: relative;
+    top: 10px;
+    margin-bottom: 10px;
     left: 10px;;
     color: whitesmoke;
     text-decoration: none;
@@ -129,6 +133,6 @@ th {
 }
 
 .link-back-btn:hover{
-    background: linear-gradient(to right, grey, black);
+    background: radial-gradient(black, rgb(126, 122, 122));
     cursor: pointer;
 }

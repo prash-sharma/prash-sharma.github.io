@@ -101,8 +101,8 @@ function showCard(cardValue, cardType, activePlayer){
     if (activePlayer.points <= 21) {
         let cardImage = document.createElement('img');
         cardImage.src = `images/${cardValue}${cardType}.png`;
-        cardImage.style.height = '105px';
-        cardImage.style.width = '70px';
+        cardImage.style.height = '97.5px';
+        cardImage.style.width = '65px';
         cardImage.style.padding = '8px';
         document.querySelector(activePlayer['div']).appendChild(cardImage) //  document.querySelector(activePlayer.div).appendChild(cardImage);  - Another way, might work, check later
         hitSound.play();
