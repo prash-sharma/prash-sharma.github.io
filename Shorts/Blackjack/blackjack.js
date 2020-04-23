@@ -1,6 +1,6 @@
 let blackjackGame = {
-    'you': {'scoreSpan': '#your-blackjack-result', 'div': '#your-box', 'score': 0},
-    'dealer': {'scoreSpan': '#dealer-blackjack-result', 'div': '#dealer-box', 'score': 0},
+    'you': {'scoreSpan': '#your-blackjack-result', 'div': '#your-box', 'points': 0},
+    'dealer': {'scoreSpan': '#dealer-blackjack-result', 'div': '#dealer-box', 'points': 0},
     'cardValues': ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'],
     'cardTypes': ['C', 'D', 'H', 'S'],
     'cardsMap': {'2': 2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9, '10':10, 'J':10, 'Q':10, 'K':10, 'A': [1, 11]},
@@ -13,49 +13,56 @@ const YOU = blackjackGame['you']; // const YOU = blackjackGame.you; - Another wa
 const DEALER = blackjackGame['dealer'];
 
 const hitSound = new Audio('sounds/hit.mp3');
-// const bustSound = new Audio('sounds/hit1.mp3');
+// const bustSound = new Audio('sounds/loss.mp3');
 const winSound = new Audio('sounds/win.mp3');
-const lossSound = new Audio('sounds/loss.mp3')
+const lossSound = new Audio('sounds/aww.mp3')
 
 document.querySelector('#blackjack-hit-button').addEventListener('click', blackjackHit);
 document.querySelector('#blackjack-stand-button').addEventListener('click', standButton);
 document.querySelector('#blackjack-deal-button').addEventListener('click', blackjackDeal);
 
 document.querySelector('#blackjack-stand-button').disabled = true;
+document.querySelector('#blackjack-deal-button').disabled = true;
 
 // HIT BUTTON
 function blackjackHit(){
     let cardValue = randomCardValue();
     let cardType = randomCardType(); 
     showCard(cardValue, cardType, YOU); // DISPLAYS CARDS
-    updateScore(cardValue, YOU);    // UPDATES CARD POINTS
-    showScore(YOU);
+    updatePoints(cardValue, YOU);    // UPDATES CARD POINTS
+    showPoints(YOU);
     document.querySelector('#blackjack-stand-button').disabled = false;
     document.querySelector('#blackjack-deal-button').disabled = true;
 }
 
 // STAND BUTTON
-function standButton(){
+function timer(ms){
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function standButton(){
     hitButtonDisabled();
     standButtonDisabled();
     
     let winner;
-
-    setInterval(generateDealerCards(), 1000);
-
-    function generateDealerCards(){
-        if (YOU.score <= 21) {
-            do {
-                let cardValue = randomCardValue();
-                let cardType = randomCardType(); 
-                showCard(cardValue, cardType, DEALER); // Put this into an auto loop
-                updateScore(cardValue, DEALER);
-                setInterval(1000);
-            } while (DEALER.score <= YOU.score);
-        }
+    
+    if (YOU.points <= 21) {
+        while (DEALER.points <= YOU.points){
+            let cardValue = randomCardValue();
+            let cardType = randomCardType(); 
+            showCard(cardValue, cardType, DEALER); // Put this into an auto loop
+            updatePoints(cardValue, DEALER);
+            showPoints(DEALER);
+            await timer(750);
+        } 
+    } else if (YOU.points > 21){
+        let cardValue = randomCardValue();
+        let cardType = randomCardType(); 
+        showCard(cardValue, cardType, DEALER); // Put this into an auto loop
+        updatePoints(cardValue, DEALER);
+        showPoints(DEALER);
+        await timer(750);
     }
-        
-    showScore(DEALER);
 
     winner = computeWinner(); 
 
@@ -63,11 +70,8 @@ function standButton(){
 
     updateScoreCard(winner);
 
-    
-
     document.querySelector('#blackjack-deal-button').disabled = false;
 }
-
 
 // DEAL BUTTON
 function blackjackDeal(){
@@ -80,20 +84,21 @@ function blackjackDeal(){
     standButtonDisabled();
 }
 
+// GENERATE RANDOM CARD
 function randomCardValue(){
     let randomValueIndex = Math.floor(Math.random() * 13);
     return blackjackGame.cardValues[randomValueIndex];
 }
 
+// GENERATE CARD TYPE
 function randomCardType(){
     let randomTypeIndex = Math.floor(Math.random() * 4);
     return blackjackGame.cardTypes[randomTypeIndex];
 }
 
-
 // DISPLAY GENERATED CARD/S ON THE ACTIVE PLAYER'S BOX
 function showCard(cardValue, cardType, activePlayer){
-    if (activePlayer.score <= 21) {
+    if (activePlayer.points <= 21) {
         let cardImage = document.createElement('img');
         cardImage.src = `images/${cardValue}${cardType}.png`;
         cardImage.style.height = '105px';
@@ -105,43 +110,39 @@ function showCard(cardValue, cardType, activePlayer){
 }
 
 // GET & UPDATE CARD POINTS FOR THE ACTIVE PLAYER
-function updateScore(cardValue, activePlayer){
+function updatePoints(cardValue, activePlayer){
     if (cardValue === 'A'){
-        if (activePlayer['score'] + blackjackGame['cardsMap'][cardValue][1] <= 21){
-            activePlayer['score'] += blackjackGame['cardsMap'][cardValue][1]
+        if (activePlayer['points'] + blackjackGame['cardsMap'][cardValue][1] <= 21){
+            activePlayer['points'] += blackjackGame['cardsMap'][cardValue][1]
         } else{
-            activePlayer['score'] += blackjackGame['cardsMap'][cardValue][0]
+            activePlayer['points'] += blackjackGame['cardsMap'][cardValue][0]
         }
     } else {
-        activePlayer['score'] += blackjackGame.cardsMap[cardValue];
+        activePlayer['points'] += blackjackGame.cardsMap[cardValue];
     }   
 }
 
 // DISPLAY CARD POINTS / BLACKJACK / BUST MESSAGE ON ACTIVE PLAYER'S BOX
 
-function showScore(activePlayer){    
-    if (activePlayer.score > 21){
+function showPoints(activePlayer){    
+    if (activePlayer.points > 21){
         document.querySelector(activePlayer.scoreSpan).textContent = 'BUST!!';
         document.querySelector(activePlayer.scoreSpan).style.color = 'red';
         
         hitButtonDisabled();
         
-    } else if (activePlayer == YOU && activePlayer.score == 21) {
-        document.querySelector(activePlayer.scoreSpan).textContent = 'Blackjack, hooray!!';
+    } else if (activePlayer == YOU && activePlayer.points == 21) {
+        document.querySelector(activePlayer.scoreSpan).textContent = 'Blackjack!!';
         
         hitButtonDisabled();
 
-        // standButtonDisabled();
-        
-        // standButton();
-
-    } else if (activePlayer.score == 21) {
-        document.querySelector(activePlayer.scoreSpan).textContent = 'Blackjack, hooray!!';
+    } else if (activePlayer.points == 21) {
+        document.querySelector(activePlayer.scoreSpan).textContent = 'Blackjack!!';
         
         hitButtonDisabled();
        
     } else {
-        document.querySelector(activePlayer.scoreSpan).textContent = activePlayer['score'];
+        document.querySelector(activePlayer.scoreSpan).textContent = activePlayer['points'];
     }
 }    
 
@@ -153,11 +154,11 @@ function removeCard(remCard){
        yourImages[index].remove();
    }
 
-   YOU.score = 0;
-   DEALER.score = 0;
+   YOU.points = 0;
+   DEALER.points = 0;
 
-   document.querySelector('#your-blackjack-result').textContent = YOU.score;
-   document.querySelector('#dealer-blackjack-result').textContent = DEALER.score;
+   document.querySelector('#your-blackjack-result').textContent = YOU.points;
+   document.querySelector('#dealer-blackjack-result').textContent = DEALER.points;
 
    document.querySelector('#your-blackjack-result').style.color = '#ffffff';
    document.querySelector('#dealer-blackjack-result').style.color = '#ffffff'
@@ -184,24 +185,21 @@ function dealButtonDisabled(){
 function computeWinner(){
     let winner;
 
-    if (YOU.score <= 21 && DEALER.score <= 21){
-        if (YOU.score > DEALER.score){
+    if (YOU.points <= 21 && DEALER.points <= 21){
+        if (YOU.points > DEALER.points){
             winner = YOU;
 
-        } else if (YOU.score < DEALER.score) {
+        } else if (YOU.points < DEALER.points) {
             winner = DEALER;
 
-        } else if (YOU.score === DEALER.score) {
+        } else if (YOU.points === DEALER.points) {
             console.log(`It's a draw`);
         }
         
-    } else if (YOU.score >21 && DEALER.score <= 21) {
+    } else if (YOU.points >21 && DEALER.points <= 21) {
         winner = DEALER;
 
-    } else if (YOU.score > 21 && DEALER.score > 21) {
-        console.log(`It's a draw`);
-        
-    } else if (YOU.score <= 21 && DEALER.score > 21) {
+    } else if (YOU.points <= 21 && DEALER.points > 21) {
         winner = YOU;
     }               
 
