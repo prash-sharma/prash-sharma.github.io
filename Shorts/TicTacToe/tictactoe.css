@@ -23,11 +23,15 @@ body {
     width: 100px;
     height: 100px;
     border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
 }
 
 .cell:hover{
     cursor: pointer;
-    background-color: gray;
+    background-color: rgb(224, 219, 219);
 }
 
 .cell:first-child, .cell:nth-child(2), .cell:nth-child(3){
@@ -44,4 +48,11 @@ body {
 
 .cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9) {
     border-bottom: none;
+}
+
+.winner {
+    height: 100px;
+    text-align: center;
+    border: 1px solid black;
+
 }
