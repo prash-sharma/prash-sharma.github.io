@@ -6,9 +6,15 @@ const WIN = []
 let player1 = true
 let winner
 
+document.querySelector('.board').style.cursor = "url(images/x.png), auto";
+
+// document.body.style.cursor = "url(images/x.png), auto";
+
+
 const allCells = document.querySelectorAll('.cell');
 
 console.log(allCells);
+
 
 
 let c1 = document.getElementById('cell1')
@@ -37,11 +43,12 @@ function addInput1(){
     
     if (player1){
         c1.textContent = 'X';
+        changeCursor('o');
         player1 = false
     } else {
         c1.textContent = 'O';
         c1.style.color = 'red';
-
+        changeCursor('x');
         player1 = true
     }
     
@@ -53,11 +60,12 @@ function addInput2(){
     
     if (player1){
         c2.textContent = 'X';
+        changeCursor('o');
         player1 = false
     } else {
         c2.textContent = 'O';
         c2.style.color = 'red';
-
+        changeCursor('x');
         player1 = true
     }
 
@@ -69,11 +77,12 @@ function addInput3(){
     
     if (player1){
         c3.textContent = 'X';
+        changeCursor('o');
         player1 = false
     } else {
         c3.textContent = 'O';
         c3.style.color = 'red';
-
+        changeCursor('x');
         player1 = true
     }
 
@@ -84,11 +93,12 @@ function addInput4(){
     
     if (player1){
         c4.textContent = 'X';
+        changeCursor('o');
         player1 = false
     } else {
         c4.textContent = 'O';
         c4.style.color = 'red';
-
+        changeCursor('x');
         player1 = true
     }
 
@@ -99,11 +109,12 @@ function addInput5(){
     
     if (player1){
         c5.textContent = 'X';
+        changeCursor('o');
         player1 = false
     } else {
         c5.textContent = 'O';
         c5.style.color = 'red';
-
+        changeCursor('x');
         player1 = true
     }
 
@@ -114,11 +125,12 @@ function addInput6(){
     
     if (player1){
         c6.textContent = 'X';
+        changeCursor('o');
         player1 = false
     } else {
         c6.textContent = 'O';
         c6.style.color = 'red';
-
+        changeCursor('x');
         player1 = true
     }
 
@@ -129,11 +141,12 @@ function addInput7(){
     
     if (player1){
         c7.textContent = 'X';
+        changeCursor('o');
         player1 = false
     } else {
         c7.textContent = 'O';
         c7.style.color = 'red';
-
+        changeCursor('x');
         player1 = true
     }
     
@@ -144,11 +157,12 @@ function addInput8(){
     
     if (player1){
         c8.textContent = 'X';
+        changeCursor('o');
         player1 = false
     } else {
         c8.textContent = 'O';
         c8.style.color = 'red';
-
+        changeCursor('x');
         player1 = true
     }
 
@@ -159,11 +173,12 @@ function addInput9(){
     
     if (player1){
         c9.textContent = 'X';
+        changeCursor('o');
         player1 = false
     } else {
         c9.textContent = 'O';
         c9.style.color = 'red';
-
+        changeCursor('x');
         player1 = true
     }
 
@@ -187,7 +202,26 @@ function getWinner(){
             
         winner = 'X';
         
-        document.querySelectorAll('.cell').disabled = true;
+        document.querySelector('#cell1').removeEventListener('click', addInput1);
+
+        document.querySelector('#cell2').removeEventListener('click', addInput2);
+
+        document.querySelector('#cell3').removeEventListener('click', addInput3);
+
+        document.querySelector('#cell4').removeEventListener('click', addInput4);
+
+        document.querySelector('#cell5').removeEventListener('click', addInput5);
+
+        document.querySelector('#cell6').removeEventListener('click', addInput6);
+
+        document.querySelector('#cell7').removeEventListener('click', addInput7);
+
+        document.querySelector('#cell8').removeEventListener('click', addInput8);
+
+        document.querySelector('#cell9').removeEventListener('click', addInput9);
+
+        console.log('X wins');
+        
         
         
 
@@ -200,15 +234,36 @@ function getWinner(){
                 (c3.innerText =='O' && c6.innerText == 'O' && c9.innerText == 'O') ||
 
                 (c1.innerText =='O' && c5.innerText == 'O' && c9.innerText == 'O') ||
-                (c3.innerText =='O' && c5.innerText == 'O' && c7.innerText == 'X')) {
+                (c3.innerText =='O' && c5.innerText == 'O' && c7.innerText == 'O')) {
         
         winner = 'O';
-        // document.querySelectorAll('.cell').classList.add('disable');
+
+        document.querySelector('#cell1').removeEventListener('click', addInput1);
+
+        document.querySelector('#cell2').removeEventListener('click', addInput2);
+
+        document.querySelector('#cell3').removeEventListener('click', addInput3);
+
+        document.querySelector('#cell4').removeEventListener('click', addInput4);
+
+        document.querySelector('#cell5').removeEventListener('click', addInput5);
+
+        document.querySelector('#cell6').removeEventListener('click', addInput6);
+
+        document.querySelector('#cell7').removeEventListener('click', addInput7);
+
+        document.querySelector('#cell8').removeEventListener('click', addInput8);
+
+        document.querySelector('#cell9').removeEventListener('click', addInput9);
+
+        console.log('Zero wins');
+        
         
     } 
 
     if (winner == 'X' || winner == 'O'){
-        document.querySelector('.winner').textContent = (`And the winner is: ${winner}`);
+        document.querySelector('.winner').textContent = (`Winner is: ${winner}`);
+        document.querySelector('.board').style.cursor = "not-allowed";
     } else {
         document.querySelector('.winner').textContent = (`It's a draw`);
     }
@@ -217,6 +272,19 @@ function getWinner(){
 
 
 
-console.log(winner);
+// console.log(winner);
+
+
+
+// CHANGE CURSOR
+
+function changeCursor(player){
+    if (player == 'x') {
+        document.querySelector('.board').style.cursor = "url(images/x.png), auto";
+    } else if (player == 'o') {
+        document.querySelector('.board').style.cursor = "url(images/o.png), auto";
+    }
+    
+}
 
 

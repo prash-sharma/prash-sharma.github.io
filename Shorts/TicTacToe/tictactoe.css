@@ -5,11 +5,13 @@
 
 body {
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .board {
-    width: 100 vw;
-    height: 100vh;
+    width: 100vw;
+    height: 60vh;
     display: grid;
     align-content: center;
     justify-content: center;
@@ -27,10 +29,11 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 3rem;
+    font-family: sans-serif;
 }
 
 .cell:hover{
-    cursor: pointer;
+    /* cursor: pointer; */
     background-color: rgb(224, 219, 219);
 }
 
@@ -51,8 +54,27 @@ body {
 }
 
 .winner {
-    height: 100px;
+    /* height: 30px; */
+    /* width: auto; */
     text-align: center;
     border: 1px solid black;
+    margin: auto;
+    margin-bottom: 50px;
+    /* size: 30px; */
+    padding: 15px;
+    border-radius: 4px;
+}
 
+#restartButton {
+    width: auto;
+    height: 30px;
+    margin: auto;
+    border-radius: 8px;
+    font-size: medium;
+    outline: none;
+}
+
+#restartButton:hover {
+    background-color: green;
+    cursor: pointer;
 }
