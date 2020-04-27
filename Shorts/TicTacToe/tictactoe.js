@@ -1,21 +1,44 @@
-// prompt('Hello world');
+// alert ('Hello world');
 
-const WIN = []
+
+// function eventListener() {
+// for (let index = 1; index <= 9; index++) {
+//     let cellValue = `#cell${index}`
+//     document.querySelector(cellValue).addEventListener('click', `addInput${index}`, {once: true})
+    
+// }
+// }
+
+// const allCells = document.querySelectorAll('.cell').values;
+
+// console.log(allCells);
+// console.log(typeof(allCells));
+// allCells[0] = 'some new value'
+// console.log(allCells[0]);
+
+// function addInput(){
+//     if (player1){
+//         c1.textContent = 'X';
+//         changeCursor('o');
+//         player1 = false
+//     } else {
+//         c1.textContent = 'O';
+//         c1.style.color = 'red';
+//         changeCursor('x');
+//         player1 = true
+//     }
+    
+//     getWinner();
+// }
+
+
+// *************************************************
 
 
 let player1 = true
 let winner
 
 document.querySelector('.board').style.cursor = "url(images/x.png), auto";
-
-// document.body.style.cursor = "url(images/x.png), auto";
-
-
-const allCells = document.querySelectorAll('.cell');
-
-console.log(allCells);
-
-
 
 let c1 = document.getElementById('cell1')
 let c2 = document.getElementById('cell2')
@@ -26,6 +49,7 @@ let c6 = document.getElementById('cell6')
 let c7 = document.getElementById('cell7')
 let c8 = document.getElementById('cell8')
 let c9 = document.getElementById('cell9')
+
 
 
 document.querySelector('#cell1').addEventListener('click', addInput1, {once: true})
