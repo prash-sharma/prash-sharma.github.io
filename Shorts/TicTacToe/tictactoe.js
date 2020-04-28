@@ -1,9 +1,14 @@
 document.querySelector('.board').style.cursor = "url(images/x.png), auto";
 
-let player1 = true
-let winner
+let player1 = true;
+
+let winner = false;
+
+let cellsWithValue = [];
 
 const CELLS = document.querySelectorAll('.cell');
+
+let inputCounter = 0;
 
 CELLS.forEach(eventListener);
 
@@ -13,9 +18,10 @@ function eventListener(item){
 
 function addInput(event){
     
-    let clickedId = (parseInt(event.target.id) - 1);
 
-    console.log(clickedId);
+    let clickedId = (parseInt(event.target.id) - 1);    
+    
+    // document.getElementById()
     
     if (player1){
         CELLS[clickedId].textContent = 'X';
@@ -27,9 +33,90 @@ function addInput(event){
         changeCursor('x');
         player1 = true
     }
+
+    inputCounter++
     
-    // getWinner();
+    cellsWithValue[clickedId] = CELLS[clickedId].innerHTML;
+
+    if (inputCounter >= 5){
+        getWinner(cellsWithValue);
+    } 
 }
+
+// GET WINNER
+
+function getWinner(cellsWithValue){
+    console.log('Ya ha ha, you found me!!');
+    console.log(cellsWithValue);
+
+
+    if ((cellsWithValue[0] == 'X' && cellsWithValue[1] == 'X' && cellsWithValue[2] == 'X') || 
+    (cellsWithValue[3] == 'X' && cellsWithValue[4] == 'X' && cellsWithValue[5] == 'X') ||
+    (cellsWithValue[6] == 'X' && cellsWithValue[7] == 'X' && cellsWithValue[8] == 'X')){
+        
+        document.querySelector('.winner').innerHTML = 'Winner is X';
+
+        CELLS.forEach((item) => item.removeEventListener('click', addInput));
+
+        document.querySelector('.board').style.cursor = "not-allowed";
+
+       // FILL EMPTY CELLS WITH SOMETHING
+
+    }
+}
+
+
+// CHANGE CURSOR
+
+function changeCursor(player){
+    if (player == 'x') {
+        document.querySelector('.board').style.cursor = "url(images/x.png), auto";
+    } else if (player == 'o') {
+        document.querySelector('.board').style.cursor = "url(images/o.png), auto";
+    } 
+}
+
+
+    // cellsWithValue[3]
+    // cellsWithValue[4]
+    // cellsWithValue[5]
+
+    // cellsWithValue[6]
+    // cellsWithValue[7]
+    // cellsWithValue[8]
+
+    // cellsWithValue[0]
+    // cellsWithValue[3]
+    // cellsWithValue[6]
+
+    // cellsWithValue[1]
+    // cellsWithValue[4]
+    // cellsWithValue[7]
+
+    // cellsWithValue[2]
+    // cellsWithValue[5]
+    // cellsWithValue[8]
+
+    // cellsWithValue[0]
+    // cellsWithValue[4]
+    // cellsWithValue[8]
+
+    // cellsWithValue[2]
+    // cellsWithValue[4]
+    // cellsWithValue[6]
+    
+    
+    
+
+    // if (cellsWithValue[]) {
+        
+    //     [0, 1, 2], [3, 4, 5], [6, 7, 8], 
+    //     [0, 3, 6], [1, 4, 7], [2, 5, 8],
+    //     [0, 4, 8], [2, 4, 6] 
+
+
+
+    // }
 
 
 
@@ -124,16 +211,7 @@ function addInput(event){
 
 
 
-// CHANGE CURSOR
 
-function changeCursor(player){
-    if (player == 'x') {
-        document.querySelector('.board').style.cursor = "url(images/x.png), auto";
-    } else if (player == 'o') {
-        document.querySelector('.board').style.cursor = "url(images/o.png), auto";
-    }
-    
-}
 
 
 
