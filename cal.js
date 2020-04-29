@@ -65,3 +65,42 @@ if ( arr[0] === 'a' && arr[1] === 'a' && arr[2] === 'a') {
 
 
 
+
+
+
+if (
+    (cellsWithValue[0] && cellsWithValue[1] && cellsWithValue[2]) === 'X' || 
+    (cellsWithValue[3] && cellsWithValue[4] && cellsWithValue[5]) === 'X' ||
+    (cellsWithValue[6] && cellsWithValue[7] && cellsWithValue[8]) === 'X' ||
+    (cellsWithValue[0] && cellsWithValue[3] && cellsWithValue[6]) === 'X' ||
+    (cellsWithValue[1] && cellsWithValue[4] && cellsWithValue[7]) === 'X' ||
+    (cellsWithValue[2] && cellsWithValue[5] && cellsWithValue[8]) === 'X' ||
+    (cellsWithValue[0] && cellsWithValue[4] && cellsWithValue[8]) === 'X' ||
+    (cellsWithValue[2] && cellsWithValue[4] && cellsWithValue[6]) === 'X'){
+    
+    document.querySelector('.winner').textContent = 'Winner is X';
+
+    CELLS.forEach((item) => item.removeEventListener('click', addInput));
+
+    document.querySelector('.board').style.cursor = "not-allowed";
+
+   // FILL EMPTY CELLS WITH SOMETHING
+
+} else if((
+        (cellsWithValue[0] && cellsWithValue[1] && cellsWithValue[2]) || 
+        (cellsWithValue[3] && cellsWithValue[4] && cellsWithValue[5]) ||
+        (cellsWithValue[6] && cellsWithValue[7] && cellsWithValue[8]) ||
+        (cellsWithValue[0] && cellsWithValue[3] && cellsWithValue[6]) ||
+        (cellsWithValue[1] && cellsWithValue[4] && cellsWithValue[7]) ||
+        (cellsWithValue[2] && cellsWithValue[5] && cellsWithValue[8]) ||
+        (cellsWithValue[0] && cellsWithValue[4] && cellsWithValue[8]) ||
+        (cellsWithValue[2] && cellsWithValue[4] && cellsWithValue[6])) == 'O'){
+
+    document.querySelector('.winner').innerHTML = 'Winner is O';
+
+    CELLS.forEach((item) => item.removeEventListener('click', addInput));
+
+    document.querySelector('.board').style.cursor = "not-allowed";
+
+    // FILL EMPTY CELLS WITH SOMETHING
+}

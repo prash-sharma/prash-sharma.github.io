@@ -2,17 +2,16 @@ document.querySelector('.board').style.cursor = "url(images/x.png), auto";
 
 let player1 = true;
 
-let winner = false;
 
 let cellsWithValue = [];
-
-// let box1 = cellsWithValue[0]
 
 const CELLS = document.querySelectorAll('.cell');
 
 let inputCounter = 0;
 
 CELLS.forEach(eventListener);
+
+
 
 function eventListener(item){
     item.addEventListener('click', addInput, {once: true})
@@ -48,47 +47,55 @@ function addInput(event){
 // GET WINNER
 
 function getWinner(cellsWithValue){
-    console.log('Ya ha ha, you found me!!');
-    console.log(cellsWithValue);
-
-    if (
-        (cellsWithValue[0] && cellsWithValue[1] && cellsWithValue[2]) === 'X' || 
-        (cellsWithValue[3] && cellsWithValue[4] && cellsWithValue[5]) === 'X' ||
-        (cellsWithValue[6] && cellsWithValue[7] && cellsWithValue[8]) === 'X' ||
-        (cellsWithValue[0] && cellsWithValue[3] && cellsWithValue[6]) === 'X' ||
-        (cellsWithValue[1] && cellsWithValue[4] && cellsWithValue[7]) === 'X' ||
-        (cellsWithValue[2] && cellsWithValue[5] && cellsWithValue[8]) === 'X' ||
-        (cellsWithValue[0] && cellsWithValue[4] && cellsWithValue[8]) === 'X' ||
-        (cellsWithValue[2] && cellsWithValue[4] && cellsWithValue[6]) === 'X'){
+    
+    if ( cellsWithValue[0] === 'X' && cellsWithValue[1] === 'X' && cellsWithValue[2] === 'X' || 
+         cellsWithValue[3] === 'X' && cellsWithValue[4] === 'X' && cellsWithValue[5] === 'X' ||
+         cellsWithValue[6] === 'X' && cellsWithValue[7] === 'X' && cellsWithValue[8] === 'X' ||
+         cellsWithValue[0] === 'X' && cellsWithValue[3] === 'X' && cellsWithValue[6] === 'X' ||
+         cellsWithValue[1] === 'X' && cellsWithValue[4] === 'X' && cellsWithValue[7] === 'X' ||
+         cellsWithValue[2] === 'X' && cellsWithValue[5] === 'X' && cellsWithValue[8] === 'X' ||
+         cellsWithValue[0] === 'X' && cellsWithValue[4] === 'X' && cellsWithValue[8] === 'X' ||
+         cellsWithValue[2] === 'X' && cellsWithValue[4] === 'X' && cellsWithValue[6] === 'X') {
         
-        document.querySelector('.winner').textContent = 'Winner is X';
-
-        CELLS.forEach((item) => item.removeEventListener('click', addInput));
-
-        document.querySelector('.board').style.cursor = "not-allowed";
+        displayWinner('X') 
 
        // FILL EMPTY CELLS WITH SOMETHING
 
-    } else if((
-            (cellsWithValue[0] && cellsWithValue[1] && cellsWithValue[2]) || 
-            (cellsWithValue[3] && cellsWithValue[4] && cellsWithValue[5]) ||
-            (cellsWithValue[6] && cellsWithValue[7] && cellsWithValue[8]) ||
-            (cellsWithValue[0] && cellsWithValue[3] && cellsWithValue[6]) ||
-            (cellsWithValue[1] && cellsWithValue[4] && cellsWithValue[7]) ||
-            (cellsWithValue[2] && cellsWithValue[5] && cellsWithValue[8]) ||
-            (cellsWithValue[0] && cellsWithValue[4] && cellsWithValue[8]) ||
-            (cellsWithValue[2] && cellsWithValue[4] && cellsWithValue[6])) == 'O'){
+    } else if(
+             cellsWithValue[0] === 'O' && cellsWithValue[1] === 'O' && cellsWithValue[2] === 'O' || 
+             cellsWithValue[3] === 'O' && cellsWithValue[4] === 'O' && cellsWithValue[5] === 'O' ||
+             cellsWithValue[6] === 'O' && cellsWithValue[7] === 'O' && cellsWithValue[8] === 'O' ||
+             cellsWithValue[0] === 'O' && cellsWithValue[3] === 'O' && cellsWithValue[6] === 'O' ||
+             cellsWithValue[1] === 'O' && cellsWithValue[4] === 'O' && cellsWithValue[7] === 'O' ||
+             cellsWithValue[2] === 'O' && cellsWithValue[5] === 'O' && cellsWithValue[8] === 'O' ||
+             cellsWithValue[0] === 'O' && cellsWithValue[4] === 'O' && cellsWithValue[8] === 'O' ||
+             cellsWithValue[2] === 'O' && cellsWithValue[4] === 'O' && cellsWithValue[6] === 'O') {
     
-        document.querySelector('.winner').innerHTML = 'Winner is O';
-
-        CELLS.forEach((item) => item.removeEventListener('click', addInput));
-
-        document.querySelector('.board').style.cursor = "not-allowed";
-
-        // FILL EMPTY CELLS WITH SOMETHING
+            displayWinner('O', 'red')    
+        
+    } else {
+            if (inputCounter === 9){
+                displayWinner('Draw')
+            }
     }
 
 }
+
+// DECIDE WINNER & DISABLE USER CLICK
+function displayWinner(winner, color){
+    document.querySelector('.result').innerHTML = `${winner}`;
+
+    CELLS.forEach((item) => item.removeEventListener('click', addInput));
+
+    document.querySelector('.board').style.cursor = "not-allowed";
+
+    document.querySelector('.result').style.color = color;
+
+    // FILL EMPTY CELLS WITH SOMETHING
+}
+
+
+
 // CHANGE CURSOR
 
 function changeCursor(player){
@@ -136,9 +143,6 @@ function changeCursor(player){
     //     [0, 1, 2], [3, 4, 5], [6, 7, 8], 
     //     [0, 3, 6], [1, 4, 7], [2, 5, 8],
     //     [0, 4, 8], [2, 4, 6] 
-
-
-
     // }
 
 

@@ -54,15 +54,16 @@ body {
 }
 
 .winner {
-    /* height: 30px; */
-    /* width: auto; */
+    display: flex;
+    flex-direction: column;
     text-align: center;
     border: 1px solid black;
     margin: auto;
     margin-bottom: 50px;
     /* size: 30px; */
-    padding: 15px;
-    border-radius: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: none;
 }
 
 #restartButton {
@@ -72,6 +73,10 @@ body {
     border-radius: 8px;
     font-size: medium;
     outline: none;
+    /* margin-top: 30px; */
+    position: absolute;
+    bottom: 50px;
+    align-self: center;
 }
 
 #restartButton:hover {
