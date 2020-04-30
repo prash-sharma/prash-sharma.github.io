@@ -22,7 +22,10 @@ document.querySelector('#blackjack-stand-button').addEventListener('click', stan
 document.querySelector('#blackjack-deal-button').addEventListener('click', blackjackDeal);
 
 document.querySelector('#blackjack-stand-button').disabled = true;
+document.querySelector('#blackjack-stand-button').style.cursor = 'not-allowed';
+
 document.querySelector('#blackjack-deal-button').disabled = true;
+document.querySelector('#blackjack-deal-button').style.cursor = 'not-allowed';
 
 // HIT BUTTON
 function blackjackHit(){
@@ -31,8 +34,12 @@ function blackjackHit(){
     showCard(cardValue, cardType, YOU); // DISPLAYS CARDS
     updatePoints(cardValue, YOU);    // UPDATES CARD POINTS
     showPoints(YOU);
+
     document.querySelector('#blackjack-stand-button').disabled = false;
+    document.querySelector('#blackjack-stand-button').style.cursor = 'pointer';
+    
     document.querySelector('#blackjack-deal-button').disabled = true;
+    document.querySelector('#blackjack-deal-button').style.cursor = 'not-allowed';
 }
 
 // STAND BUTTON
@@ -71,6 +78,11 @@ async function standButton(){
     updateScoreCard(winner);
 
     document.querySelector('#blackjack-deal-button').disabled = false;
+    document.querySelector('#blackjack-deal-button').style.cursor = 'pointer';
+
+    document.querySelector('#blackjack-hit-button').disabled = true;
+    document.querySelector('#blackjack-hit-button').style.cursor = 'not-allowed';
+
 }
 
 // DEAL BUTTON
@@ -82,6 +94,12 @@ function blackjackDeal(){
     document.querySelector('#blackjack-result').style.color = 'whitesmoke';
 
     standButtonDisabled();
+
+    dealButtonDisabled()
+
+    // document.querySelector('#blackjack-deal-button').disabled = true;
+
+    document.querySelector('#blackjack-hit-button').style.cursor = 'pointer';
 }
 
 // GENERATE RANDOM CARD
@@ -174,10 +192,12 @@ function hitButtonDisabled(){
 
 function standButtonDisabled() {
     document.querySelector('#blackjack-stand-button').disabled = true;
+    document.querySelector('#blackjack-stand-button').style.cursor = 'not-allowed';
 }
 
 function dealButtonDisabled(){
     document.querySelector('#blackjack-deal-button').disabled = true;
+    document.querySelector('#blackjack-deal-button').style.cursor = 'not-allowed';
 }
 
 
