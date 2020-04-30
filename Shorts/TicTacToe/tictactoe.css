@@ -64,22 +64,57 @@ body {
     padding-left: 15px;
     padding-right: 15px;
     border: none;
+    margin-bottom: 0;
 }
 
-#restartButton {
+.button {
     width: auto;
     height: 30px;
     margin: auto;
     border-radius: 8px;
     font-size: medium;
     outline: none;
-    /* margin-top: 30px; */
-    position: absolute;
-    bottom: 50px;
-    align-self: center;
+    margin-top: 30px;
+    
+    
+    
 }
 
-#restartButton:hover {
-    background-color: green;
+.button:hover {
+    background-color: rgb(81, 100, 81);
     cursor: pointer;
+}
+
+.result{
+    /* border: 1px solid green; */
+    border-radius: 8px;
+    background-color: rgb(209, 195, 195);
+    margin-top: 16px;
+    margin-bottom: 30px;
+    width: 100px;
+    align-self: center;
+    text-align: center;
+}
+
+.winner-label{
+    margin: auto;
+}
+
+.form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.result-table{
+    align-self: center;
+    border: 1px solid black;
+    width: 200px;
+    text-align: center;
+}
+
+th{
+    border: 1px solid black;
 }

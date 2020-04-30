@@ -9,6 +9,9 @@ const CELLS = document.querySelectorAll('.cell');
 
 let inputCounter = 0;
 
+
+let winCounter = 0;
+
 CELLS.forEach(eventListener);
 
 
@@ -59,6 +62,10 @@ function getWinner(cellsWithValue){
         
         displayWinner('X') 
 
+        winnerCounter('X');
+
+
+
        // FILL EMPTY CELLS WITH SOMETHING
 
     } else if(
@@ -71,11 +78,15 @@ function getWinner(cellsWithValue){
              cellsWithValue[0] === 'O' && cellsWithValue[4] === 'O' && cellsWithValue[8] === 'O' ||
              cellsWithValue[2] === 'O' && cellsWithValue[4] === 'O' && cellsWithValue[6] === 'O') {
     
-            displayWinner('O', 'red')    
+            displayWinner('O', 'red');
+            
+            winnerCounter('O');
         
     } else {
             if (inputCounter === 9){
                 displayWinner('Draw')
+
+                winnerCounter('Draw');
             }
     }
 
@@ -91,9 +102,10 @@ function displayWinner(winner, color){
 
     document.querySelector('.result').style.color = color;
 
-    // FILL EMPTY CELLS WITH SOMETHING
-}
 
+
+    // TO DO - FILL EMPTY CELLS WITH SOMETHING
+}
 
 
 // CHANGE CURSOR
@@ -107,138 +119,29 @@ function changeCursor(player){
 }
 
 
-    // cellsWithValue[3]
-    // cellsWithValue[4]
-    // cellsWithValue[5]
+// RESTART BUTTON
 
-    // cellsWithValue[6]
-    // cellsWithValue[7]
-    // cellsWithValue[8]
 
-    // cellsWithValue[0]
-    // cellsWithValue[3]
-    // cellsWithValue[6]
 
-    // cellsWithValue[1]
-    // cellsWithValue[4]
-    // cellsWithValue[7]
+// REMATCH
 
-    // cellsWithValue[2]
-    // cellsWithValue[5]
-    // cellsWithValue[8]
 
-    // cellsWithValue[0]
-    // cellsWithValue[4]
-    // cellsWithValue[8]
 
-    // cellsWithValue[2]
-    // cellsWithValue[4]
-    // cellsWithValue[6]
+
+// WINNER COUNTER
+function winnerCounter(xoCounter){
     
+    if (xoCounter === 'X'){
+        winCounter++;
+        document.querySelector('#xCounter').textContent = winCounter;
+    } else if (xoCounter === 'O'){
+        winCounter++;
+        document.querySelector('#oCounter').textContent = winCounter;
+    } else if (xoCounter === 'Draw'){
+        winCounter++;
+        document.querySelector('#drawCounter').textContent = winCounter;
+    }
+
     
-    
-
-    // if (cellsWithValue[]) {
-        
-    //     [0, 1, 2], [3, 4, 5], [6, 7, 8], 
-    //     [0, 3, 6], [1, 4, 7], [2, 5, 8],
-    //     [0, 4, 8], [2, 4, 6] 
-    // }
-
-
-
-
-// // GET WINNER
-// function getWinner(){
-    
-//     if ( (c1.innerText =='X' && c2.innerText == 'X' && c3.innerText == 'X') || 
-//          (c4.innerText =='X' && c5.innerText == 'X' && c6.innerText == 'X') || 
-//          (c7.innerText =='X' && c8.innerText == 'X' && c9.innerText == 'X') || 
-
-//          (c1.innerText =='X' && c4.innerText == 'X' && c7.innerText == 'X') ||
-//          (c2.innerText =='X' && c5.innerText == 'X' && c8.innerText == 'X') ||
-//          (c3.innerText =='X' && c6.innerText == 'X' && c9.innerText == 'X') ||
-
-//          (c1.innerText =='X' && c5.innerText == 'X' && c9.innerText == 'X') ||
-//          (c3.innerText =='X' && c5.innerText == 'X' && c7.innerText == 'X') ) {
-            
-//         winner = 'X';
-        
-//         document.querySelector('#cell1').removeEventListener('click', addInput1);
-
-//         document.querySelector('#cell2').removeEventListener('click', addInput2);
-
-//         document.querySelector('#cell3').removeEventListener('click', addInput3);
-
-//         document.querySelector('#cell4').removeEventListener('click', addInput4);
-
-//         document.querySelector('#cell5').removeEventListener('click', addInput5);
-
-//         document.querySelector('#cell6').removeEventListener('click', addInput6);
-
-//         document.querySelector('#cell7').removeEventListener('click', addInput7);
-
-//         document.querySelector('#cell8').removeEventListener('click', addInput8);
-
-//         document.querySelector('#cell9').removeEventListener('click', addInput9);
-
-//         console.log('X wins');
-        
-        
-        
-
-//     } else if ( (c1.innerText =='O' && c2.innerText == 'O' && c3.innerText == 'O') || 
-//                 (c4.innerText =='O' && c5.innerText == 'O' && c6.innerText == 'O') || 
-//                 (c7.innerText =='O' && c8.innerText == 'O' && c9.innerText == 'O') || 
-
-//                 (c1.innerText =='O' && c4.innerText == 'O' && c7.innerText == 'O') ||
-//                 (c2.innerText =='O' && c5.innerText == 'O' && c8.innerText == 'O') ||
-//                 (c3.innerText =='O' && c6.innerText == 'O' && c9.innerText == 'O') ||
-
-//                 (c1.innerText =='O' && c5.innerText == 'O' && c9.innerText == 'O') ||
-//                 (c3.innerText =='O' && c5.innerText == 'O' && c7.innerText == 'O')) {
-        
-//         winner = 'O';
-
-//         document.querySelector('#cell1').removeEventListener('click', addInput1);
-
-//         document.querySelector('#cell2').removeEventListener('click', addInput2);
-
-//         document.querySelector('#cell3').removeEventListener('click', addInput3);
-
-//         document.querySelector('#cell4').removeEventListener('click', addInput4);
-
-//         document.querySelector('#cell5').removeEventListener('click', addInput5);
-
-//         document.querySelector('#cell6').removeEventListener('click', addInput6);
-
-//         document.querySelector('#cell7').removeEventListener('click', addInput7);
-
-//         document.querySelector('#cell8').removeEventListener('click', addInput8);
-
-//         document.querySelector('#cell9').removeEventListener('click', addInput9);
-
-//         console.log('Zero wins');
-        
-        
-//     } 
-
-//     if (winner == 'X' || winner == 'O'){
-//         document.querySelector('.winner').textContent = (`Winner is: ${winner}`);
-//         document.querySelector('.board').style.cursor = "not-allowed";
-//     } else {
-//         document.querySelector('.winner').textContent = (`It's a draw`);
-//     }
-   
-// }
-
-
-
-// console.log(winner);
-
-
-
-
-
-
+}
 

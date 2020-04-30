@@ -8,28 +8,46 @@
     <script src="tictactoe.js" defer></script>
 </head>
 <body>
-    <div class="board" id="board">
-        <div class="cell" id="1cell"></div>
-        <div class="cell" id="2cell"></div>
-        <div class="cell" id="3cell"></div>
-        <div class="cell" id="4cell"></div>
-        <div class="cell" id="5cell"></div>
-        <div class="cell" id="6cell"></div>
-        <div class="cell" id="7cell"></div>
-        <div class="cell" id="8cell"></div>
-        <div class="cell" id="9cell"></div>
-    </div>
+    <form class="form" id="form">
+        <div class="board" id="board">
+            <div class="cell" id="1cell"></div>
+            <div class="cell" id="2cell"></div>
+            <div class="cell" id="3cell"></div>
+            <div class="cell" id="4cell"></div>
+            <div class="cell" id="5cell"></div>
+            <div class="cell" id="6cell"></div>
+            <div class="cell" id="7cell"></div>
+            <div class="cell" id="8cell"></div>
+            <div class="cell" id="9cell"></div>
+        </div>
 
-    
-    <div class="winner">
-        <h2>WINNER</h2>
-        <h2 class="result">will be shown here</h2>
-    </div>
+        <div class="winner">
+            <h2 class="winner-label">WINNER</h2>
+            <h2 class="result">-</h2>
+        </div>  
+
+        <button class="button" id="rematch">Rematch</button>
         
-    
-    <button id="restartButton">Restart</button>
-    
+    </form>
 
+    <table class="result-table">
+        <tr>
+            <th>Win X</th>
+            <th>Draw</th>
+            <th>Win 0</th>
+        </tr>
+
+        <tr>
+            <td id="xCounter">0</td>
+            <td id="drawCounter">0</td>
+            <td id="oCounter">0</td>
+        </tr>
+    </table>
+
+    <div>
+        <button class="button" id="restart">Restart</button>
+    </div>
+    
     
 </body>
 </html>
