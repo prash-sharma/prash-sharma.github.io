@@ -1,4 +1,6 @@
 document.querySelector('.board').style.cursor = "url(images/x.png), auto";
+console.log(`render`);
+
 
 let player1 = true;
 
@@ -13,7 +15,6 @@ let inputCounter = 0;
 let winCounter = 0;
 
 CELLS.forEach(eventListener);
-
 
 
 function eventListener(item){
@@ -121,7 +122,27 @@ function changeCursor(player){
 
 // RESTART BUTTON
 
+document.getElementById('rematch').addEventListener('click', resetBoard)
 
+function resetBoard(e){
+e.preventDefault();
+
+CELLS.forEach(function(cell){
+    cell.textContent = '';
+    cell.style.color = '';
+
+    eventListener(cell);
+});
+
+changeCursor('x');
+
+inputCounter = 0;
+
+player1 = true;
+
+cellsWithValue = [];
+
+}
 
 // REMATCH
 
