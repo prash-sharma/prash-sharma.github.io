@@ -1,6 +1,4 @@
 document.querySelector('.board').style.cursor = "url(images/x.png), auto";
-console.log(`render`);
-
 
 let player1 = true;
 
@@ -12,7 +10,9 @@ const CELLS = document.querySelectorAll('.cell');
 let inputCounter = 0;
 
 
-let winCounter = 0;
+let winCounterX = 0;
+let winCounterO = 0;
+let winCounterD = 0;
 
 CELLS.forEach(eventListener);
 
@@ -142,27 +142,33 @@ player1 = true;
 
 cellsWithValue = [];
 
+document.querySelector('.result').textContent = '-';
+document.querySelector('.result').style.color = '';
+
 }
 
 // REMATCH
 
+document.getElementById('restart').addEventListener('click', restartGame)
 
+function restartGame(){
+    // document.getElementsByTagName('body').reload() = true;
+    location.reload();
+    return false;
+}
 
 
 // WINNER COUNTER
 function winnerCounter(xoCounter){
     
     if (xoCounter === 'X'){
-        winCounter++;
-        document.querySelector('#xCounter').textContent = winCounter;
+        winCounterX++;
+        document.querySelector('#xCounter').textContent = winCounterX;
     } else if (xoCounter === 'O'){
-        winCounter++;
-        document.querySelector('#oCounter').textContent = winCounter;
+        winCounterO++;
+        document.querySelector('#oCounter').textContent = winCounterO;
     } else if (xoCounter === 'Draw'){
-        winCounter++;
-        document.querySelector('#drawCounter').textContent = winCounter;
+        winCounterD++;
+        document.querySelector('#drawCounter').textContent = winCounterD;
     }
-
-    
 }
-

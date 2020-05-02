@@ -8,26 +8,23 @@
     <script src="tictactoe.js" defer></script>
 </head>
 <body>
-    <form class="form" id="form">
-        <div class="board" id="board">
-            <div class="cell" id="1cell"></div>
-            <div class="cell" id="2cell"></div>
-            <div class="cell" id="3cell"></div>
-            <div class="cell" id="4cell"></div>
-            <div class="cell" id="5cell"></div>
-            <div class="cell" id="6cell"></div>
-            <div class="cell" id="7cell"></div>
-            <div class="cell" id="8cell"></div>
-            <div class="cell" id="9cell"></div>
-        </div>
+    <div class="board" id="board">
+        <div class="cell" id="1cell"></div>
+        <div class="cell" id="2cell"></div>
+        <div class="cell" id="3cell"></div>
+        <div class="cell" id="4cell"></div>
+        <div class="cell" id="5cell"></div>
+        <div class="cell" id="6cell"></div>
+        <div class="cell" id="7cell"></div>
+        <div class="cell" id="8cell"></div>
+        <div class="cell" id="9cell"></div>
+    </div>
 
-        <div class="winner">
-            <h2 class="winner-label">WINNER</h2>
-            <h2 class="result">-</h2>
-        </div>  
-        
-    </form>
-
+    <div class="winner">
+        <h2 class="winner-label">WINNER</h2>
+        <h2 class="result">-</h2>
+    </div>  
+    
     <table class="result-table">
         <tr>
             <th>Win X</th>
@@ -42,12 +39,9 @@
         </tr>
     </table>
 
-    <button class="button" id="rematch">Rematch</button>
-
-    <div>
+    <div class="btn-div">
+        <button class="button" id="rematch">Rematch</button>
         <button class="button" id="restart">Restart</button>
     </div>
-    
-    
 </body>
 </html>
