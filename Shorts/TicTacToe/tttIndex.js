@@ -1,6 +1,6 @@
-document.getElementById('one-player').addEventListener('click', ()=>{
+document.getElementById('two-players').addEventListener('click', ()=>{
     location.href = 'tictactoe.html';
-    console.log('Clicked Player1');
+    console.log('Clicked two players');
     // mainGame();
     
 })
