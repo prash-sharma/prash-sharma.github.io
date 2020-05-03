@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: radial-gradient(grey, black);
+    background: radial-gradient(grey, rgb(48, 45, 45));
 }
 
 .board {
