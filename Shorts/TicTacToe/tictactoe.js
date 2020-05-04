@@ -1,13 +1,13 @@
 let playerType = location.search.substring(1);
 
-console.log(playerType);
+// console.log(playerType);
 
 gameType(playerType);
 
 function gameType(playerType){
     if (playerType === 'one'){
         onePlayer();
-        console.log('Clicked one player');
+        // console.log('Clicked one player');
 
     } else if(playerType === 'two') {
         twoPlayers();
@@ -23,6 +23,8 @@ let cellsWithValue = [];
 
 let inputCounter = 0;
 
+let result = false;
+
 let winCounterX = 0;
 let winCounterO = 0;
 let winCounterD = 0;
@@ -31,7 +33,7 @@ let winCounterD = 0;
 /* ---------------------------------- ONE PLAYER ---------------------------- */
 
 function onePlayer(){
-    const CELLS = document.querySelectorAll('.cell');
+    const CELLS = document.querySelectorAll('.cell');    
 
     CELLS.forEach(eventListener);
 
@@ -39,53 +41,64 @@ function onePlayer(){
         item.addEventListener('click', addInput, {once: true})
     }
 
-
     function addInput(event){
 
         let clickedId = (parseInt(event.target.id) - 1);
         
-        if (player1){
+        if (player1 && result === false){
             CELLS[clickedId].textContent = 'X';
             changeCursor('o');
             player1 = false;
             inputCounter++;
-            console.log(`Input counter after player: ${inputCounter}`);
+            cellsWithValue[clickedId] = CELLS[clickedId].textContent;
+            // console.log(`Input counter after player: ${inputCounter}`);
             
-            aiTurn(); // call AI turn funtion
+            if (inputCounter < 9){
+                aiTurn(); // call AI turn funtion
+            }
+            
         } 
         
         function aiTurn() {
-            
+                        
             // Get unused cellId
-            for (let index = 0; index < 9; index++) {
+            for (let index = 0; index < 8; index++) {
+                console.log(`Index run: ${index}`);
+                
                 clickedId = Math.floor(Math.random() * 9);
+                console.log(`Math generated: ${clickedId}`);
+                
                 if (CELLS[clickedId].textContent == false){
                     break;
                 }
             }       
-            console.log(`AI cell value is ${clickedId}`);
+            console.log(`AI cell pick: ${clickedId}`);
+            
             
             aiInput(clickedId)
 
             function aiInput(clickedId){
-                console.log(`text content is false: ${clickedId}`);
+                console.log(`Text content was false, AI picked: cell${clickedId+1}`);
+                console.log(`******************************`);
                 CELLS[clickedId].textContent = 'O';
                 CELLS[clickedId].style.color = 'red';
+                CELLS[clickedId].removeEventListener('click', addInput)
                 changeCursor('x');
                 player1 = true;
                 inputCounter++;
-                console.log(`Input counter after AI: ${inputCounter}`); 
             } 
         }
-
-        // console.log(`Input counter: ${inputCounter++}`);
-        
+        console.log(`Input counter after AI: ${inputCounter}`);
         cellsWithValue[clickedId] = CELLS[clickedId].textContent;
-
+        console.log(cellsWithValue);
+        
         if (inputCounter >= 5){
             getWinner(cellsWithValue);
         } 
     }
+    
+
+   
 
     // GET WINNER
 
@@ -139,6 +152,8 @@ function onePlayer(){
         document.querySelector('.board').style.cursor = "not-allowed";
 
         document.querySelector('.result').style.color = color;
+
+        result = true;
 
         // TO DO - FILL EMPTY CELLS WITH SOMETHING
     }
