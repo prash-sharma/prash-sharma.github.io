@@ -82,7 +82,7 @@ a{
 
 .cell:hover{
     /* cursor: pointer; */
-    background-color: rgb(224, 219, 219);
+    background-color: rgb(107, 104, 104);
 }
 
 .cell:first-child, .cell:nth-child(2), .cell:nth-child(3){
