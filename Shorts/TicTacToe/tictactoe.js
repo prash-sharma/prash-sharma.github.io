@@ -29,7 +29,6 @@ let winCounterX = 0;
 let winCounterO = 0;
 let winCounterD = 0;
 
-
 /* ---------------------------------- ONE PLAYER ---------------------------- */
 
 function onePlayer(){
@@ -96,9 +95,6 @@ function onePlayer(){
             getWinner(cellsWithValue);
         } 
     }
-    
-
-   
 
     // GET WINNER
 
@@ -183,7 +179,7 @@ function onePlayer(){
         }
     }
 
-    // RESTART BUTTON
+    // REMATCH BUTTON
 
     document.getElementById('rematch').addEventListener('click', resetBoard)
 
@@ -205,12 +201,14 @@ function onePlayer(){
 
     cellsWithValue = [];
 
+    result = false;
+
     document.querySelector('.result').textContent = '-';
     document.querySelector('.result').style.color = '';
 
     }
 
-    // REMATCH
+    // RESTART BUTTON
 
     document.getElementById('restart').addEventListener('click', restartGame)
 
