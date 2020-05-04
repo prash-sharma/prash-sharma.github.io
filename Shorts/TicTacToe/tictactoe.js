@@ -40,7 +40,6 @@ function onePlayer(){
     }
 
 
-
     function addInput(event){
 
         let clickedId = (parseInt(event.target.id) - 1);
@@ -49,30 +48,37 @@ function onePlayer(){
             CELLS[clickedId].textContent = 'X';
             changeCursor('o');
             player1 = false;
-            inputCounter++
+            inputCounter++;
+            console.log(`Input counter after player: ${inputCounter}`);
+            
             aiTurn(); // call AI turn funtion
         } 
         
         function aiTurn() {
-
-            let aiCell = Math.floor(Math.random() * 9);
-
-            // console.log(aiCell);
             
-            if (CELLS[aiCell].textContent == false){
-                console.log(`text content is false: ${aiCell}`);
-                
-                CELLS[aiCell].textContent = 'O';
-                CELLS[aiCell].style.color = 'red';
+            // Get unused cellId
+            for (let index = 0; index < 9; index++) {
+                clickedId = Math.floor(Math.random() * 9);
+                if (CELLS[clickedId].textContent == false){
+                    break;
+                }
+            }       
+            console.log(`AI cell value is ${clickedId}`);
+            
+            aiInput(clickedId)
+
+            function aiInput(clickedId){
+                console.log(`text content is false: ${clickedId}`);
+                CELLS[clickedId].textContent = 'O';
+                CELLS[clickedId].style.color = 'red';
                 changeCursor('x');
-                player1 = true
-                inputCounter++
-            } else {
-                console.log(`text content is true: ${aiCell}`);
-            }
+                player1 = true;
+                inputCounter++;
+                console.log(`Input counter after AI: ${inputCounter}`); 
+            } 
         }
 
-        console.log(inputCounter++);
+        // console.log(`Input counter: ${inputCounter++}`);
         
         cellsWithValue[clickedId] = CELLS[clickedId].textContent;
 
