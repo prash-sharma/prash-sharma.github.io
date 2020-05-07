@@ -24,7 +24,7 @@ body {
     text-align: center;
 }
 
-.btn-div{
+.btn-div-index{
     display: flex;
     flex-direction: column;
 }
