@@ -219,14 +219,11 @@ function onePlayer(){
     }
 }
 
-
-
-
-
 /* ---------------------------------- TWO PLAYERS ---------------------------- */
 
 function twoPlayers(){
-
+    const CELLS = document.querySelectorAll('.cell');
+    
     CELLS.forEach(eventListener);
 
     function eventListener(item){
