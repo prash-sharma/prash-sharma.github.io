@@ -15,7 +15,7 @@ function gameType(playerType){
     }
 }
     
-document.querySelector('.board').style.cursor = "url(images/x.png), auto";
+document.querySelector('.board').style.cursor = "url(images/xx.cur), auto";
 
 let player1 = true;
 
@@ -223,7 +223,7 @@ function onePlayer(){
 
 function twoPlayers(){
     const CELLS = document.querySelectorAll('.cell');
-    
+
     CELLS.forEach(eventListener);
 
     function eventListener(item){
