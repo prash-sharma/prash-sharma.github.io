@@ -1,7 +1,6 @@
 import onePlayer from './onePlayer.js';
 import twoPlayers from './twoPlayers.js';
 
-
 let playerType = location.search.substring(1);
 
 // console.log(playerType);

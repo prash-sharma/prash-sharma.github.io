@@ -41,7 +41,7 @@ function onePlayer(){
                         
             // Get unused cellId
             for (let index = 0; index < 8; index++) {
-                console.log(`Index run: ${index}`);
+                // console.log(`Index run: ${index}`);
                 
                 clickedId = Math.floor(Math.random() * 9);
                 console.log(`Math generated: ${clickedId}`);
@@ -50,14 +50,13 @@ function onePlayer(){
                     break;
                 }
             }       
-            console.log(`AI cell pick: ${clickedId}`);
-            
+            // console.log(`AI cell pick: ${clickedId}`);
             
             aiInput(clickedId)
 
             function aiInput(clickedId){
-                console.log(`Text content was false, AI picked: cell${clickedId+1}`);
-                console.log(`******************************`);
+                // console.log(`Text content was false, AI picked: cell${clickedId+1}`);
+                // console.log(`******************************`);
                 CELLS[clickedId].textContent = 'O';
                 CELLS[clickedId].style.color = 'red';
                 CELLS[clickedId].removeEventListener('click', addInput)
@@ -93,8 +92,6 @@ function onePlayer(){
             displayWinner('X') 
 
             winnerCounter('X');
-
-
 
         // FILL EMPTY CELLS WITH SOMETHING
 
