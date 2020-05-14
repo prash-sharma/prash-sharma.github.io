@@ -25,7 +25,9 @@ function numberEventListener(item){
 
 
 // DELETE BUTTON
-delButton.addEventListener('click', () => results.textContent = results.textContent.substring(0, results.textContent.length-1));
+// delButton.addEventListener('click', () => results.textContent = results.textContent.substring(0, results.textContent.length-1));
+
+delButton.addEventListener('click', () => results.textContent = results.textContent.slice(0, -1));
 
 
 // AC BUTTON
