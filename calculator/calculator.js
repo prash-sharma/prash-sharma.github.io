@@ -55,3 +55,16 @@ function operatorEventListener(item){
 
     }
 }
+
+
+// EQUALS
+
+equalsButton.addEventListener('click', calculate);
+
+function calculate(){
+    console.log(results.textContent);
+    
+    let answer = eval(results.textContent);
+    console.log(answer);
+    
+}

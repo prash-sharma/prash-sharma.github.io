@@ -22,6 +22,7 @@ button{
     font-family: sans-serif;
     outline: none;
     border: none;
+    text-align: center;
 }
 
 button:hover{
@@ -44,6 +45,6 @@ button:hover{
     padding: 10px;
 }
 
-.operator{
+.operator, .equals{
     background-color: rgb(192, 200, 201);
 }
