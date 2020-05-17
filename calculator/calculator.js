@@ -10,33 +10,22 @@ const lastChar = input.textContent.length-1;
 
 
 // NUMBER BUTTONS
-// inputButtons.forEach(numberEventListener);
-
-// function numberEventListener(item){
-//     item.addEventListener('click', (e) => {
-        
-//         let inputVal = e.target.innerText;
-//         console.log(inputVal);
-//         if (inputVal === '.' && input.textContent.includes('.')){
-//             return
-//         } else {
-//             input.textContent = input.textContent + inputVal;
-//         }
-//         console.log(input.textContent);
-//     })
-// };
-
-
-// INPUT NUMBER WITH KEYBOARD
-
 inputButtons.forEach(numberEventListener);
 
 function numberEventListener(item){
-    item.addEventListener('click', addInput)
-    item.addEventListener('')
+    item.addEventListener('click', (e) => {
         
-    
+        let inputVal = e.target.innerText;
+        console.log(inputVal);
+        if (inputVal === '.' && input.textContent.includes('.')){
+            return
+        } else {
+            input.textContent = input.textContent + inputVal;
+        }
+        console.log(input.textContent);
+    })
 };
+
 
 
 function addInput(e){
