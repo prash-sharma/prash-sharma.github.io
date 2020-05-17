@@ -5,16 +5,42 @@ const acButton = document.querySelector('.ac');
 const equalsButton = document.querySelector('.equals');
 const input = document.querySelector('#input');
 const answer = document.querySelector('#answer')
+const lastChar = input.textContent.length-1;
 
 
 
 // NUMBER BUTTONS
+// inputButtons.forEach(numberEventListener);
+
+// function numberEventListener(item){
+//     item.addEventListener('click', (e) => {
+        
+//         let inputVal = e.target.innerText;
+//         console.log(inputVal);
+//         if (inputVal === '.' && input.textContent.includes('.')){
+//             return
+//         } else {
+//             input.textContent = input.textContent + inputVal;
+//         }
+//         console.log(input.textContent);
+//     })
+// };
+
+
+// INPUT NUMBER WITH KEYBOARD
+
 inputButtons.forEach(numberEventListener);
 
 function numberEventListener(item){
-    item.addEventListener('click', (e) => {
+    item.addEventListener('click', addInput)
+    item.addEventListener('')
         
-        let inputVal = e.target.innerText;
+    
+};
+
+
+function addInput(e){
+    let inputVal = e.target.innerText;
         console.log(inputVal);
         if (inputVal === '.' && input.textContent.includes('.')){
             return
@@ -22,8 +48,8 @@ function numberEventListener(item){
             input.textContent = input.textContent + inputVal;
         }
         console.log(input.textContent);
-    })
-};
+}
+
 
 // OPERATORS
 
@@ -36,7 +62,11 @@ function operatorEventListener(item){
 
     function addOperator(e){
         
-        if (input.textContent.endsWith(e.target.textContent)){
+        // if (input.textContent.endsWith(e.target.textContent)){
+        if (input.textContent.endsWith('+') ||
+         input.textContent.endsWith('-') || 
+         input.textContent.endsWith('/') ||
+         input.textContent.endsWith('*')){    
             return
         } else{
             input.textContent += e.target.textContent;
@@ -44,7 +74,6 @@ function operatorEventListener(item){
 
     }
 };
-
 
 // EQUALS
 
@@ -56,7 +85,6 @@ function calculate(){
     let total = eval(input.textContent);
    
     answer.textContent = total;
-    input.textContent = '';
 }
 
 
@@ -64,6 +92,10 @@ function calculate(){
 delButton.addEventListener('click', () => input.textContent = input.textContent.slice(0, -1));
 
 // AC BUTTON
-acButton.addEventListener('click', () => input.textContent = '');
+acButton.addEventListener('click', () => {
+    input.textContent = '';
+    answer.textContent = '';
+});
+
 
 

@@ -38,7 +38,18 @@ button:hover{
     grid-column: span 4;
     font-size: 2rem;
     text-align: right;
-    background-color: cadetblue;
+    background-color: rgb(159, 178, 180);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.answer{
+    grid-column: span 4;
+    font-size: 2rem;
+    text-align: right;
+    background-color: rgb(110, 144, 146);
     display: flex;
     align-items: center;
     justify-content: flex-end;
