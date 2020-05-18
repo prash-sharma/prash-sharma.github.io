@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+
+
 body{
 display: flex;
 flex-direction: column;
@@ -7,10 +11,40 @@ margin: 0;
 font-family: Arial, Helvetica, sans-serif;
 }
 
+.navContainer {
+    background-color: rgb(50, 55, 109);
+    background: linear-gradient( rgb(10, 4, 37), grey), fixed;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+    list-style: none;
+    height: 60px;
+
+    
+}
+
+.navLink {
+    text-decoration: none;
+    /* border: 1px solid black; */
+    padding: 8px;
+    border-radius: 8px;
+    /* box-shadow: 2px 2px rgb(157, 172, 196); */
+    background-color: rgb(135, 139, 158);
+    color: rgb(234, 238, 250);
+}
+
+.navLink:hover{
+    background-color: rgb(63, 74, 129);
+}
+
+
+
+
 .heading{
     display: flex;
     justify-content: center;
-    background-color: rgb(73, 52, 207, .5);
+    /* background-color: rgb(73, 52, 207, .5); */
     color:white;
     height: 64px;
     width: auto;
@@ -21,6 +55,8 @@ font-family: Arial, Helvetica, sans-serif;
 }
 
 .applist{
+    /* font-family: "Montserrat", sans-serif; */
+    font-weight: 400;
     display: flex;
     justify-content: center;
     align-items: center;
