@@ -12,7 +12,7 @@ font-family: Arial, Helvetica, sans-serif;
 }
 
 .navContainer {
-    background-color: rgb(50, 55, 109);
+    /* background-color: rgb(50, 55, 109); */
     background: linear-gradient( rgb(10, 4, 37), grey), fixed;
     display: flex;
     justify-content: space-evenly;
@@ -30,7 +30,7 @@ font-family: Arial, Helvetica, sans-serif;
     padding: 8px;
     border-radius: 8px;
     /* box-shadow: 2px 2px rgb(157, 172, 196); */
-    background-color: rgb(135, 139, 158);
+    /* background-color: rgb(135, 139, 158); */
     color: rgb(234, 238, 250);
 }
 
