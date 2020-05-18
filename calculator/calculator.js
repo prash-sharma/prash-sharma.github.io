@@ -7,8 +7,6 @@ const input = document.querySelector('#input');
 const answer = document.querySelector('#answer')
 const lastChar = input.textContent.length-1;
 
-
-
 // NUMBER BUTTONS
 inputButtons.forEach(numberEventListener);
 
