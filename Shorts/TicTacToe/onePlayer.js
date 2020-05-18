@@ -52,7 +52,7 @@ function onePlayer(){
             }       
             // console.log(`AI cell pick: ${clickedId}`);
             
-            aiInput(clickedId)
+            setTimeout(aiInput, 500, clickedId)
 
             function aiInput(clickedId){
                 // console.log(`Text content was false, AI picked: cell${clickedId+1}`);

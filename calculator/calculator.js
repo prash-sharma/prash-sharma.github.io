@@ -26,8 +26,6 @@ function numberEventListener(item){
     })
 };
 
-
-
 function addInput(e){
     let inputVal = e.target.innerText;
         console.log(inputVal);
@@ -39,7 +37,6 @@ function addInput(e){
         console.log(input.textContent);
 }
 
-
 // OPERATORS
 
 operatorButtons.forEach(operatorEventListener);
@@ -50,8 +47,6 @@ function operatorEventListener(item){
     item.addEventListener('click', addOperator);
 
     function addOperator(e){
-        
-        // if (input.textContent.endsWith(e.target.textContent)){
         if (input.textContent.endsWith('+') ||
          input.textContent.endsWith('-') || 
          input.textContent.endsWith('/') ||
