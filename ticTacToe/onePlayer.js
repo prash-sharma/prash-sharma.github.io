@@ -55,8 +55,6 @@ function onePlayer(){
             setTimeout(aiInput, 500, clickedId)
 
             function aiInput(clickedId){
-                // console.log(`Text content was false, AI picked: cell${clickedId+1}`);
-                // console.log(`******************************`);
                 CELLS[clickedId].textContent = 'O';
                 CELLS[clickedId].style.color = 'red';
                 CELLS[clickedId].removeEventListener('click', addInput)

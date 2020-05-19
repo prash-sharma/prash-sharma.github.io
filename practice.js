@@ -1,9 +1,66 @@
-let name = () => {
-    console.log('Hey hey');
-    
-}
+console.log('I am first');
 
-name();
+const promise = new Promise((resolve, reject) => {
+    
+    setTimeout(() => {
+        resolve({fname: 'Prashant', lname: 'Sharma'});
+    }, 2000)    
+})
+
+promise.then((message) => {
+    console.log(message.fname, message.lname);
+})
+
+console.log('I am 3rd or last');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// PROMISES 
+// let buyBall = function(){
+//     return new Promise((resolve, reject) => {
+//         resolve('Purchased a football.')
+//     })
+// }
+
+// let goToPark = function(param){
+//     return new Promise((resolve, reject) => {
+//         resolve(param + 'Went to park.')
+//     })
+// }
+
+// let playFootball = function(param){
+//     return new Promise((resolve, reject) => {
+//         resolve (param + 'Had a great game.')
+//     })
+// }
+
+// Promise.all([buyBall(), goToPark(), playFootball()]).then(()=>console.log('All jobs done'))
+
+
+
+
+
+
+// let name = () => {
+//     console.log('Hey hey');
+    
+// }
+
+// name();
 
 // console.log(`OH: ${window.outerHeight}`);
 // console.log(`IH: ${window.innerHeight}`);
