@@ -8,8 +8,41 @@
     <link rel="stylesheet" href="jsonAjax.css">
 </head>
 <body>
-    <h1>JSON & AJAX</h1>
-    <button id="btn">Fetch info for 3 new animals</button>
+    <h1>JSON & AJAX with Promise</h1>
+    <button class="btn" id="btnRes">Resolve example</button>
+    <button class="btn" id="btnRej">Reject example</button>
+    <button class="btn" id="btnRef">Refresh page</button>
+
     <div id="animal-info"></div>
+    <div>
+        <table>
+            <tr>
+                <th>Operation</th>
+                <th>Status</th>
+                <th>Message</th>
+            </tr>
+            <tr>
+                <td>Request Sent</td>
+                <td class="tabData" id="oneS">-</td>
+                <td class="tabData" id="oneM">-</td>
+            </tr>
+            <tr>
+                <td>XHR Processing</td>
+                <td class="tabData" id="twoS">-</td>
+                <td class="tabData" id="twoM">-</td>
+            </tr>
+            <tr>
+                <td>XHR Processing completed</td>
+                <td class="tabData" id="threeS">-</td>
+                <td class="tabData" id="threeM">-</td>
+            </tr>
+        </table>
+
+        <div>
+            <p class="json">Raw JSON</p>
+            <a href="https://learnwebcode.github.io/json-example/animals-1.json" target="_blank">JSON source</a>
+        </div>
+        
+    </div>
 </body>
 </html>

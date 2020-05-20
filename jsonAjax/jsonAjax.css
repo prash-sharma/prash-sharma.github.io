@@ -8,4 +8,25 @@ button{
     font-size: medium;
     background-color: rgb(218, 149, 100);
     outline: none;
+    margin-bottom: 30px;
+}
+
+table {
+    margin-top: 100px;
+    border: 1px solid black;
+}
+
+table, th, td{
+    margin-top: 100px;
+    border: 1px solid rgb(233, 220, 220);
+}
+
+
+.tabData {
+    text-align: center;
+}
+
+
+.json {
+    margin-top: 100px;
 }
