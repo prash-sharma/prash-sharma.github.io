@@ -22,7 +22,7 @@ function clickFuncSuccess() {
 
 
 function clickFuncFail() {
-    source = 'https://learnwebcode.github.io/json-example/animals-11.json';
+    source = 'https://prash-sharma.github.io/animals1.json';
     method = 'GET';
     makeAjaxCall(method, source);
 }
