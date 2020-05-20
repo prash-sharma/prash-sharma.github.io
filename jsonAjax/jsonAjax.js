@@ -15,7 +15,7 @@ let source;
 let method;
 
 function clickFuncSuccess() {
-    source = 'https://learnwebcode.github.io/json-example/animals-1.json';
+    source = 'https://prash-sharma.github.io/animals.json';
     method = 'GET';
     makeAjaxCall(method, source);
 }
