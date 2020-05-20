@@ -5,7 +5,6 @@ btnRef.addEventListener('click', () => {
     location.reload();
 })
 
-
 let btnRes = document.getElementById('btnRes');
 btnRes.addEventListener('click', clickFuncSuccess);
 
@@ -91,16 +90,20 @@ function displayData(data){
                 animalRow += ' and ' + data[i].foods.dislikes[ii];
             }            
         }
-        animalRow += '.</p>';   
+        animalRow += '.</p>';
     }
-    
+    animalContainer.textContent = ''
+    animalContainer.style.color = 'black';
     animalContainer.insertAdjacentHTML('beforeend', animalRow)
 };
 
 
 function handleError() {
     let errorMsg = 'Failed to execute the request.';
+
+    animalContainer.textContent = ''
     animalContainer.insertAdjacentHTML('beforeend', errorMsg);
+    animalContainer.style.color = 'red';
 
     btnRej.removeEventListener('click', clickFuncFail);
     btnRej.style.cursor = 'not-allowed';
