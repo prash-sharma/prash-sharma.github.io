@@ -1,0 +1,11 @@
+p {
+    border-bottom: 1px solid chocolate;
+}
+
+button{
+    height: 30px;
+    border-radius: 8px;
+    font-size: medium;
+    background-color: rgb(218, 149, 100);
+    outline: none;
+}

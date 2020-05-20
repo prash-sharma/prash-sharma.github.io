@@ -1,27 +1,34 @@
-console.log('I am first');
+// console.log('I am first');
 
-const promise = new Promise((resolve, reject) => {
+// const promise = new Promise((resolve, reject) => {
     
+//     setTimeout(() => {
+//         resolve({fname: 'Prashant', lname: 'Sharma'});
+//     }, 2000)    
+// })
+
+// promise.then((message) => {
+//     console.log(message.fname, message.lname);
+// })
+
+// console.log('I am 3rd or last');
+
+
+
+
+
+
+const promise2 = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve({fname: 'Prashant', lname: 'Sharma'});
-    }, 2000)    
+        resolve(`It's resolved bud, cheers..`)
+    }, 3000)
 })
 
-promise.then((message) => {
-    console.log(message.fname, message.lname);
+
+promise2.then((message) => {
+    console.log(message.length);
+    
 })
-
-console.log('I am 3rd or last');
-
-
-
-
-
-
-
-
-
-
 
 
 
