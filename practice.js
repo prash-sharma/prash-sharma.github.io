@@ -5,29 +5,52 @@ console.log(`Hello I've started..`);
 let myBtn = document.getElementById('myBtn');
 let myDiv = document.getElementById('container');
 
-myBtn.addEventListener('click', getData);
+myBtn.addEventListener('click', trigGetData);
 
 
+
+// async function getData(){
+    
+//     let url = 'animals.json'
+
+//     let response = await fetch(url);
+//     let data = await response.json();
+
+//     return data;
+// }
+
+// let a = getData();
+
+// updateDiv(a);
+
+// function updateDiv(data){
+//     let something = document.createTextNode(data)
+//     myDiv.appendChild(something);
+// }
 
 async function getData(){
-    
-    let url = 'animals.json'
-
+    let url = `animals.json`
     let response = await fetch(url);
+    
     let data = await response.json();
-
-    return data;
+    
+    console.log(data);
+    
+    return data;  
 }
 
-let a = getData();
+function trigGetData(){
+    getData().then((data) => {
+        updateDiv(data);
+    }).catch((err)=> {
+        console.log(err.message);
+    });
 
-updateDiv(a);
-
-function updateDiv(data){
-    let something = document.createTextNode(data)
-    myDiv.appendChild(something);
+    function updateDiv(data){
+        let something = document.createTextNode(`Cat's name is: ${data[0].name} & likes to eat: ${data[0].foods.likes[0]}`)
+        myDiv.appendChild(something);
+    }
 }
-
 
 
 
