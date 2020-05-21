@@ -41,7 +41,7 @@ function makeAjaxCall(methodType, source){
                     
                     let resp = xhr.responseText;
                     let respJson = JSON.parse(resp);
-                    resolve (respJson)
+                    resolve (respJson);
                 } else {
                     reject (xhr.status);
                     // console.log('XHR failed - ' + xhr.status);

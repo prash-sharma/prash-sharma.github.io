@@ -1,3 +1,85 @@
+
+// ************ fetch api - https://www.youtube.com/watch?v=38uPRscJXfo
+console.log(`Hello I've started..`);
+
+let myBtn = document.getElementById('myBtn');
+let myDiv = document.getElementById('container');
+
+myBtn.addEventListener('click', getData);
+
+
+
+async function getData(){
+    
+    let url = 'animals.json'
+
+    let response = await fetch(url);
+    let data = await response.json();
+
+    return data;
+}
+
+let a = getData();
+
+updateDiv(a);
+
+function updateDiv(data){
+    let something = document.createTextNode(data)
+    myDiv.appendChild(something);
+}
+
+
+
+
+// ******************* ASYNC AWAIT
+// async function myFunction(){
+//     console.log(`myFunction has been called.`);
+    
+//     let response = await fetch('https://api.github.com/users');
+//     let users = await response.json();
+
+//     console.log(`I'm waiting...`);
+    
+//     return users;
+// }
+
+// console.log('Before calling myFunction');
+
+// let a = myFunction();
+
+// console.log('After calling myFunction');
+
+// a.then((data) => console.log(data));
+
+
+
+
+
+
+// ********************************** PROMISE
+// function timer(ms){
+//     let newProm = new Promise((resolve, reject) => {
+//         // setTimeout(reject, ms);
+//         setTimeout(() => resolve(5), ms);
+        
+//     });
+//     newProm.then(myFunc).then(myFunc2)
+// }
+
+// async function myFunc(a){
+//     return (a*a);
+// }
+
+
+
+// async function myFunc2(b){
+//         console.log(b+b);
+// }
+
+// timer(2000);
+
+// ****************************
+
 // console.log('I am first');
 
 // const promise = new Promise((resolve, reject) => {
@@ -18,17 +100,17 @@
 
 
 
-const promise2 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve(`It's resolved bud, cheers..`)
-    }, 3000)
-})
+// const promise2 = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve(`It's resolved bud, cheers..`)
+//     }, 3000)
+// })
 
 
-promise2.then((message) => {
-    console.log(message.length);
+// promise2.then((message) => {
+//     console.log(message.length);
     
-})
+// })
 
 
 
