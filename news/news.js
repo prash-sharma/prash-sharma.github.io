@@ -54,7 +54,17 @@ fetchData.then((data) => {
 function displayNews(articles){
     topNews.textContent = '';
     topNews.scrollTop = 0;
-    
+
+    if(articles.length < 1){
+        console.log('No results found. Pleae try again with a different keyword.');
+
+        let news = document.createElement('p');
+        news.className= 'news';
+        news.textContent = 'No results found. Pleae try again with a different keyword.';
+
+        topNews.appendChild(news);
+    }
+
     for (let i = 0; i < articles.length; i++) {
         let resultDiv = document.createElement('div');
         resultDiv.className = 'resultDiv';
