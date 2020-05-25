@@ -6,7 +6,8 @@
 //     let fetchParam = new Request(url, {
 //         method: 'GET',
 //         headers: {
-//             "Authorization": "e9d3a9efed9545d486a9367a64d54173"
+//             "Authorization": "e9d3a9efed9545d486a9367a64d54173",
+//             "mode": 'no-cors'
 //         },
 //     });
 
@@ -53,9 +54,6 @@ function submitForm(){
     })
     
 };
-
-
-
 
 async function getData(url){ 
     let response = await fetch(url);
@@ -124,23 +122,5 @@ function displayNews(articles){
     }
 }
 
-function displayNews(articles){
 
-    for (let i = 0; i < articles.length; i++) {
-        let news = document.createElement('p');
-        news.textContent = articles[i].description;
-        topNews.appendChild(news);
-
-        let a = document.createElement('a');
-        a.textContent = 'Read more..';
-        a.href = articles[i].url;
-        a.target = '_blank'
-        a.style.textDecoration = 'none';
-        topNews.appendChild(a);
-
-
-        let hr = document.createElement(`hr`);
-        topNews.appendChild(hr);
-    }
-}
 
