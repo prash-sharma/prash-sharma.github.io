@@ -1,3 +1,26 @@
+
+
+// async function fetchDataTest(){
+//     let url =`https://newsapi.org/v2/sources`;
+    
+//     let fetchParam = new Request(url, {
+//         method: 'GET',
+//         headers: {
+//             "Authorization": "e9d3a9efed9545d486a9367a64d54173"
+//         },
+//     });
+
+//     let response = await fetch(fetchParam);
+      
+//     let resData = await response.json();
+//     return resData;
+// }
+
+// fetchDataTest().then(() => console.log('Connection successful, yay!!'))
+// .catch((err) => console.log(`Couldn't connect: ${err.message}`)
+// )
+
+
 let topNews = document.querySelector('.topNews');
 let btnSearch = document.querySelector(`.btnSearch`);
 let inputSearch = document.querySelector('.search');
@@ -30,6 +53,8 @@ function submitForm(){
     })
     
 };
+
+
 
 
 async function getData(url){ 
@@ -99,23 +124,23 @@ function displayNews(articles){
     }
 }
 
-// function displayNews(articles){
+function displayNews(articles){
 
-//     for (let i = 0; i < articles.length; i++) {
-//         let news = document.createElement('p');
-//         news.textContent = articles[i].description;
-//         topNews.appendChild(news);
+    for (let i = 0; i < articles.length; i++) {
+        let news = document.createElement('p');
+        news.textContent = articles[i].description;
+        topNews.appendChild(news);
 
-//         let a = document.createElement('a');
-//         a.textContent = 'Read more..';
-//         a.href = articles[i].url;
-//         a.target = '_blank'
-//         a.style.textDecoration = 'none';
-//         topNews.appendChild(a);
+        let a = document.createElement('a');
+        a.textContent = 'Read more..';
+        a.href = articles[i].url;
+        a.target = '_blank'
+        a.style.textDecoration = 'none';
+        topNews.appendChild(a);
 
 
-//         let hr = document.createElement(`hr`);
-//         topNews.appendChild(hr);
-//     }
-// }
+        let hr = document.createElement(`hr`);
+        topNews.appendChild(hr);
+    }
+}
 
