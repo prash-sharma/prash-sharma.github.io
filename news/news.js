@@ -31,7 +31,7 @@ let apiKey = `e9d3a9efed9545d486a9367a64d54173`;
 
 
 let allNews = `https://newsapi.org/v2/sources?apiKey=${apiKey}`;
-let topHeadlines = `http://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+let topHeadlines = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
 
 inputSearch.addEventListener('keyup', (e) => {
     if(e.keyCode === 13){
