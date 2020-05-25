@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostIt</title>
+    <link rel="stylesheet" href="postIt.css">
+    <script src="postIt.js" defer></script>
+</head>
+<body>
+    <h1>PostIt</h1>
+    <div>
+        <label class="url-lbl">URL</label>
+        <input type="text" class="url">
+    </div>
+
+    <div  class="requests-container">
+        <div class="label">
+            <label>Request type</label>
+        </div>
+        <div class="requests">
+            <div>
+                <input value="GET" type="radio" name="reqType" checked>
+                <label>GET</label>
+                
+            </div>
+            <div>
+                <input value="POST" type="radio" name="reqType">
+                <label >POST</label>
+                
+            </div>
+            
+        </div>
+        <div class="submit">
+            <button class="btn">Submit</button>
+        </div>
+        
+    </div>
+
+    <div class="results">
+        <textarea name="res" id="res" cols="100" rows="10"></textarea>
+    </div>
+</body>
+</html>
