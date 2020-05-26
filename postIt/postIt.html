@@ -8,37 +8,65 @@
     <script src="postIt.js" defer></script>
 </head>
 <body>
-    <h1>PostIt</h1>
-    <div>
-        <label class="url-lbl">URL</label>
-        <input type="text" class="url">
-    </div>
+    <h1 class="postIt">PostIt</h1>
+    <div class="whole-page">
+        <div class="url-div">
+            <label class="url-lbl">URL</label>
+            <input type="text" class="url">
+        </div> <br>
 
-    <div  class="requests-container">
-        <div class="label">
-            <label>Request type</label>
-        </div>
-        <div class="requests">
-            <div>
-                <input value="GET" type="radio" name="reqType" checked>
-                <label>GET</label>
-                
+        <div  class="requests-container">
+            <div class="label">
+                <label>Request type</label>
             </div>
-            <div>
-                <input value="POST" type="radio" name="reqType">
-                <label >POST</label>
-                
+            <div class="requests">
+                <div class="get">
+                    <input id="getType" value="GET" type="radio" name="reqType" checked>
+                    <label>GET</label>
+                </div>
+                <div class="post">
+                    <input id="postType" value="POST" type="radio" name="reqType">
+                    <label >POST</label>                
+                </div>            
+            </div> <br>
+        </div>
+
+        <div  class="conType-container">
+            <div class="label">
+                <label>Content type</label>
+            </div>
+            <div class="conType">
+                <div class="json">
+                    <input id="json" value="JSON" type="radio" name="conType" checked>
+                    <label>JSON</label>
+                </div>
+                <div class="cus-par">
+                    <input id="cus-par" value="Cus-param" type="radio" name="conType">
+                    <label >Custom Parameters</label>                
+                </div>            
+            </div> <br>
+        </div>
+        <div class="cusPar-container">
+            <div class="label">
+                <label>Content type</label>
+            </div>
+            <div class="cusParValues">
+                <input type="text">
+                <input type="text">
             </div>
             
         </div>
+
         <div class="submit">
             <button class="btn">Submit</button>
-        </div>
-        
-    </div>
+        </div> <br> <hr>
 
-    <div class="results">
-        <textarea name="res" id="res" cols="100" rows="10"></textarea>
-    </div>
+        <div class="loader"></div>
+
+        <div class="results">
+            <label class="res-lbl">Response</label>
+            <textarea name="res" id="res" cols="100" rows="10"></textarea>
+        </div>
+    </div> 
 </body>
 </html>
