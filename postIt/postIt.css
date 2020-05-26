@@ -44,6 +44,7 @@
 .results{
     /* border: 1px solid black; */
     margin: 10px;
+    max-width: 80%;
 }
 
 .btn{
