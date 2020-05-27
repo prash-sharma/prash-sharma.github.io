@@ -1,9 +1,9 @@
 /* *{
     margin: 10px;
 } */
-/* div{
+div {
     border: 1px solid black;
-} */
+}
 
 body {
     height: 100%;
@@ -25,7 +25,7 @@ body {
     height: 25px;
     background: rgb(221, 217, 212);
     border: none;
-    font-size: medium;
+    font-size: 16px;
 }
 
 
@@ -39,10 +39,6 @@ body {
     /* margin: 10px; */
     /* margin-right: 60px; */
     width: 20%;
-}
-
-[type = "text"]:focus{
-    outline: 1px solid rgb(14, 15, 14);
 }
 
 .requests-container, .conType-container, .results{
@@ -62,10 +58,18 @@ body {
 }
 
 .cusParValues {
-    width: 70%;
+    width: 75%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    /* border: 1px solid black; */
+}
+
+.jsonValue {
+    width: 60%;
+    display: flex;
+    
+    /* justify-content: space-between; */
     /* border: 1px solid black; */
 }
 
@@ -80,6 +84,7 @@ body {
     background-color: rgb(30, 129, 243);
     outline: none;
     border: none;
+    font-size: large;
 }
 
 .btn-add:hover {
@@ -133,8 +138,22 @@ body {
     margin-top: 20px;
 }
 
-#res{
+.code-toolbar{
     width: 60%;
+    /* display: flex; */
+
+}
+
+/* .language-javascript{
+    width: 100%;   
+} */
+
+/* #resultPrism {
+    max-width: 80%;
+} */
+
+#jsonInput{
+    width: 100%;
 }
 
 

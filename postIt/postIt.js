@@ -1,12 +1,12 @@
 console.log('PostIt');
 document.querySelector(`.cus-par`).hidden = true;
-document.querySelector('.cusPar-container').style.display = 'none';
+document.querySelector('.cusParValues').style.display = 'none';
 
 
 document.querySelector(`#getType`).addEventListener('click', () => {
     document.querySelector(`.cus-par`).hidden = true;
     document.querySelector(`#json`).checked = true;
-    document.querySelector('.cusPar-container').style.display = 'none';
+    document.querySelector('.cusParValues').style.display = 'none';
 })
 
 document.querySelector(`#postType`).addEventListener('click', () => {
@@ -14,13 +14,19 @@ document.querySelector(`#postType`).addEventListener('click', () => {
 })
 
 document.querySelector('#cus-par').addEventListener('click', () => {
-    document.querySelector('.cusPar-container').style.display = 'flex';
+    document.querySelector('.cusParValues').style.display = 'flex';
+    document.querySelector('.jsonValue').style.display = 'none';
 })
 
 document.querySelector('#json').addEventListener('click', () => {
-    document.querySelector('.cusPar-container').style.display = 'none';
+    document.querySelector('.cusParValues').style.display = 'none';
+    document.querySelector('.jsonValue').style.display = 'flex';
 })
 
+document.querySelector('.btn-add').addEventListener('click', () => {
+    let div = document.createElement('div');
+    
+})
 
 
 
@@ -34,7 +40,7 @@ let loader = document.querySelector('.loader');
 // let url = document.querySelector('.url');
 let url = 'https://randomuser.me/api/?results=5';
 let submitBtn = document.querySelector('.btn');
-let result = document.querySelector('#res');
+let result = document.querySelector('#resultPrism');
 
 
 submitBtn.addEventListener('click', () => {
@@ -61,7 +67,6 @@ async function getData(url, reqTypeValue){
 
     loader.hidden = false;
 
-
     let response = await fetch(url, {
         method: reqTypeValue
     });
@@ -72,10 +77,14 @@ async function getData(url, reqTypeValue){
 
 
 function displayData(data){
+    console.log(data.results[0].email);
     console.log(data);
+    
         loader.hidden = true;
-        result.value = JSON.stringify(data);
-        console.log(result);
+
+        let a = JSON.stringify(data)
+        result.textContent = a;
+        console.log(result.textContent);
     }
     
 

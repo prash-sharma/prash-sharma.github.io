@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PostIt</title>
     <link rel="stylesheet" href="postIt.css">
-    <script src="postIt.js" defer></script>
+    <link rel="stylesheet" href="prism.css">
+    
 </head>
 <body>
     <h1 class="postIt">PostIt</h1>
@@ -44,16 +45,32 @@
                     <input id="cus-par" value="Cus-param" type="radio" name="conType">
                     <label >Custom Parameters</label>                
                 </div>            
-            </div> <br>
-        </div>
+            </div>
+        </div> <br>
         <div class="cusPar-container">
             <div class="label">
                 <label>Content type</label>
             </div>
+
+            <div class="jsonValue">
+                <textarea name="jsonInput" id="jsonInput" cols="100" rows="5"></textarea>
+            </div>
             <div class="cusParValues">
-                <input class="cusParEntry" type="text">
-                <input class="cusParEntry" type="text">
-                <button class="btn-add">+</button>
+                <div>
+                    <input class="cusParEntry" type="text">
+                    <input class="cusParEntry" type="text">
+                    <button class="btn-add">+</button>
+                </div> <br>
+                <div>
+                    <input class="cusParEntry" type="text">
+                    <input class="cusParEntry" type="text">
+                    <button class="btn-add">+</button>
+                </div> <br>
+                <div>
+                    <input class="cusParEntry" type="text">
+                    <input class="cusParEntry" type="text">
+                    <button class="btn-add">+</button>
+                </div>
             </div>
         </div>
 
@@ -65,8 +82,18 @@
 
         <div class="results">
             <label class="res-lbl">Response</label>
-            <textarea name="res" id="res" cols="100" rows="10"></textarea>
+            <!-- <textarea name="res" id="res" cols="100" rows="10"></textarea> -->
+            <pre class="language-javascript">
+                <code class="language-javascript" id="resultPrism">
+                    ['let': 'value'
+                    ]
+  
+                </code>
+            </pre>
         </div>
     </div> 
+
+    <script src="postIt.js"></script>
+    <script src="prism.js"></script>
 </body>
 </html>
