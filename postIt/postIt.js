@@ -1,17 +1,28 @@
 console.log('PostIt');
 document.querySelector(`.cus-par`).hidden = true;
+document.querySelector('.cusPar-container').style.display = 'none';
 
 
-let getType = document.querySelector(`#getType`);
-getType.addEventListener('click', () => {
+document.querySelector(`#getType`).addEventListener('click', () => {
     document.querySelector(`.cus-par`).hidden = true;
     document.querySelector(`#json`).checked = true;
+    document.querySelector('.cusPar-container').style.display = 'none';
 })
 
-let postType = document.querySelector(`#postType`);
-postType.addEventListener('click', () => {
-    document.querySelector(`.cus-par`).hidden = false;
+document.querySelector(`#postType`).addEventListener('click', () => {
+    document.querySelector(`.cus-par`).hidden = false; 
 })
+
+document.querySelector('#cus-par').addEventListener('click', () => {
+    document.querySelector('.cusPar-container').style.display = 'flex';
+})
+
+document.querySelector('#json').addEventListener('click', () => {
+    document.querySelector('.cusPar-container').style.display = 'none';
+})
+
+
+
 
 
 let loader = document.querySelector('.loader');
