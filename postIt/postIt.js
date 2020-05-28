@@ -24,7 +24,31 @@ document.querySelector('#json').addEventListener('click', () => {
 })
 
 document.querySelector('.btn-add').addEventListener('click', () => {
+    console.log('Plus btn clicked');
+    
     let div = document.createElement('div');
+
+    let input1 = document.createElement('input');
+    input1.className = 'cusParEntry';
+    input1.type = 'text';
+
+    let input2 = document.createElement('input');
+    input2.className = 'cusParEntry';
+    input2.type = 'text';
+
+    let minusBtn = document.createElement('button');
+    minusBtn.className = "btn-remove";
+    minusBtn.textContent = '-';
+
+    let br = document.createElement('br');
+
+    div.appendChild(input1);
+    div.appendChild(input2);
+    div.appendChild(minusBtn);
+    
+    // document.querySelector('.cusParValues').style.display = 'flex';
+    document.querySelector('.cusParValues').appendChild(div);
+    document.querySelector('.cusParValues').appendChild(br);
     
 })
 
