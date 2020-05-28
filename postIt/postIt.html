@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PostIt</title>
     <link rel="stylesheet" href="postIt.css">
-    <link rel="stylesheet" href="prism.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+
+    <!-- <link rel="stylesheet" href="prism.css"> -->
     
 </head>
 <body>
@@ -83,17 +85,13 @@
         <div class="results">
             <label class="res-lbl">Response</label>
             <!-- <textarea name="res" id="res" cols="100" rows="10"></textarea> -->
-            <pre class="language-javascript">
-                <code class="language-javascript" id="resultPrism">
-                    ['let': 'value'
-                    ]
-  
-                </code>
-            </pre>
+            <pre class="json"><code class="js" id="resultPrism"></code></pre>
         </div>
     </div> 
 
     <script src="postIt.js"></script>
-    <script src="prism.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- <script src="prism.js"></script> -->
 </body>
 </html>
