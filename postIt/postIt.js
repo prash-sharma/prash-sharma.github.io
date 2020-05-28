@@ -23,36 +23,6 @@ document.querySelector('#json').addEventListener('click', () => {
     document.querySelector('.jsonValue').style.display = 'flex';
 })
 
-document.querySelector('.btn-add').addEventListener('click', () => {
-    console.log('Plus btn clicked');
-    
-    let div = document.createElement('div');
-
-    let input1 = document.createElement('input');
-    input1.className = 'cusParEntry';
-    input1.type = 'text';
-
-    let input2 = document.createElement('input');
-    input2.className = 'cusParEntry';
-    input2.type = 'text';
-
-    let minusBtn = document.createElement('button');
-    minusBtn.className = "btn-remove";
-    minusBtn.textContent = '-';
-
-    let br = document.createElement('br');
-
-    div.appendChild(input1);
-    div.appendChild(input2);
-    div.appendChild(minusBtn);
-    
-    // document.querySelector('.cusParValues').style.display = 'flex';
-    document.querySelector('.cusParValues').appendChild(div);
-    document.querySelector('.cusParValues').appendChild(br);
-    
-})
-
-
 let loader = document.querySelector('.loader');
     loader.hidden = true;
 
@@ -125,14 +95,58 @@ function displayData(data){
     
 
 
+// Add new input boxes for custom values 
+
+document.querySelector('.btn-add').addEventListener('click', () => {
+    console.log('Plus btn clicked');
+    
+    let div = document.createElement('div');
+
+    let input1 = document.createElement('input');
+    input1.className = 'cusParEntry';
+    input1.type = 'text';
+
+    let input2 = document.createElement('input');
+    input2.className = 'cusParEntry';
+    input2.type = 'text';
+
+    let minusBtn = document.createElement('button');
+    minusBtn.className = "btn-remove";
+    minusBtn.textContent = '-';
+
+    let br = document.createElement('br');
+
+    div.appendChild(input1);
+    div.appendChild(input2);
+    div.appendChild(minusBtn);
+    
+    // document.querySelector('.cusParValues').style.display = 'flex';
+    document.querySelector('.cusParValues').appendChild(div);
+    document.querySelector('.cusParValues').appendChild(br);
+})
+
+ // Remove existing corresponding custom value boxes
+
+ document.querySelectorAll('.btn-remove').addEventListener('click', (e) => {
+    console.log('Remove btn clicked');
+    e.currentTarget.parentNode.remove
+    // console.log(e.currentTarget.parentNode.remove);
+    
+    
+})
+
+
+
+
+
 
 // let url = 'https://randomuser.me/api/?results=5';
 // let url = 'https://prash-sharma.github.io/animals.json';
 // let url = 'http://www.json-generator.com/api/json/get/coYoFCTehu?indent=2';
 
 
-let jsonObjEx = {
-    "title": "foo",
-    "body": "bar",
-    "id": 1
-}
+// let jsonObjEx = {
+//     "title": "foo",
+//     "body": "bar",
+//     "id": 1
+// }
