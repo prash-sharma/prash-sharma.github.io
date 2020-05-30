@@ -101,6 +101,7 @@ document.querySelector('.btn-add').addEventListener('click', () => {
     console.log('Plus btn clicked');
     
     let div = document.createElement('div');
+    div.className = 'cusParDiv'
 
     let input1 = document.createElement('input');
     input1.className = 'cusParEntry';
@@ -123,17 +124,18 @@ document.querySelector('.btn-add').addEventListener('click', () => {
     // document.querySelector('.cusParValues').style.display = 'flex';
     document.querySelector('.cusParValues').appendChild(div);
     document.querySelector('.cusParValues').appendChild(br);
+
+
+    document.querySelector('.btn-remove').addEventListener('click', (e) => {
+        console.log('Remove btn clicked');
+        console.log(e.currentTarget.parentNode.className);
+        e.currentTarget.parentNode.className.remove;
+    })
 })
 
  // Remove existing corresponding custom value boxes
 
- document.querySelectorAll('.btn-remove').addEventListener('click', (e) => {
-    console.log('Remove btn clicked');
-    e.currentTarget.parentNode.remove
-    // console.log(e.currentTarget.parentNode.remove);
-    
-    
-})
+ 
 
 
 
