@@ -7,6 +7,7 @@ document.querySelector(`#getType`).addEventListener('click', () => {
     document.querySelector(`.cus-par`).hidden = true;
     document.querySelector(`#json`).checked = true;
     document.querySelector('.cusParValues').style.display = 'none';
+    document.querySelector('.jsonValue').style.display = 'flex';
 })
 
 document.querySelector(`#postType`).addEventListener('click', () => {
@@ -69,8 +70,6 @@ submitBtn.addEventListener ('click', () => {
             })
         }
     }
-    
-      
 });
 
 
@@ -88,54 +87,70 @@ async function getData(url, fetchParam){
 function displayData(data){
     // console.log(data.results[0].email);
     console.log(data);
-        loader.hidden = true;
-        result.innerHTML = data;
-        console.log(result.textContent);
+    loader.hidden = true;
+    result.innerHTML = data;
+    console.log(result.textContent);
     }
     
 
 
 // Add new input boxes for custom values 
 
+let divCounter = 0;
+
 document.querySelector('.btn-add').addEventListener('click', () => {
-    console.log('Plus btn clicked');
     
-    let div = document.createElement('div');
-    div.className = 'cusParDiv'
+        console.log('Plus btn clicked');
 
-    let input1 = document.createElement('input');
-    input1.className = 'cusParEntry';
-    input1.type = 'text';
+        console.log(`Div add counter = ${divCounter + 1}`);
 
-    let input2 = document.createElement('input');
-    input2.className = 'cusParEntry';
-    input2.type = 'text';
+        divCounter++
+        
+        let div = document.createElement('div');
+        div.className = `cusParDivRem`
+        div.id = `cusParDivRem${divCounter}`
 
-    let minusBtn = document.createElement('button');
-    minusBtn.className = "btn-remove";
-    minusBtn.textContent = '-';
+        let input1 = document.createElement('input');
+        input1.className = 'cusParEntry ';
+        input1.type = 'text';
 
-    let br = document.createElement('br');
+        let input2 = document.createElement('input');
+        input2.className = 'cusParEntry';
+        input2.type = 'text';
 
-    div.appendChild(input1);
-    div.appendChild(input2);
-    div.appendChild(minusBtn);
-    
-    // document.querySelector('.cusParValues').style.display = 'flex';
-    document.querySelector('.cusParValues').appendChild(div);
-    document.querySelector('.cusParValues').appendChild(br);
+        let minusBtn = document.createElement('button');
+        minusBtn.className = "btn-remove";
+        minusBtn.textContent = '-';
 
+        // let br = document.createElement('br');
 
-    document.querySelector('.btn-remove').addEventListener('click', (e) => {
-        console.log('Remove btn clicked');
-        console.log(e.currentTarget.parentNode.className);
-        e.currentTarget.parentNode.className.remove;
-    })
+        div.appendChild(input1);
+        div.appendChild(input2);
+        div.appendChild(minusBtn);
+        
+        // document.querySelector('.cusParValues').style.display = 'flex';
+        document.querySelector('.cusParValues').appendChild(div);
+        // document.querySelector('.cusParValues').appendChild(br);
+        
 })
 
  // Remove existing corresponding custom value boxes
+document.addEventListener('click', (e) => {
+    if (e.target && e.target.className == "btn-remove"){
+        console.log('Remove btn clicked');
+        let divToRem = e.target.parentNode.id;
+        // console.log(divToRem);
+        document.querySelector(`#${divToRem}`).style.display = 'none';
+    }
+}); 
+    
 
- 
+    
+    
+
+
+
+
 
 
 

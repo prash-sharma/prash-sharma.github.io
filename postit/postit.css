@@ -26,6 +26,13 @@ body {
     background: rgb(205, 209, 216);
     border: none;
     font-size: 16px;
+    border-radius: 4px;
+}
+
+[type = "text"]:focus {
+    
+    outline-color: rgb(150, 155, 163);
+
 }
 
 
@@ -39,7 +46,7 @@ body {
     width: 20%;
 }
 
-.requests-container, .conType-container, .results{
+.requests-container, .conType-container{
     display: flex;
     flex-direction: row;
     margin: 10px;
@@ -88,7 +95,7 @@ body {
     align-items: flex-start;
 }
 
-.get, .post, .json, .cus-par {
+.get, .post, .language-js, .cus-par {
     margin: 3px 0px 3px;
 }
 
@@ -99,13 +106,12 @@ body {
     margin-top: 3px;
 }
 
-.cusParDiv {
+.cusParDiv, .cusParDivRem {
     display: flex;
     align-items: flex-start;
-    /* justify-content: space-around; */
-    /* justify-content: first baseline; */
     justify-content: space-between;
     width: 80%;
+    margin-bottom: 10px;
 }
 
 .cusParEntry {
@@ -134,26 +140,19 @@ body {
 
 .results {
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    
 }
 
-/* .code-toolbar{
+.code-toolbar {
     width: 60%;
-    display: flex;
-
-} */
-
-/* .language-javascript{
-    width: 100%;   
-} */
+}
 
 pre{
-    width: 60%;
-    display: block;
-}
-
-code#resultPrism {
-    display: inline-flexbox;
-    max-width: 100%;
+    /* width: 80%; */
+    display: flex;
     height: 300px;
 }
 
