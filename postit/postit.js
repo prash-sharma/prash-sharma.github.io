@@ -89,6 +89,7 @@ function displayData(data){
     console.log(data);
     loader.hidden = true;
     result.innerHTML = data;
+    Prism.highlightAll();
     console.log(result.textContent);
     }
     
