@@ -135,12 +135,12 @@ document.querySelector('.btn-add').addEventListener('click', () => {
 })
 
  // Remove existing corresponding custom value boxes
-document.addEventListener('click', (e) => {
+document.querySelector('.cusParValues').addEventListener('click', (e) => {
     if (e.target && e.target.className == "btn-remove"){
         console.log('Remove btn clicked');
         let divToRem = e.target.parentNode.id;
         // console.log(divToRem);
-        document.querySelector(`#${divToRem}`).style.display = 'none';
+        document.querySelector(`#${divToRem}`).remove();
     }
 }); 
     
