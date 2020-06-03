@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Helloworld from './Helloworld.js'
+// import Helloworld from './Helloworld.js';
+import Avatar from './Avatar.js';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Helloworld />
+    <Avatar />    
+    {/* <Helloworld name='world' /> */}
+    
   </React.StrictMode>,
   document.getElementById('root')
 );
