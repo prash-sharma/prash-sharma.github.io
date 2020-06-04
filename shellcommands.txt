@@ -1,0 +1,112 @@
+The very basics
+The most basic terms you'll need to survive on the command line:
+
+cd
+Short for change directory and will navigate to the directory specified after the command.
+
+For example, cd Users/Sites/ will move you into the Users/Sites folder.
+
+To navigate back one directory (to the current locations parent directory) use cd ../. To return to your home directory type cd. To return to the previous directory you were located in type cd -.
+
+Using the ~ character means to use the $HOME internal variable, which is usually the root directory of the current user. So for example typing cd ~/ means to traverse from the users home directory.
+
+To navigate to a folder which has spaces in its folder name, use cd /Users/Ash/My\ Folder\ Name/ where the \ escapes each space or cd “/Users/Ash/My Folder Name/".
+
+mkdir
+Short for make directory and, as you might have guessed, this command creates a directory. Usage is like so mkdir my-directory-name.
+pwd
+Displays the path of the current directory. Useful for finding your current terminal location in the filesystem.
+touch
+Creates a file. Used like so: touch index.html or can be used to create multiple files by writing touch index.html default.css.
+cp
+Short for copy. Used like so: cp /Users/Ash/originalfile.txt tmp/copiedfile.txt.
+ls
+Short for list. Lists all files in a directory.
+
+To view files as a vertical list use ls -l.
+
+To view all files including hidden ones use ls -a.
+
+To view only directories, type ls -l | grep '^d'
+
+mv
+Short for move. Used in the same way as copy (cp).
+rm
+Short for remove (more commonly known as deleting). To remove a folder use rm -rf folder-name.
+open
+Opens a file.
+
+open . opens the current directory in a Finder window.
+
+man
+Short for manual. For example, man rm will display information about the rm command.
+A useful reference if you'd like to see more detail about what specific characters mean when using them on the command line is Chapter 3 of The Bash Reference Manual.
+
+Useful Keyboard Shortcuts
+Tab
+Autocomplete a path. When entering a long path name it can be tedious to type out, hitting tab will autocomplete as much of the filename as it can match from what you have already typed. Hitting tab twice will show all options available that match what you have written. This enables quicker traversing of folders and files.
+↑ (Up Arrow)
+Toggles trough previously entered commands. Useful for repeating long commands that are still in the terminal history.
+Alt + ← or → (Left or Right Arrow)
+Skips word. Useful when navigating through long commands you have typed.
+Alt + Mouse click
+Holding down the Alt key and then using your mouse enables you to move your cursor to a specific part of the typed command. Useful when needing to edit commands that are quite long.
+Ctrl + A
+Move the terminal cursor position to the start of the line.
+Ctrl + E
+Move the terminal cursor position to the end of the line.
+Ctrl + XX (X pressed twice)
+Toggle the cursor position between the start of the line and its current position.
+Ctrl + U
+Clear all text behind the terminal cursor. So pressing this when at the end of a line will clear the whole line.
+Ctrl + W
+Cut the word before the cursor to the terminal clipboard.
+Ctrl + Y
+Paste the last thing to be cut to the clipboard.
+Cmd + T
+Opens up a new terminal window in a separate tab.
+Cmd + Shift + ← or → (Left or Right Arrow)
+Navigate between open terminal tabs.
+Ctrl + C
+Stop Process from running. Useful when running grunt or git commands for example if you realise you don't want them to run after executing them.
+Ctrl + Z
+Suspend process. Different to Ctrl + C as it doesn’t completely stop the process – you can return to it later by entering fg 'process name' where fg stands for foreground.
+Ctrl + R
+Search through your terminal history. Let’s you start typing to find a command you have previously written. Hugely useful for recalling longer commands you have previously written.
+Building on the basics
+clear
+Clears the current window, although you will still be able to scroll back up to see your history. You can also use Ctrl + L as a shortcut.
+
+If you use iTerm (see later in article), you can also clear the screen with Cmd + K
+
+!!
+Repeat the previous command executed. For example, if you needed to repeat the previous command with admin privileges, you could type sudo !!.
+&&
+Lets you chain commands. So cd Sites/AshsFolder && mkdir css will change the directory to the Folder “Sites/AshsFolder” and create a new folder called "css".
+killall
+Kills an Application dead. So for example, typing killall Finder will restart all Finder windows.
+-v
+Requests the version of the operator being called. So ruby -v will display the version of ruby installed.
+
+Sometimes, packages can use a slightly different terminology such as Git which uses git —version.
+
+caffeinate
+Prevents Mac from sleeping.
+ping
+Will attempt to ping a web server and give a response. Ping sends very small bits of information over a network to a remote computer, timing how long it takes for a response to be received. So typing ping www.bbc.co.uk attempts to get a response from www.bbc.co.uk and will tell you the response time. Useful for checking if a server is responding or to find the external IP of a web address.
+top
+View all active processes.
+grep
+Find text inside files.
+Find local IP Address
+ipconfig getifaddr en1
+Find external IP Address
+curl ipecho.net/plain; echo
+View file system usage in realtime
+sudo fs_usage
+Changing system preferences
+You can change all sorts of OSX preferences straight from your command line. If you know about dotfiles, then an OSX dotfile simply runs a set of bash commands on your command line to make a set of preference changes.
+
+For example, to show hidden files and folders in Finder windows, you can run this command in your terminal – defaults write com.apple.finder AppleShowAllFiles -bool TRUE; killall Finder.
+
+To see more examples of preference command line, checkout my OSX dotfile.
