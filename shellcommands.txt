@@ -2,45 +2,51 @@ The very basics
 The most basic terms you'll need to survive on the command line:
 
 cd
-Short for change directory and will navigate to the directory specified after the command.
+    Short for change directory and will navigate to the directory specified after the command.
 
-For example, cd Users/Sites/ will move you into the Users/Sites folder.
+    For example, cd Users/Sites/ will move you into the Users/Sites folder.
 
-To navigate back one directory (to the current locations parent directory) use cd ../. To return to your home directory type cd. To return to the previous directory you were located in type cd -.
+    To navigate back one directory (to the current locations parent directory) use cd ../. To return to your home directory type cd. To return to the previous directory you were located in type cd -.
 
-Using the ~ character means to use the $HOME internal variable, which is usually the root directory of the current user. So for example typing cd ~/ means to traverse from the users home directory.
+    Using the ~ character means to use the $HOME internal variable, which is usually the root directory of the current user. So for example typing cd ~/ means to traverse from the users home directory.
 
-To navigate to a folder which has spaces in its folder name, use cd /Users/Ash/My\ Folder\ Name/ where the \ escapes each space or cd “/Users/Ash/My Folder Name/".
+    To navigate to a folder which has spaces in its folder name, use cd /Users/Ash/My\ Folder\ Name/ where the \ escapes each space or cd “/Users/Ash/My Folder Name/".
 
 mkdir
-Short for make directory and, as you might have guessed, this command creates a directory. Usage is like so mkdir my-directory-name.
+    Short for make directory and, as you might have guessed, this command creates a directory. Usage is like so mkdir my-directory-name.
+
 pwd
-Displays the path of the current directory. Useful for finding your current terminal location in the filesystem.
+    Displays the path of the current directory. Useful for finding your current terminal location in the filesystem.
+    
 touch
-Creates a file. Used like so: touch index.html or can be used to create multiple files by writing touch index.html default.css.
+    Creates a file. Used like so: touch index.html or can be used to create multiple files by writing touch index.html default.css.
+
 cp
-Short for copy. Used like so: cp /Users/Ash/originalfile.txt tmp/copiedfile.txt.
+    Short for copy. Used like so: cp /Users/Ash/originalfile.txt tmp/copiedfile.txt.
+
 ls
-Short for list. Lists all files in a directory.
+    Short for list. Lists all files in a directory.
 
-To view files as a vertical list use ls -l.
+    To view files as a vertical list use ls -l.
 
-To view all files including hidden ones use ls -a.
+    To view all files including hidden ones use ls -a.
 
-To view only directories, type ls -l | grep '^d'
+    To view only directories, type ls -l | grep '^d'
 
 mv
-Short for move. Used in the same way as copy (cp).
+    Short for move. Used in the same way as copy (cp).
+
 rm
-Short for remove (more commonly known as deleting). To remove a folder use rm -rf folder-name.
+    Short for remove (more commonly known as deleting). To remove a folder use rm -rf folder-name.
+    
 open
-Opens a file.
+    Opens a file.
 
 open . opens the current directory in a Finder window.
 
 man
-Short for manual. For example, man rm will display information about the rm command.
-A useful reference if you'd like to see more detail about what specific characters mean when using them on the command line is Chapter 3 of The Bash Reference Manual.
+    Short for manual. For example, man rm will display information about the rm command.
+    A useful reference if you'd like to see more detail about what specific characters mean when using them on the command line is Chapter 3 of The Bash Reference Manual.
 
 Useful Keyboard Shortcuts
 Tab
