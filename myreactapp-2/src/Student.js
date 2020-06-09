@@ -1,20 +1,54 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Marks from "./Marks";
 
-// Class based component with constructor
-class Student extends Component{
-    constructor(props){
-        super(props)
+
+export default class Student extends Component{
+    constructor(){
+        super();
         this.state = {
-            name: this.props.name,
-            roll: this.props.roll
+            roll: 101
         }
     }
+    
+    update = () => {
+        console.log('Update btn clicked');
+        // this.setState({roll: 102});
+        this.setState({roll: this.state.roll + 2});
+
+        console.log(this.state.roll);
+        
+        
+    }
+
     render(){
-    return <h1>Hello {this.props.name}, your roll number is {this.state.roll}</h1>
+        return(
+            <div>
+                <h1>Hello </h1>
+                <Marks roll={this.state.roll}/>
+                <button onClick={this.update}>Update roll</button>
+            </div>
+        )
     }
 }
 
-export default Student;
+
+// import React, { Component } from 'react';
+
+// // Class based component with constructor
+// class Student extends Component{
+//     constructor(props){
+//         super(props)
+//         this.state = {
+//             name: this.props.name,
+//             roll: this.props.roll
+//         }
+//     }
+//     render(){
+//     return <h1>Hello {this.props.name}, your roll number is {this.state.roll}</h1>
+//     }
+// }
+
+// export default Student;
 
 // Fn based component
 // const Student = (props) =>{

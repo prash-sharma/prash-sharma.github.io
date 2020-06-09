@@ -1,16 +1,28 @@
-import React from "react";
-import Event from "./Event"
-// import Student from './Student';
 
-const App = () => {
-  return(
-    <>
-      <Event name="Buddy"/>
-    </>
-  )
-}
 
-export default App;
+
+
+
+
+
+
+
+
+
+
+// import React from "react";
+// import Event from "./Event"
+// // import Student from './Student';
+
+// const App = () => {
+//   return(
+//     <>
+//       <Event name="Buddy"/>
+//     </>
+//   )
+// }
+
+// export default App;
 
 
 // Funtion based

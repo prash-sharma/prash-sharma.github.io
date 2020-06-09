@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App'
-// import Student from './Student'
+// import App from './App'
+import Student from './Student'
+// import Mounting from "./Mounting"
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Student />, document.getElementById('root'));
 
 
 
