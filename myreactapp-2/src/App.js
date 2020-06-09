@@ -1,12 +1,11 @@
 import React from "react";
-import Student from './Student';
+import Event from "./Event"
+// import Student from './Student';
 
 const App = () => {
   return(
     <>
-      <Student name="Bhote" roll="100" />
-      <Student name="Sid" roll="101"/>
-      <Student name="Aaron" roll="102"/>
+      <Event name="Buddy"/>
     </>
   )
 }
