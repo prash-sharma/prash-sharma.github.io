@@ -4,9 +4,9 @@ import Student from './Student';
 const App = () => {
   return(
     <>
-      <Student name="Bhote" />
-      <Student name="Sid" />
-      <Student name="Aaron" />
+      <Student name="Bhote" roll="100" />
+      <Student name="Sid" roll="101"/>
+      <Student name="Aaron" roll="102"/>
     </>
   )
 }
