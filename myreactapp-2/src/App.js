@@ -1,3 +1,20 @@
+import React, {useState} from 'react';
+
+const App = () => {
+    // const nameStateVar = useState('Someguy');
+    const [name, setName] = useState('Someguy');
+    const handleClick = () => {
+        setName('Another guy');
+    }
+
+    return <React.Fragment>
+        <h1>{name}</h1>
+        <button type="button" onClick={handleClick}>Change</button>
+    </React.Fragment>
+}
+
+export default App;
+
 
 
 
