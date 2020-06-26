@@ -15,11 +15,11 @@
       "email": "chowmin@momo.com"
     },
     {
-      "id": 3,
       "name": "Thukpa Hut",
-      "address": "Nagarkot",
+      "address": "Banepa",
       "rating": "4.0",
-      "email": "thukpa@momo.com"
+      "email": "thukpa@momo.com",
+      "id": 3
     },
     {
       "id": 4,
@@ -27,6 +27,41 @@
       "address": "Lalitpur",
       "rating": "4.5",
       "email": "chatamari@momo.com"
+    },
+    {
+      "name": "Chhoila House",
+      "address": "Thamel",
+      "rating": "2.3",
+      "email": "chh@ch.com",
+      "id": 5
+    },
+    {
+      "name": "Chhoila House",
+      "address": "Thamel",
+      "rating": "2.3",
+      "email": "chh@ch.com",
+      "id": 6
+    },
+    {
+      "name": "New rest",
+      "address": "Ktm",
+      "rating": "4",
+      "email": "nr@nr.com",
+      "id": 12
+    },
+    {
+      "name": "A new one",
+      "address": "Butwal",
+      "rating": "5",
+      "email": "a@b.com",
+      "id": 13
+    },
+    {
+      "name": "Hello res",
+      "address": "Jupiter",
+      "rating": "4.9",
+      "email": "hel@res.com",
+      "id": 14
     }
   ]
 }

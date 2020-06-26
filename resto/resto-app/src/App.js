@@ -8,6 +8,7 @@ import RestDetails from './components/RestDetails';
 import RestSearch from './components/RestSearch';
 import RestUpdate from './components/RestUpdate';
 import RestList from './components/RestList';
+import {Nav, Navbar} from 'react-bootstrap';
 
 
 
@@ -15,49 +16,43 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/list">List</Link>
-          </li>
-          <li>
-            <Link to="/create">Create</Link>
-          </li>
-          <li>
-            <Link to="/search">Search</Link>
-          </li>
-          <li>
-            <Link to="/update">Update</Link>
-          </li>
-          <li>
-          <Link to="/details">Details</Link>
-          </li>  
-        </ul>
+        <Navbar bg="light" expand="lg">
+          <Navbar.Brand><Link to="/">Foods</Link></Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Link to="/" className="navlinks">Home</Link>
+              <Link to="/list" className="navlinks">List</Link>
+              <Link to="/create" className="navlinks">Create</Link>
+              <Link to="/search" className="navlinks">Search</Link>
+              <Link to="/update" className="navlinks">Update</Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
 
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route path="/list">
-        <RestList />
-      </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
 
-      <Route path="/create">
-        <RestCreate />
-      </Route>
+        <Route path="/list">
+          <RestList />
+        </Route>
 
-      <Route path="/Search">
-        <RestSearch />
-      </Route>
+        <Route path="/create">
+          <RestCreate />
+        </Route>
 
-      <Route path="/update">
-        <RestUpdate />
-      </Route>
+        <Route path="/Search">
+          <RestSearch />
+        </Route>
 
-      <Route path="/details">
-        <RestDetails />
-      </Route>
+        <Route path="/update/:id" render={(props) => (<RestUpdate {...props} />)}>
+          
+        </Route>
+
+        <Route path="/details">
+          <RestDetails />
+        </Route>
 
       </Router>
     </div>
