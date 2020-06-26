@@ -1,7 +1,32 @@
 {
-    "restaurant": [
-      { "id": 1, "title": "json-resto", "author": "prash" },
-      { "id": 2, "title": "java-resto", "author": "sid" }
-    ]
-    
-  }
+  "restaurant": [
+    {
+      "id": 1,
+      "name": "Momo Hut",
+      "address": "Kathmandu",
+      "rating": "4.5",
+      "email": "momo@momo.com"
+    },
+    {
+      "id": 2,
+      "name": "Chowmin Hut",
+      "address": "Pokhara",
+      "rating": "4.5",
+      "email": "chowmin@momo.com"
+    },
+    {
+      "id": 3,
+      "name": "Thukpa Hut",
+      "address": "Nagarkot",
+      "rating": "4.0",
+      "email": "thukpa@momo.com"
+    },
+    {
+      "id": 4,
+      "name": "Chatamari Hut",
+      "address": "Lalitpur",
+      "rating": "4.5",
+      "email": "chatamari@momo.com"
+    }
+  ]
+}
