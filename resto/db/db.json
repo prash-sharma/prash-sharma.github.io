@@ -1,67 +1,18 @@
 {
   "restaurant": [
     {
-      "id": 1,
-      "name": "Momo Hut",
-      "address": "Kathmandu",
-      "rating": "4.5",
-      "email": "momo@momo.com"
+      "name": "ab",
+      "address": "cd",
+      "rating": "gh",
+      "email": "ef",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Chowmin Hut",
-      "address": "Pokhara",
-      "rating": "4.5",
-      "email": "chowmin@momo.com"
-    },
-    {
-      "name": "Thukpa Hut",
-      "address": "Banepa",
-      "rating": "4.0",
-      "email": "thukpa@momo.com",
-      "id": 3
-    },
-    {
-      "id": 4,
-      "name": "Chatamari Hut",
-      "address": "Lalitpur",
-      "rating": "4.5",
-      "email": "chatamari@momo.com"
-    },
-    {
-      "name": "Chhoila House",
-      "address": "Thamel",
-      "rating": "2.3",
-      "email": "chh@ch.com",
-      "id": 5
-    },
-    {
-      "name": "Chhoila House",
-      "address": "Thamel",
-      "rating": "2.3",
-      "email": "chh@ch.com",
-      "id": 6
-    },
-    {
-      "name": "New rest",
-      "address": "Ktm",
-      "rating": "4",
-      "email": "nr@nr.com",
-      "id": 12
-    },
-    {
-      "name": "A new one",
-      "address": "Butwal",
-      "rating": "5",
-      "email": "a@b.com",
-      "id": 13
-    },
-    {
-      "name": "Hello res",
-      "address": "Jupiter",
-      "rating": "4.9",
-      "email": "hel@res.com",
-      "id": 14
+      "name": "ij",
+      "address": "kl",
+      "rating": "op",
+      "email": "mn",
+      "id": 2
     }
   ]
 }

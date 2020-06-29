@@ -13,7 +13,7 @@ export default class RestCreate extends Component {
     }
     create(){
         fetch('http://localhost:3000/restaurant', {
-            method: "Post",
+            method: "POST",
             headers: {
                 'Content-type': 'application/json'
             },
