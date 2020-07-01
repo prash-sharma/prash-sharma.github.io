@@ -5,9 +5,10 @@ export default class RestCreate extends Component {
         super();
         this.state = {
             name: "",
-            address: "",
-            rating: "",
-            email: ""
+            role: "",
+            expertise: "",
+            from: "",
+            image: ""
 
         }
     }
@@ -27,12 +28,13 @@ export default class RestCreate extends Component {
     render() {
         return (
             <div>
-                <h1>Create restaurant</h1>
+                <h1>Add member</h1>
                 <div>
                     Name: <input onChange = {(event) => {this.setState({name: event.target.value})}} placeholder = "Rest name"/><br/><br/>
-                    Address: <input onChange = {(event) => {this.setState({address: event.target.value})}} placeholder = "Rest address"/><br/><br/>
-                    Email: <input onChange = {(event) => {this.setState({email: event.target.value})}} placeholder = "Rest email"/><br/><br/>
-                    Rating: <input onChange = {(event) => {this.setState({rating: event.target.value})}} placeholder = "Rest rating"/><br/><br/>
+                    Role: <input onChange = {(event) => {this.setState({role: event.target.value})}} placeholder = "Rest address"/><br/><br/>
+                    Expertise: <input onChange = {(event) => {this.setState({expertise: event.target.value})}} placeholder = "Rest email"/><br/><br/>
+                    From: <input onChange = {(event) => {this.setState({from: event.target.value})}} placeholder = "Rest rating"/><br/><br/>
+                    Image: <input type="file" onChange = {(event) => {this.setState({image: event.target.value})}} /><br/><br/>
                 </div>
                 <button onClick = {() => {this.create()}}>Create</button>
             </div>

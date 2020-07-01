@@ -19,7 +19,7 @@ export default class RestList extends Component {
     }
 
     getList(){
-        fetch('http://localhost:3000/restaurant/?q=').then((response) => {
+        fetch('http://localhost:3000/restaurant/').then((response) => {
             response.json().then((result) => {
                 this.setState({
                     list: result,
@@ -59,7 +59,7 @@ export default class RestList extends Component {
         console.log(this.state.list);
         return (    
             <div>                
-                <h3>Restaurant List ({this.state.count})</h3>
+                <h3>Member List ({this.state.count})</h3>
                 
                 { this.state.list? 
                     <div>
@@ -67,10 +67,11 @@ export default class RestList extends Component {
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Image</th>
                                     <th>Name</th>
-                                    <th>Location</th>
-                                    <th>Rating</th>
-                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Expertise</th>
+                                    <th>From</th>
                                     <th>Operation</th>
                                 </tr>
                             </thead>
@@ -79,10 +80,11 @@ export default class RestList extends Component {
                                 {this.state.list.map((item, i) => (
                                     <tr key={i}>
                                         <td>{item.id}</td>
+                                        <td>{item.image}</td>
                                         <td>{item.name}</td>
-                                        <td>{item.address}</td>
-                                        <td>{item.rating}</td>
-                                        <td>{item.email}</td>
+                                        <td>{item.role}</td>
+                                        <td>{item.expertise}</td>
+                                        <td><a href={item.from} target="_blank" rel="noopener noreferrer">Location</a> </td>
                                         <td>
                                             <Link to={"/update/"+item.id} className="navlinks"><FontAwesomeIcon icon={faEdit}  /></Link>
                                             <i onClick={() => this.deleteConfirm(item.id)}><FontAwesomeIcon icon={faTrash} color = "orange" background = "none"/></i>

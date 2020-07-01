@@ -5,9 +5,9 @@ export default class RestUpdate extends Component {
         super();
         this.state = {
             name: "",
-            address: "",
-            rating: "",
-            email: "",
+            role: "",
+            expertise: "",
+            from: "",
             id: ""
         }
     }
@@ -17,9 +17,10 @@ export default class RestUpdate extends Component {
             response.json().then((result) => {
                 this.setState({
                     name: result.name,
-                    address: result.address,
-                    rating: result.rating,
-                    email: result.email,
+                    role: result.role,
+                    expertise: result.expertise,
+                    from: result.from,
+                    image: result.image,
                     id: result.id
                 })
             })
@@ -48,10 +49,11 @@ export default class RestUpdate extends Component {
                 <h2>Update </h2>
                 <h3 style={{color:"blue"}}>{this.state.name}</h3> 
                 <div>
-                    <input onChange = {(event) => {this.setState({name: event.target.value})}} placeholder = "Rest name" value = {this.state.name} /><br/><br/>
-                    <input onChange = {(event) => {this.setState({address: event.target.value})}} placeholder = "Rest address" value = {this.state.address}/><br/><br/>
-                    <input onChange = {(event) => {this.setState({email: event.target.value})}} placeholder = "Rest email" value = {this.state.email}/><br/><br/>
-                    <input onChange = {(event) => {this.setState({rating: event.target.value})}} placeholder = "Rest rating" value = {this.state.rating}/><br/><br/>
+                    <input value = {this.state.name} placeholder = "Name" onChange = {(event) => {this.setState({name: event.target.value})}} /><br/><br/>
+                    <input value = {this.state.role} placeholder = "Role"  onChange = {(event) => {this.setState({role: event.target.value})}} /><br/><br/>
+                    <input value = {this.state.expertise} placeholder = "Expertise" onChange = {(event) => {this.setState({expertise: event.target.value})}} /><br/><br/>
+                    <input value = {this.state.from} placeholder = "From" onChange = {(event) => {this.setState({from: event.target.value})}} /><br/><br/>
+                    <input value = {this.state.image} type="file" onChange = {(event) => {this.setState({image: event.target.value})}} /><br/><br/>
                     <button onClick = {() => {this.update()}}>Update</button>
                 </div>
             </div>
