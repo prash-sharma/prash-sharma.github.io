@@ -4,9 +4,9 @@
 
 nav{
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
-  min-height: 10vh;
+  min-height: 5vh;
   background: gray;
 }
 
@@ -16,4 +16,27 @@ nav{
   justify-content: space-around;
   align-items: center;
   list-style: none;
+}
+
+table { border-collapse:collapse; }
+table thead th { border-bottom: 1px solid #000; }
+
+tr {
+  
+  border-bottom: 1px solid black;
+  align-items: center;
+  height: 30px;
+}
+
+
+.members{
+  text-align: center;
+}
+
+table{
+  display: inline-block;
+}
+
+input{
+  margin: 15px;
 }

@@ -1,0 +1,20 @@
+{
+  "members": [
+    {
+      "name": "Guy1",
+      "role": "something",
+      "expertise": "everything",
+      "from": "https://goo.gl/maps/L2Nuaz7Poy2STpL3A",
+      "image": "",
+      "id": 1
+    },
+    {
+      "name": "Guy3",
+      "role": "something",
+      "expertise": "everything",
+      "from": "https://goo.gl/maps/L2Nuaz7Poy2STpL3A",
+      "image": "",
+      "id": 3
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Contact() {
+export default function Search() {
     return (
         <div>
-            <h1>Contact</h1>
+            <input type='search' />
         </div>
     )
 }
