@@ -1,14 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import '../App.css';
 import {Link} from 'react-router-dom';
+import edit from '../images/edit.png';
+import deleteIcon from '../images/deleteIcon.png';
 
 export default function Members() {
-
+    const editStyle = {
+        width: '20px',
+        height: '20px'
+    }
     useEffect(()=>{
         fetchItems();
     }, [])
 
-    const [items, setItems] = useState([])
+    const [items, setItems] = useState([]);
+    const [isShown, setIsShown] = useState(false);
 
     async function fetchItems(){
         const res = await fetch(`http://localhost:3000/members`);
@@ -18,7 +24,7 @@ export default function Members() {
     }
 
     function deleteConfirm(item){
-        let confirmation = (window.confirm(`Are you sure you wish to delete ${item.name} entry?`));
+        let confirmation = (window.confirm(`Are you sure you wish to delete ${item.name}?`));
 
         if (confirmation){
             console.log("Delete triggered");
@@ -44,10 +50,9 @@ export default function Members() {
 
     return (
         <div className="members">
-            <h1>Members list ({items.length})</h1>
-            <table>
+            <h1>Members ({items.length})</h1>
+            <table className='memberTable'>
                 <thead>
-                    
                     <tr>
                         <th>#</th>
                         <th>Image</th>
@@ -61,7 +66,8 @@ export default function Members() {
                 
                 <tbody>
                 {items.map((item) => (
-                    <tr key={item.id}>
+                    <tr key={item.id} onMouseEnter={()=>{setIsShown(true)}}
+                    onMouseLeave={()=>{setIsShown(false)}}>
                         <td>{item.id}</td>
                         <td>{item.image}</td>
                         <td>{item.name}</td>
@@ -69,9 +75,13 @@ export default function Members() {
                         <td>{item.expertise}</td>
                         <td>{item.from}</td>
                         <td>
-                            <Link to={`/update/${item.id}`} className="navlinks">Update</Link>
-                            <i onClick={() => deleteConfirm(item)}>Delete</i>
-                        </td>
+                        {isShown && (
+                            <>
+                                <Link to={`/update/${item.id}`} className="navlinks"><img style={editStyle} src={edit} alt="edit" /></Link>
+                                <Link to={``} onClick={() => deleteConfirm(item)}><img style={editStyle} src={deleteIcon} alt="edit" /></Link>
+                            </>
+                        )}
+                        </td>   
                     </tr>
                     ))}
                 </tbody>

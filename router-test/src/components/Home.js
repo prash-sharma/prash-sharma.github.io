@@ -5,7 +5,7 @@ import Search from './Search';
 export default function Home() {
     return (
         <div>
-            <h1>Home page</h1>
+            <h1>Fire Home</h1>
             <Search />
             <Members />
         </div>

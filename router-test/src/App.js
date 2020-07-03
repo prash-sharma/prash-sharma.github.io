@@ -5,7 +5,8 @@ import Nav from './components/Nav';
 import Members from './components/Members';
 import Create from './components/Create';
 import Home from './components/Home';
-import Update from './components/Update'
+import Update from './components/Update';
+import Roadmap from './components/Roadmap'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/members" component={Members} />
           <Route path="/create" component={Create} />
           <Route path="/update/:id" component={Update} />
+          <Route path="/roadmap/" component={Roadmap} />
         </Switch>
       </div>
     </Router>
