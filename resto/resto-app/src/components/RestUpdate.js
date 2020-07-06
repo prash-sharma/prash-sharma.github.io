@@ -24,8 +24,7 @@ export default class RestUpdate extends Component {
                     id: result.id
                 })
             })
-        })
-            
+        })   
     }
 
     update(){

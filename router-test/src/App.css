@@ -68,6 +68,8 @@ tbody td {
 
 table{
   display: inline-block;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 input{

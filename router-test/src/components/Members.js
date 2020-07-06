@@ -50,7 +50,7 @@ export default function Members() {
 
     return (
         <div className="members">
-            <h1>Members ({items.length})</h1>
+            <h2>Members ({items.length})</h2>
             <table className='memberTable'>
                 <thead>
                     <tr>
@@ -73,7 +73,7 @@ export default function Members() {
                         <td>{item.name}</td>
                         <td>{item.role}</td>
                         <td>{item.expertise}</td>
-                        <td>{item.from}</td>
+                        <td> <a href = {item.from} target='_blank' rel="noopener noreferrer">{item.from}</a></td>
                         <td>
                         {isShown && (
                             <>

@@ -1,65 +1,173 @@
-import React, { Component } from 'react'
+import React, {useEffect, useState} from 'react';
+import Notification from './Notification'
 
-export default class Update extends Component {
-    constructor(){
-        super();
-        this.state = {
-            name: '',
-            role: '',
-            expertise: '',
-            from: '',
-            image: ''
 
+export default function Update({match}) {
+    console.log(match);
+
+    useEffect(()=>{
+        async function fetchMember(){
+            let res = await fetch(`http://localhost:3000/members/${match.params.id}`);
+            let data = await res.json()
+            console.log(data);
+            setMember(data);
         }
+        fetchMember();
+    }, [match])
+
+    const [member, setMember] = useState({name:''});
+    const [notify, setNotify] = useState(false);
+    
+    const memberName = member.name;
+   
+    function updateMember(member){
+        console.log(member);
+        
+        fetch(`http://localhost:3000/members/${member.id}`, {
+                        method: "PUT",
+                        headers: {
+                            'Content-type': 'application/json'
+                        },
+                        body: JSON.stringify(member)
+                    }).then(() =>{
+                        setNotify(true);
+                    })
     }
 
-    componentDidMount(){
-        fetch('http://localhost:3000/members/'+this.props.match.params.id).then((response) => {
-            response.json().then((result) => {
-                this.setState({
-                    name: result.name,
-                    role: result.role,
-                    expertise: result.expertise,
-                    from: result.from,
-                    image: result.image,
-                    id: result.id
-                })
-            })
-        })   
-    }
+    
+    
+    return (
+        <div>
+            
+            <h2>Update member: {memberName}</h2>
+            Name:   <input 
+                        type='text' 
+                        value ={member.name || ''} 
+                        onChange={(e)=>{
+                            e.persist();
+                            setMember((member)=>{
+                                return {...member, name: e.target.value}
+                            })
+                        }}/> <br />
 
-    updateMember() {
-        fetch('http://localhost:3000/members/'+this.state.id, {
-            method: "PUT",
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(this.state)
-        }).then((result) => {
-            result.json()
-            // add passive success notification
-        })
-    }
+            Role:   <input 
+                        type='text' 
+                        value ={member.role || ''} 
+                        onChange={(e)=>{
+                            e.persist();
+                            setMember((member)=>{
+                                return {...member, role: e.target.value}
+                            })
+                        }}/> <br />
 
-    render() {
-        return (
-            <div>
-                <h1>Update member</h1>
-                 Name <br />
-                 <input value={this.state.name} onChange = {(event) => {this.setState({name: event.target.value})}} placeholder = "Rest name"/><br/><br/>
-                 Role <br />
-                 <input value={this.state.role} onChange = {(event) => {this.setState({role: event.target.value})}} placeholder = "Rest address"/><br/><br/>
-                 Expertise <br />
-                 <input value={this.state.expertise} onChange = {(event) => {this.setState({expertise: event.target.value})}} placeholder = "Rest email"/><br/><br/>
-                 From <br />
-                 <input value={this.state.from} onChange = {(event) => {this.setState({from: event.target.value})}} placeholder = "Rest rating"/><br/><br/>
-                 Image <br />
-                 <input type="file" onChange = {(event) => {this.setState({image: event.target.value})}} /><br/><br/>
-                 <button onClick = {() => {this.updateMember()}}>Update</button>
-            </div>
-        )
-    }
+            Expertise:<input 
+                        type='text' 
+                        value ={member.expertise || ''} 
+                        onChange={(e)=>{
+                            e.persist();
+                            setMember((member)=>{
+                                return {...member, expertise: e.target.value}
+                            })
+                        }}/> <br />
+
+            From:   <input 
+                        type='text' 
+                        value ={member.from || ''} 
+                        onChange={(e)=>{
+                            e.persist();
+                            setMember((member)=>{
+                                return {...member, from: e.target.value}
+                            })
+                        }}/> <br />
+
+            Image:  <input 
+                        type='file' 
+                        value ={member.image || ''} 
+                        onChange={(e)=>{
+                            e.persist();
+                            setMember((member)=>{
+                                return {...member, image: e.target.value}
+                            })
+                        }}/> <br />
+
+            <button onClick = {()=>{updateMember(member)}}>Submit</button>
+             
+            
+             <div>
+                 {notify ? setTimeout(()=>{
+                    return <Notification />
+                 }, 3000)  : <> </>}
+            </div>           
+            
+        </div>
+    )
 }
+
+
+
+
+// import React, { Component } from 'react'
+
+// export default class Update extends Component {
+//     constructor(){
+//         super();
+//         this.state = {
+//             name: '',
+//             role: '',
+//             expertise: '',
+//             from: '',
+//             image: ''
+
+//         }
+//     }
+
+//     componentDidMount(){
+//         fetch('http://localhost:3000/members/'+this.props.match.params.id).then((response) => {
+//             response.json().then((result) => {
+//                 this.setState({
+//                     name: result.name,
+//                     role: result.role,
+//                     expertise: result.expertise,
+//                     from: result.from,
+//                     image: result.image,
+//                     id: result.id
+//                 })
+//             })
+//         })   
+//     }
+
+//     updateMember() {
+//         fetch('http://localhost:3000/members/'+this.state.id, {
+//             method: "PUT",
+//             headers: {
+//                 'Content-type': 'application/json'
+//             },
+//             body: JSON.stringify(this.state)
+//         }).then((result) => {
+//             result.json()
+//             // add passive success notification
+//         })
+//     }
+
+//     render() {
+//         return (
+//             <div>
+//                 <h1>Update member</h1>
+//                  Name <br />
+//                  <input value={this.state.name} onChange = {(event) => {this.setState({name: event.target.value})}} placeholder = "Rest name"/><br/><br/>
+//                  Role <br />
+//                  <input value={this.state.role} onChange = {(event) => {this.setState({role: event.target.value})}} placeholder = "Rest address"/><br/><br/>
+//                  Expertise <br />
+//                  <input value={this.state.expertise} onChange = {(event) => {this.setState({expertise: event.target.value})}} placeholder = "Rest email"/><br/><br/>
+//                  From <br />
+//                  <input value={this.state.from} onChange = {(event) => {this.setState({from: event.target.value})}} placeholder = "Rest rating"/><br/><br/>
+//                  Image <br />
+//                  <input type="file" onChange = {(event) => {this.setState({image: event.target.value})}} /><br/><br/>
+//                  <button onClick = {() => {this.updateMember()}}>Update</button>
+//             </div>
+//         )
+//     }
+// }
 
 
 
