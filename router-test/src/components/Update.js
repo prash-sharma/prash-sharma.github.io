@@ -1,12 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import Notification from './Notification'
+import Notification from './Notification';
+
 
 
 export default function Update({match}) {
     console.log(match);
 
+    const [member, setMember] = useState({name:''});
+    const [notify, setNotify] = useState(false);
+    
+
     useEffect(()=>{
-        async function fetchMember(){
+        async function fetchMember(){            
             let res = await fetch(`http://localhost:3000/members/${match.params.id}`);
             let data = await res.json()
             console.log(data);
@@ -15,10 +20,8 @@ export default function Update({match}) {
         fetchMember();
     }, [match])
 
-    const [member, setMember] = useState({name:''});
-    const [notify, setNotify] = useState(false);
     
-    const memberName = member.name;
+    
    
     function updateMember(member){
         console.log(member);
@@ -33,13 +36,11 @@ export default function Update({match}) {
                         setNotify(true);
                     })
     }
-
-    
     
     return (
         <div>
             
-            <h2>Update member: {memberName}</h2>
+            <h2>Update member: {member.name}</h2>
             Name:   <input 
                         type='text' 
                         value ={member.name || ''} 
