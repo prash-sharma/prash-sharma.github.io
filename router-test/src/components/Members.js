@@ -3,6 +3,7 @@ import '../App.css';
 import {Link} from 'react-router-dom';
 import edit from '../images/edit.png';
 import deleteIcon from '../images/deleteIcon.png';
+import LoadingIndicator from './LoadingIndicator'
 
 export default function Members() {
     const editStyle = {
@@ -15,16 +16,19 @@ export default function Members() {
 
     const [items, setItems] = useState([]);
     const [isShown, setIsShown] = useState(false);
+    const [loader, setLoader] = useState(true);
 
     async function fetchItems(){
         const res = await fetch(`http://localhost:3000/members`);
         const data = await res.json();
         console.log(data.length);
         setItems(data);
+        setLoader(false)
     }
 
     function deleteConfirm(item){
-        let confirmation = (window.confirm(`Are you sure you wish to delete ${item.name}?`));
+        
+        let confirmation = (window.confirm(`Are you sure you want to delete ${item.name}?`));
 
         if (confirmation){
             console.log("Delete triggered");
@@ -34,6 +38,8 @@ export default function Members() {
         async function deleteMemberFunc(id){
             console.log('Ye hahahaha');
 
+            setLoader(true)
+
             await fetch('http://localhost:3000/members/'+id, {
                 method: "DELETE",
                 headers: {
@@ -42,6 +48,7 @@ export default function Members() {
             
             }).then(() => {
                 fetchItems();
+                setLoader(false)
                 // add passive success notification
             })
             
@@ -50,6 +57,7 @@ export default function Members() {
 
     return (
         <div className="members">
+            {loader && (<> <LoadingIndicator /> </>)}
             <h2>Members ({items.length})</h2>
             <table className='memberTable'>
                 <thead>

@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import Notification from './Notification';
+// import Notification from './Notification';
+import LoadingIndicator from './LoadingIndicator';
+import '../App.css';
 
 
 
@@ -8,23 +10,26 @@ export default function Update({match}) {
 
     const [member, setMember] = useState({name:''});
     const [notify, setNotify] = useState(false);
+    const [loader, setLoader] = useState(true)
     
 
-    useEffect(()=>{
+    useEffect(()=>{  
+        
         async function fetchMember(){            
             let res = await fetch(`http://localhost:3000/members/${match.params.id}`);
             let data = await res.json()
             console.log(data);
             setMember(data);
+            setLoader(false);
         }
         fetchMember();
     }, [match])
 
     
-    
    
     function updateMember(member){
         console.log(member);
+        setLoader(true)
         
         fetch(`http://localhost:3000/members/${member.id}`, {
                         method: "PUT",
@@ -33,12 +38,15 @@ export default function Update({match}) {
                         },
                         body: JSON.stringify(member)
                     }).then(() =>{
-                        setNotify(true);
+                        setLoader(false);
                     })
     }
     
     return (
         <div>
+            {loader && (
+                <> <LoadingIndicator /> </>
+            )}
             
             <h2>Update member: {member.name}</h2>
             Name:   <input 
@@ -94,11 +102,7 @@ export default function Update({match}) {
             <button onClick = {()=>{updateMember(member)}}>Submit</button>
              
             
-             <div>
-                 {notify ? setTimeout(()=>{
-                    return <Notification />
-                 }, 3000)  : <> </>}
-            </div>           
+                     
             
         </div>
     )

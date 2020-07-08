@@ -3,8 +3,6 @@ import '../App.css';
 
 export default function LoadingIndicator() {
     return (
-        <div className='loadingIndicator'>
-            
-        </div>
+        <div className='loadingIndicator'></div>
     )
 }

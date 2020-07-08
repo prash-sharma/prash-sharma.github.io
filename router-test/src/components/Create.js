@@ -1,10 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import LoadingIndicator from './LoadingIndicator';
+import Notification from './Notification'
 
 export default function Create() {
     
-    const [member, setMember] = useState({name:''})
+    const [member, setMember] = useState({name:'', role:'', expertise:'', from:'', image:''});
+    const [loader, setLoader] = useState(false);
+    const [notify, setNotify] = useState(false);
     
     async function createMember(member){
+        setLoader(true);
         const res = await fetch('http://localhost:3000/members', {
                                 method: "POST",
                                 headers: {
@@ -12,7 +17,10 @@ export default function Create() {
                                 },
                                 body: JSON.stringify(member)
                             })
-        const data = await res.json();
+        const data = await res.json().then(()=>{
+            setLoader(false);
+            setNotify(true);
+        })
         console.log(data);
         console.log('Member successfully created')
         
@@ -20,6 +28,8 @@ export default function Create() {
 
     return (
         <div>
+            {loader && (<><LoadingIndicator /></>)}
+            
             <h2>Add a member</h2>
             Name: <input type='text' placeholder='member name' onChange = {(e)=>{
                 e.persist();
@@ -68,6 +78,9 @@ export default function Create() {
                         }}/> <br />
 
             <button onClick = {()=>{createMember(member)}}>Create</button>
+
+            {notify && (<Notification />)}
+
         </div>
     )
 }
