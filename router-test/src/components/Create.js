@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import LoadingIndicator from './LoadingIndicator';
 import Notification from './Notification'
+import '../App.css'
 
 export default function Create() {
     
@@ -30,54 +31,47 @@ export default function Create() {
         <div>
             {loader && (<><LoadingIndicator /></>)}
             
-            <h2>Add a member</h2>
-            Name: <input type='text' placeholder='member name' onChange = {(e)=>{
-                e.persist();
-                setMember((member) =>{
-                    return {...member, name: e.target.value}
-                })
-            }}  /> <br />
+            <h1>Add a member</h1>
+            <div className='createMember'>
+                
+                Name <input id='name' type='text' placeholder='member name' onChange = {(e)=>{
+                    e.persist();
+                    setMember((member) =>{
+                        return {...member, name: e.target.value}
+                        })
+                    }}  /> <br />
 
-            Role:   <input 
-                        type='text' 
-                        placeholder = 'role'
-                        onChange={(e)=>{
+                Role<input type='text' placeholder = 'role' onChange={(e)=>{
                             e.persist();
                             setMember((member)=>{
                                 return {...member, role: e.target.value}
                             })
                         }}/> <br />
 
-            Expertise:<input 
-                        type='text' 
-                        placeholder = 'expertise' 
-                        onChange={(e)=>{
+                Expertise<input type='text' placeholder = 'expertise' onChange={(e)=>{
                             e.persist();
                             setMember((member)=>{
                                 return {...member, expertise: e.target.value}
                             })
                         }}/> <br />
 
-            From:   <input 
-                        type='text' 
-                        placeholder = 'from' 
-                        onChange={(e)=>{
+                From<input type='text' placeholder = 'from' onChange={(e)=>{
                             e.persist();
                             setMember((member)=>{
                                 return {...member, from: e.target.value}
                             })
                         }}/> <br />
 
-            Image:  <input 
-                        type='file' 
-                        onChange={(e)=>{
+                Image  <input type='file' onChange={(e)=>{
                             e.persist();
                             setMember((member)=>{
                                 return {...member, image: e.target.value}
                             })
                         }}/> <br />
+            </div>
+            
 
-            <button onClick = {()=>{createMember(member)}}>Create</button>
+            <button onClick = {()=>{createMember(member)}}>Add member</button>
 
             {notify && (<Notification />)}
 

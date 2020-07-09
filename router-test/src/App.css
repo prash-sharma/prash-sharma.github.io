@@ -1,3 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body{
+  font-family: 'Montserrat', sans-serif;
+
+}
+
 .App {
   text-align: center;
 }
@@ -76,8 +84,21 @@ input{
   margin: 15px;
 }
 
+button{
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  height: 25px;
+  font-size: medium;
+}
+
+button:hover{
+  background-color: rgb(202, 145, 107);
+  cursor: pointer;
+}
+
 .searchBar{
-  width: 300px;
+  width: 400px;
   height: 30px;
   border-radius: 8px;
   outline: none;
@@ -95,6 +116,37 @@ input{
 
 .roadmap h1 {
   border-bottom: 1px solid darkorange;
+}
+
+
+.createMember{
+  margin: auto;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-content: left;
+  text-align: left;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+input[type=text]{
+  margin-top: 10px;
+  margin-left: 0px;
+  height: 30px;
+  border: 1px solid orange;
+  border-radius: 5px;
+}
+
+input[type=file]{
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  height: 20px;
+  
 }
 
 

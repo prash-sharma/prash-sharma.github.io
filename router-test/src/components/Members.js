@@ -11,16 +11,16 @@ export default function Members() {
         height: '20px'
     }
     useEffect(()=>{
-        fetchItems();
+        fetchItems('');
     }, [])
 
     const [items, setItems] = useState([]);
     const [isShown, setIsShown] = useState(false);
     const [loader, setLoader] = useState(true);
 
-    async function fetchItems(){
-        const res = await fetch(`http://localhost:3000/members`);
-        const data = await res.json();
+    async function fetchItems(querytext){
+        const res = await fetch(`http://localhost:3000/members/?q=${querytext}`);
+        const data = await res.json()
         console.log(data.length);
         setItems(data);
         setLoader(false)
@@ -47,8 +47,9 @@ export default function Members() {
                 },
             
             }).then(() => {
-                fetchItems();
-                setLoader(false)
+                setLoader(true)
+                fetchItems('');
+                
                 // add passive success notification
             })
             
@@ -58,6 +59,7 @@ export default function Members() {
     return (
         <div className="members">
             {loader && (<> <LoadingIndicator /> </>)}
+            <input type='search' placeholder='Member search' className='searchBar' onChange={(e)=>{fetchItems(e.target.value)}}/>
             <h2>Members ({items.length})</h2>
             <table className='memberTable'>
                 <thead>

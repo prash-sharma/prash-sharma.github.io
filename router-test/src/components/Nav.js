@@ -21,9 +21,7 @@ export default function Nav() {
                 <Link to='/' style={navStyle}>
                     <li>Home</li>
                 </Link>
-                <Link to='/members' style={navStyle}>
-                    <li>Members</li>
-                </Link>
+                
                 
                 <Link to='/create' style={navStyle}>
                     <li>Create</li>

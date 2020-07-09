@@ -67,26 +67,6 @@
       "expertise": "football",
       "from": "Manchester",
       "id": 10
-    },
-    {
-      "name": "asdf",
-      "role": "as",
-      "expertise": "df",
-      "from": "sdfds",
-      "id": 11
-    },
-    {
-      "name": "asdfasdf",
-      "role": "sdfasd",
-      "expertise": "asdfas",
-      "from": "asdfas",
-      "id": 12
-    },
-    {
-      "name": "dfgsdfdsfgsd",
-      "role": "dfgsdf",
-      "id": 13,
-      "expertise": "engine"
     }
   ]
 }
