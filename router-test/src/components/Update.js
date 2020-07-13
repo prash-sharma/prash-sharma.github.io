@@ -9,7 +9,7 @@ export default function Update({match}) {
     console.log(match);
 
     const [member, setMember] = useState({name:''});
-    const [notify, setNotify] = useState(false);
+    // const [notify, setNotify] = useState(false);
     const [loader, setLoader] = useState(true)
     
 

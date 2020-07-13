@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import LoadingIndicator from './LoadingIndicator';
 import Notification from './Notification';
 
@@ -9,34 +9,31 @@ export default function Create() {
     const [member, setMember] = useState({name:'', role:'', expertise:'', from:'', image:''});
     const [loader, setLoader] = useState(false);
     const [notify, setNotify] = useState(false);
-
-    useEffect(()=>{
-        setNotify(false)
-    }, [])
+    const [data, setData] = useState({})
+    let x = Math.random();
     
     async function createMember(member){
         setLoader(true);
-        const res = await fetch('http://localhost:3000/members', {
+            const res = await fetch('http://localhost:3000/members', {
                                 method: "POST",
                                 headers: {
                                     'Content-type': 'application/json'
                                 },
                                 body: JSON.stringify(member)
                             })
-        const data = await res.json().then(()=>{
+            setData(await res.json())
             setLoader(false);
             setNotify(true);
-        })
-        console.log(data);
-        console.log('Member successfully created');
         
+        console.log('Member successfully created');
+        console.log(x) 
     }
 
     return (
         <div>
             {loader && (<><LoadingIndicator /></>)}
             <div> 
-                {notify && (<Notification />)}
+                { notify && (<Notification stateChange = {data}/>)}
             </div>  
             
             <h1>Add a member</h1>
@@ -79,7 +76,10 @@ export default function Create() {
             </div>
             
 
-            <button className='createBtn' onClick = {()=>{createMember(member)}}>Add member</button>
+            <button className='createBtn' onClick = {()=>{
+                createMember(member);
+
+                }}>Add member</button>
                      
         </div>
     )
