@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import firelogo from '../images/fire3.gif'
 
 export default function Nav() {
@@ -17,18 +17,18 @@ export default function Nav() {
     return (
         <nav>
             <ul className="nav-links" >
-                <Link to="/" ><img src={firelogo} alt="fire" style = {imagestyles} /></Link>
-                <Link to='/' style={navStyle}>
+                <NavLink exact to="/" ><img src={firelogo} alt="fire" style = {imagestyles} /></NavLink>
+                <NavLink exact to='/' activeStyle={{color: 'orange'}} style={navStyle}>
                     <li>Home</li>
-                </Link>
+                </NavLink>
                 
                 
-                <Link to='/create' style={navStyle}>
+                <NavLink to='/create' activeStyle={{color: 'orange'}} style={navStyle}>
                     <li>Create</li>
-                </Link>
-                <Link to='/roadmap' style={navStyle}>
+                </NavLink>
+                <NavLink to='/roadmap' activeStyle={{color: 'orange'}} style={navStyle}>
                     <li>Roadmap</li>
-                </Link>
+                </NavLink>
             </ul>
         </nav>
     )

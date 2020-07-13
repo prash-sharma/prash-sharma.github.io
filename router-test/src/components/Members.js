@@ -76,7 +76,9 @@ export default function Members() {
                 
                 <tbody>
                 {items.map((item) => (
-                    <tr key={item.id} onMouseEnter={()=>{setIsShown(true)}}
+                    <tr key={item.id} onMouseEnter={()=>
+                            setIsShown(true)
+                        }
                     onMouseLeave={()=>{setIsShown(false)}}>
                         <td>{item.id}</td>
                         <td>{item.image}</td>

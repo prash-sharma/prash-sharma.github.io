@@ -47,8 +47,9 @@ export default function Update({match}) {
             {loader && (
                 <> <LoadingIndicator /> </>
             )}
+            <h1>Update member: {member.name}</h1>
+            <div className='createMember'>
             
-            <h2>Update member: {member.name}</h2>
             Name:   <input 
                         type='text' 
                         value ={member.name || ''} 
@@ -98,12 +99,9 @@ export default function Update({match}) {
                                 return {...member, image: e.target.value}
                             })
                         }}/> <br />
+                        </div>
 
-            <button onClick = {()=>{updateMember(member)}}>Submit</button>
-             
-            
-                     
-            
+            <button className='updateBtn' onClick = {()=>{updateMember(member)}}>Submit</button>
         </div>
     )
 }

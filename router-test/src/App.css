@@ -78,13 +78,18 @@ table{
   display: inline-block;
   margin-left: 10%;
   margin-right: 10%;
+  margin: auto;
+  min-width: initial;
+  table-layout: fixed;
+  
+  text-align: center;
 }
 
 input{
   margin: 15px;
 }
 
-button{
+.updateBtn, .createBtn{
   border-radius: 5px;
   outline: none;
   border: none;
@@ -169,10 +174,31 @@ input[type=file]{
 
 
 .notification{
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  border: 1px solid black;
-  width: 200px;
-  height: 100px;
+  margin: auto;
+  margin-top: 10px;
+  width: fit-content;
+  /* position: absolute; */
+  text-align: center;
+  /* left: 40%; */
+  /* top: 20%; */
+  /* border: 1px solid black; */
+  /* width: 400px; */
+  height: 30px;
+  background-color: orange;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-radius: 5px;
+}
+
+.closeNotificationBtn {
+  height: 20px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.msgNotification{
+  margin-top: 5px;
+  margin-right: 20px;
+  margin-left: 10px;
 }

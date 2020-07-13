@@ -1,13 +1,24 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../App.css'
 
-export default function Notification(props) {
-    console.log(props.msg)
+export default function Notification() {
+    const [show, setShow] = useState(true);
+
+    useEffect(()=>{
+        setShow(true);
+        setTimeout(()=>{
+            setShow(false)
+        }, 3000)
+    }, [])
 
     return (
-        <div className='notification'>
-            <p>Action completed successfully</p>
-            
-        </div>
+        <>
+            {show && (<div className='notification'>
+                <p className='msgNotification'>Action completed successfully</p>
+                <button className='closeNotificationBtn' onClick={()=>{setShow(false)}}>X</button>
+            </div>
+        )}
+    
+    </>
     )
 }

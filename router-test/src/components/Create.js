@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import LoadingIndicator from './LoadingIndicator';
-import Notification from './Notification'
+import Notification from './Notification';
+
 import '../App.css'
 
 export default function Create() {
@@ -8,6 +9,10 @@ export default function Create() {
     const [member, setMember] = useState({name:'', role:'', expertise:'', from:'', image:''});
     const [loader, setLoader] = useState(false);
     const [notify, setNotify] = useState(false);
+
+    useEffect(()=>{
+        setNotify(false)
+    }, [])
     
     async function createMember(member){
         setLoader(true);
@@ -23,13 +28,16 @@ export default function Create() {
             setNotify(true);
         })
         console.log(data);
-        console.log('Member successfully created')
+        console.log('Member successfully created');
         
     }
 
     return (
         <div>
             {loader && (<><LoadingIndicator /></>)}
+            <div> 
+                {notify && (<Notification />)}
+            </div>  
             
             <h1>Add a member</h1>
             <div className='createMember'>
@@ -71,10 +79,8 @@ export default function Create() {
             </div>
             
 
-            <button onClick = {()=>{createMember(member)}}>Add member</button>
-
-            {notify && (<Notification />)}
-
+            <button className='createBtn' onClick = {()=>{createMember(member)}}>Add member</button>
+                     
         </div>
     )
 }
