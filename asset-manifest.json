@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/router-test/static/css/main.c68b6bcb.chunk.css",
+    "main.js": "/router-test/static/js/main.85aa6d5d.chunk.js",
+    "main.js.map": "/router-test/static/js/main.85aa6d5d.chunk.js.map",
+    "runtime-main.js": "/router-test/static/js/runtime-main.0605cfa4.js",
+    "runtime-main.js.map": "/router-test/static/js/runtime-main.0605cfa4.js.map",
+    "static/js/2.4868d9e5.chunk.js": "/router-test/static/js/2.4868d9e5.chunk.js",
+    "static/js/2.4868d9e5.chunk.js.map": "/router-test/static/js/2.4868d9e5.chunk.js.map",
+    "index.html": "/router-test/index.html",
+    "precache-manifest.10e381b6bb841d762400d35d620abb4c.js": "/router-test/precache-manifest.10e381b6bb841d762400d35d620abb4c.js",
+    "service-worker.js": "/router-test/service-worker.js",
+    "static/css/main.c68b6bcb.chunk.css.map": "/router-test/static/css/main.c68b6bcb.chunk.css.map",
+    "static/js/2.4868d9e5.chunk.js.LICENSE.txt": "/router-test/static/js/2.4868d9e5.chunk.js.LICENSE.txt",
+    "static/media/fire3.gif": "/router-test/static/media/fire3.26486aeb.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0605cfa4.js",
+    "static/js/2.4868d9e5.chunk.js",
+    "static/css/main.c68b6bcb.chunk.css",
+    "static/js/main.85aa6d5d.chunk.js"
+  ]
+}
