@@ -10,7 +10,6 @@ export default function Create() {
     const [loader, setLoader] = useState(false);
     const [notify, setNotify] = useState(false);
     const [data, setData] = useState({})
-    let x = Math.random();
     
     async function createMember(member){
         setLoader(true);
@@ -26,7 +25,7 @@ export default function Create() {
             setNotify(true);
         
         console.log('Member successfully created');
-        console.log(x) 
+        
     }
 
     return (

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-// import Notification from './Notification';
+import Notification from './Notification';
 import LoadingIndicator from './LoadingIndicator';
 import '../App.css';
 
@@ -10,7 +10,8 @@ export default function Update({match}) {
 
     const [member, setMember] = useState({name:''});
     // const [notify, setNotify] = useState(false);
-    const [loader, setLoader] = useState(true)
+    const [loader, setLoader] = useState(true);
+    
     
 
     useEffect(()=>{  
@@ -46,6 +47,10 @@ export default function Update({match}) {
         <div>
             {loader && (
                 <> <LoadingIndicator /> </>
+            )}
+
+            {member && (
+                <> <Notification stateChange = {member}/> </>
             )}
             <h1>Update member: {member.name}</h1>
             <div className='createMember'>
