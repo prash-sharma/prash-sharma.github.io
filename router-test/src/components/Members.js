@@ -15,7 +15,7 @@ export default function Members() {
     }, [])
 
     const [items, setItems] = useState([]);
-    const [isShown, setIsShown] = useState(false);
+    const [display, setDisplay] = useState(false);
     const [loader, setLoader] = useState(true);
 
     async function fetchItems(querytext){
@@ -76,10 +76,7 @@ export default function Members() {
                 
                 <tbody>
                 {items.map((item) => (
-                    <tr key={item.id} onMouseEnter={()=>
-                            setIsShown(true)
-                        }
-                    onMouseLeave={()=>{setIsShown(false)}}>
+                    <tr key={item.id} onMouseEnter = {() => {setDisplay(true)}} onMouseLeave = {() => {setDisplay(false)}}>
                         <td>{item.id}</td>
                         <td>{item.image}</td>
                         <td>{item.name}</td>
@@ -87,12 +84,12 @@ export default function Members() {
                         <td>{item.expertise}</td>
                         <td> <a href = {item.from} target='_blank' rel="noopener noreferrer">{item.from}</a></td>
                         <td>
-                        {isShown && (
-                            <>
-                                <Link to={`/update/${item.id}`} className="navlinks"><img style={editStyle} src={edit} alt="edit" /></Link>
-                                <Link to={``} onClick={() => deleteConfirm(item)}><img style={editStyle} src={deleteIcon} alt="edit" /></Link>
-                            </>
-                        )}
+                            {display && (
+                                <>
+                                    <Link to={`/update/${item.id}`} className="navlinks"><img style={editStyle} src={edit} alt="edit" /></Link>
+                                    <Link to={``} onClick={() => deleteConfirm(item)}><img style={editStyle} src={deleteIcon} alt="edit" /></Link>
+                                </>
+                            )}
                         </td>   
                     </tr>
                     ))}
