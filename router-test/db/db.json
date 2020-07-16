@@ -8,14 +8,6 @@
       "from": "Milkyway"
     },
     {
-      "name": "Guy1",
-      "role": "something",
-      "expertise": "everything",
-      "from": "Saturn",
-      "image": "",
-      "id": 4
-    },
-    {
       "name": "A new guy",
       "role": "traveller",
       "expertise": "Space exploration",
@@ -24,33 +16,11 @@
       "id": 5
     },
     {
-      "name": "old member",
-      "id": 8,
-      "from": "another galaxy",
-      "role": "awesome skills",
-      "expertise": "an expert"
-    },
-    {
-      "name": "Brand new guy",
-      "role": "engineer",
-      "expertise": "fixing stuff",
-      "from": "Andromeda",
-      "id": 9
-    },
-    {
       "name": "Man United",
       "role": "football club",
       "expertise": "football",
       "from": "Manchester",
       "id": 10
-    },
-    {
-      "name": "asdfasd",
-      "role": "asdfasdf",
-      "expertise": "sdfs",
-      "from": "",
-      "image": "",
-      "id": 11
     },
     {
       "name": "ghdfghsdaf",
@@ -61,28 +31,12 @@
       "id": 12
     },
     {
-      "name": "fghdfghd",
-      "role": "",
-      "expertise": "",
-      "from": "",
-      "image": "",
-      "id": 13
-    },
-    {
       "name": "asdfasdf",
       "role": "sfsdf",
       "expertise": "",
       "from": "",
       "image": "",
       "id": 14
-    },
-    {
-      "name": "233",
-      "role": "asdfs",
-      "expertise": "",
-      "from": "",
-      "image": "",
-      "id": 16
     },
     {
       "name": "233sdfasdf",
@@ -109,44 +63,12 @@
       "id": 19
     },
     {
-      "name": "asdfasd",
-      "role": "sdfasd",
-      "expertise": "",
-      "from": "",
-      "image": "",
-      "id": 20
-    },
-    {
       "name": "safsad",
       "role": "sdfasdfasdfas",
       "expertise": "",
       "from": "",
       "image": "",
       "id": 21
-    },
-    {
-      "name": "sdfasd",
-      "role": "",
-      "expertise": "sdfasdf",
-      "from": "",
-      "image": "",
-      "id": 22
-    },
-    {
-      "name": "sadfasdfasda",
-      "role": "",
-      "expertise": "",
-      "from": "",
-      "image": "",
-      "id": 23
-    },
-    {
-      "name": "sdafsdf",
-      "role": "asdfa",
-      "expertise": "",
-      "from": "",
-      "image": "",
-      "id": 24
     },
     {
       "name": "fghdfghdfg",

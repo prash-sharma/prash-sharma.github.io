@@ -219,5 +219,25 @@ input[type=file]{
 
 .confirmationPrompt{
   width: 300px;
-  height: 300px;
+  height: 100px;
+  border: 1px solid black;
+  position: absolute;
+  /* Perfectly center align an absolute div */
+  right: 0;
+  left: 0;
+  margin: auto;
+  margin-top: 300px;
+  /* Perfectly center align an absolute div */
+  z-index: 10;
+  background-color: lightgray;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.promptBtns{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  
+
 }

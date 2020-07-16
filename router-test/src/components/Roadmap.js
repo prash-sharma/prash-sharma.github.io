@@ -9,6 +9,7 @@ export default function Roadmap() {
             <p><s>Loading indicator where required (Page load, update, create, delete)</s></p>
             <p><s>Passive notification on member create / update / delete with custom messages</s></p>
             <p><s>Sticky table header on scroll</s></p>
+            <p><s>Build custom confirmation prompt</s></p>
 
             <h2>Previous weeks</h2>
             <p><s>Prettify Create member input fields</s></p>
@@ -16,7 +17,7 @@ export default function Roadmap() {
             <p><s>Trigger search on the homepage and update the member list dynamically</s></p>
             
             <h2>Upcoming</h2>
-            <p>Build custom confirmation prompt</p>
+            
             <p>Make the edit/delete icon appear only on the target row hover</p>
             <p>Play with file server to upload images for members</p>
             <p>Embed gogle map for location selection</p>
