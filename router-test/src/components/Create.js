@@ -9,7 +9,8 @@ export default function Create() {
     const [member, setMember] = useState({name:'', role:'', expertise:'', from:'', image:''});
     const [loader, setLoader] = useState(false);
     const [notify, setNotify] = useState(false);
-    const [data, setData] = useState({})
+    const [data, setData] = useState({});
+    const [message, setMessage] = useState('')
     
     async function createMember(member){
         setLoader(true);
@@ -20,7 +21,8 @@ export default function Create() {
                                 },
                                 body: JSON.stringify(member)
                             })
-            setData(await res.json())
+            setData(await res.json());
+            setMessage('Member created successfully');
             setLoader(false);
             setNotify(true);
         
@@ -32,7 +34,7 @@ export default function Create() {
         <div>
             {loader && (<><LoadingIndicator /></>)}
             <div> 
-                { notify && (<Notification stateChange = {data}/>)}
+                { notify && (<Notification msg = {message} stateChange = {data}/>)}
             </div>  
             
             <h1>Add a member</h1>

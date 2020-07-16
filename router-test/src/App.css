@@ -28,7 +28,15 @@ nav{
 }
 
 table { 
-  border-collapse:collapse; 
+  border-collapse:collapse;
+  display: inline-block;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin: auto;
+  table-layout: fixed;
+  text-align: center;
+  height: 600px;
+  overflow-y: scroll;
 }
 
 thead tr th { 
@@ -44,10 +52,19 @@ thead th {
   padding-bottom: 12px;
   text-align: center;
   color: white;
+  background: rgb(51, 76, 122);
+  /* Sticky table header - do it in the `th` rather than on the `thead` */
+  position: sticky;
+  top: 0;
+  /* Sticky table header */
 }
 
+
+
 thead {
-  background: radial-gradient(rgb(97, 117, 129), rgb(51, 76, 122));
+  background: rgb(51, 76, 122);
+  min-width: 800px;
+  
 }
 
 tbody tr td {
@@ -74,17 +91,6 @@ tbody td {
   text-align: center;
 }
 
-table{
-  display: inline-block;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin: auto;
-  min-width: initial;
-  table-layout: fixed;
-  
-  text-align: center;
-}
-
 input{
   margin: 15px;
 }
@@ -98,7 +104,7 @@ input{
 }
 
 button:hover{
-  background-color: rgb(202, 145, 107);
+  background-color: rgb(153, 139, 130);
   cursor: pointer;
 }
 
@@ -109,6 +115,7 @@ button:hover{
   outline: none;
   border-color: darkorange;
   font-size: medium;
+  padding-left: 10px;
 }
 
 .roadmap{
@@ -174,21 +181,28 @@ input[type=file]{
 
 
 .notification{
+  position: absolute;
+  /* Perfectly center align an absolute div */
+  right: 0;
+  left: 0;
   margin: auto;
-  margin-top: 10px;
+  /* Perfectly center align an absolute div */
   width: fit-content;
-  /* position: absolute; */
+  z-index: 1;
   text-align: center;
-  /* left: 40%; */
-  /* top: 20%; */
-  /* border: 1px solid black; */
-  /* width: 400px; */
   height: 30px;
-  background-color: orange;
+  background-color: rgb(14, 141, 14);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   border-radius: 5px;
+  animation: slider 0.5s;
+  animation-timing-function: linear;
+}
+
+@keyframes slider {
+  from {top: 0px;}
+  to {top: 100px;}
 }
 
 .closeNotificationBtn {
@@ -201,4 +215,9 @@ input[type=file]{
   margin-top: 5px;
   margin-right: 20px;
   margin-left: 10px;
+}
+
+.confirmationPrompt{
+  width: 300px;
+  height: 300px;
 }

@@ -16,12 +16,11 @@ export default function Notification(props) {
 
     return (
         <>
-            {show && (<div className='notification'>
-                <p className='msgNotification'>Action completed successfully</p>
+            {(show && props.msg) && (<div className='notification' >
+                <p className='msgNotification'>{props.msg}</p>
                 <button className='closeNotificationBtn' onClick={()=>{setShow(false)}}>X</button>
             </div>
         )}
-    
     </>
     )
 }

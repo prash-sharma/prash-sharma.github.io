@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import edit from '../images/edit.png';
 import deleteIcon from '../images/deleteIcon.png';
 import LoadingIndicator from './LoadingIndicator'
+import Notification from './Notification'
 
 export default function Members() {
     const editStyle = {
@@ -17,6 +18,8 @@ export default function Members() {
     const [items, setItems] = useState([]);
     const [display, setDisplay] = useState(false);
     const [loader, setLoader] = useState(true);
+    const [notify, setNotify] = useState();
+    const [message, setMessage] = useState('');
 
     async function fetchItems(querytext){
         const res = await fetch(`http://localhost:3000/members/?q=${querytext}`);
@@ -45,9 +48,10 @@ export default function Members() {
                 headers: {
                     'Content-type': 'application/json'
                 },
-            
             }).then(() => {
-                setLoader(true)
+                setLoader(true);
+                setNotify(true);
+                setMessage('Member deleted successfully')
                 fetchItems('');
                 
                 // add passive success notification
@@ -59,6 +63,7 @@ export default function Members() {
     return (
         <div className="members">
             {loader && (<> <LoadingIndicator /> </>)}
+            {notify && (<> <Notification msg = {message} stateChange = {items}/></>)}
             <input type='search' placeholder='Member search' className='searchBar' onChange={(e)=>{fetchItems(e.target.value)}}/>
             <h2>Members ({items.length})</h2>
             <table className='memberTable'>

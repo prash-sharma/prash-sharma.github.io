@@ -9,8 +9,9 @@ export default function Update({match}) {
     console.log(match);
 
     const [member, setMember] = useState({name:''});
-    // const [notify, setNotify] = useState(false);
+    const [notify, setNotify] = useState();
     const [loader, setLoader] = useState(true);
+    const [message, setMessage] = useState('');
     
     
 
@@ -40,6 +41,8 @@ export default function Update({match}) {
                         body: JSON.stringify(member)
                     }).then(() =>{
                         setLoader(false);
+                        setNotify(Math.random())
+                        setMessage('Member updated successfully')
                     })
     }
     
@@ -50,7 +53,7 @@ export default function Update({match}) {
             )}
 
             {member && (
-                <> <Notification stateChange = {member}/> </>
+                <> <Notification msg = {message} stateChange = {notify}/> </>
             )}
             <h1>Update member: {member.name}</h1>
             <div className='createMember'>
