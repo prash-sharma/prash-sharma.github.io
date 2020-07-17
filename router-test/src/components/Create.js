@@ -27,7 +27,6 @@ export default function Create() {
             setNotify(true);
         
         console.log('Member successfully created');
-        
     }
 
     return (

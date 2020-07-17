@@ -3,17 +3,12 @@ import Notification from './Notification';
 import LoadingIndicator from './LoadingIndicator';
 import '../App.css';
 
-
-
 export default function Update({match}) {
     console.log(match);
-
     const [member, setMember] = useState({name:''});
     const [notify, setNotify] = useState();
     const [loader, setLoader] = useState(true);
     const [message, setMessage] = useState('');
-    
-    
 
     useEffect(()=>{  
         
@@ -26,7 +21,6 @@ export default function Update({match}) {
         }
         fetchMember();
     }, [match])
-
     
    
     function updateMember(member){

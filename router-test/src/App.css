@@ -1,8 +1,8 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Arsenal&display=swap'); */
 
 body{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Arsenal', sans-serif;
 
 }
 
@@ -16,6 +16,24 @@ nav{
   align-items: center;
   min-height: 5vh;
   background: black;
+  position: sticky;
+  width: 100%;
+  /* margin: auto; */
+  top: 0;
+}
+
+footer{
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  min-height: 5vh;
+  background: black;
+  position: fixed;
+  width: 100%;
+  /* margin: auto; */
+  bottom: 0;
+  margin-left: 0px;
+  
 }
 
 .nav-links{
@@ -25,6 +43,16 @@ nav{
   align-items: center;
   list-style: none;
   height: 40px;
+}
+
+.footer-links{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  height: 40px;
+  text-decoration: none;
 }
 
 table { 
@@ -118,6 +146,12 @@ button:hover{
   padding-left: 10px;
 }
 
+.roadmapDiv{
+  align-content: center;
+  height: 90vh;
+  overflow-y: scroll;
+  
+}
 .roadmap{
   display: flex;
   flex-direction: column;
@@ -217,10 +251,19 @@ input[type=file]{
   margin-left: 10px;
 }
 
+.promptDiv{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(8, 8, 8, 0.5);
+  z-index: 30;
+}
+
+
 .confirmationPrompt{
   width: 300px;
   height: 100px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   position: absolute;
   /* Perfectly center align an absolute div */
   right: 0;
@@ -229,7 +272,7 @@ input[type=file]{
   margin-top: 300px;
   /* Perfectly center align an absolute div */
   z-index: 10;
-  background-color: lightgray;
+  background-color: rgb(62, 162, 243);
   border-radius: 5px;
   padding: 10px;
 }
@@ -238,6 +281,23 @@ input[type=file]{
   margin-top: 30px;
   display: flex;
   justify-content: space-around;
-  
+}
 
+.btnConfirm{
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  height: 25px;
+}
+
+.btnConfirm:hover{
+  background-color: red;
+}
+
+.btnCancel{
+  /* color: red; */
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  height: 25px;
 }

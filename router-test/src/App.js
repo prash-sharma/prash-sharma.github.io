@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Nav from './components/Nav';
+import Footer from './components/Footer'
 
 import Create from './components/Create';
 import Home from './components/Home';
@@ -18,8 +19,9 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/create" component={Create} />
           <Route path="/update/:id" component={Update} />
-          <Route path="/roadmap/" component={Roadmap} />
+          <Route path="/roadmap" component={Roadmap} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

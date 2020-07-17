@@ -12,25 +12,28 @@ export default function Members() {
         width: '20px',
         height: '20px'
     }
+
     useEffect(()=>{
         fetchItems('');
+        
     }, [])
 
     const [items, setItems] = useState([]);
     const [display, setDisplay] = useState(false);
     const [loader, setLoader] = useState(true);
-    const [notify, setNotify] = useState();
+    const [notify, setNotify] = useState(false);
     const [message, setMessage] = useState('');
     const [triggerDel, setTriggerDel] = useState(false);
     const [delMemId, setDelMemId] = useState();
     const [delMemName, setDelMemName] = useState('');
 
     async function fetchItems(querytext){
+        
         const res = await fetch(`http://localhost:3000/members/?q=${querytext}`);
         const data = await res.json()
         console.log(data.length);
         setItems(data);
-        setLoader(false)
+        setLoader(false);
     }
 
     
@@ -49,21 +52,22 @@ export default function Members() {
             setLoader(true);
             setNotify(true);
             setMessage('Member deleted successfully');
-            setTriggerDel(false)
             fetchItems('');
+            setTriggerDel(false);
         })
-        
     }
-    
 
     return (
         <div className="members">
             {loader && (<> <LoadingIndicator /> </>)}
+
             {notify && (<> <Notification msg = {message} stateChange = {items}/></>)}
 
-    <Confirmation trigger = {triggerDel} onCancel = {(e)=>{setTriggerDel(false)}} onConfirm = {(e)=>deleteMember(delMemId)}>Are you sure you want to delete <b>{delMemName}</b>?</Confirmation>
+            <Confirmation trigger = {triggerDel} 
+                        onCancel = {(e)=>{setTriggerDel(false); setDelMemId()}} 
+                        onConfirm = {(e)=>deleteMember(delMemId)}>Are you sure you want to delete <b>{delMemName}</b>?</Confirmation>
 
-            <input type='search' placeholder='Member search' className='searchBar' onChange={(e)=>{fetchItems(e.target.value)}}/>
+            <input type='search' placeholder='Member search' className='searchBar' onChange={(e)=>{setNotify(false); fetchItems(e.target.value)}}/>
             <h2>Members ({items.length})</h2>
             <table className='memberTable'>
                 <thead>
