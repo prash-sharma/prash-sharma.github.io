@@ -26,8 +26,10 @@ export default function Members() {
     const [triggerDel, setTriggerDel] = useState(false);
     const [delMemId, setDelMemId] = useState();
     const [delMemName, setDelMemName] = useState('');
+    // const [searchStr, setSearchStr] = useState();
 
     async function fetchItems(querytext){
+        // console.log({queryText});
         
         const res = await fetch(`http://localhost:3000/members/?q=${querytext}`);
         const data = await res.json()
@@ -35,7 +37,6 @@ export default function Members() {
         setItems(data);
         setLoader(false);
     }
-
     
     async function deleteMember(id){
         console.log('Ye hahahaha');
@@ -67,8 +68,17 @@ export default function Members() {
                         onCancel = {(e)=>{setTriggerDel(false); setDelMemId()}} 
                         onConfirm = {(e)=>deleteMember(delMemId)}>Are you sure you want to delete <b>{delMemName}</b>?</Confirmation>
 
-            <input type='search' placeholder='Member search' className='searchBar' onChange={(e)=>{setNotify(false); fetchItems(e.target.value)}}/>
+            <input 
+                type='search' 
+                placeholder='Member search' 
+                className='searchBar' 
+                onChange={(e)=>{
+                                setNotify(false); 
+                                fetchItems(e.target.value);
+                                }}/>
+            
             <h2>Members ({items.length})</h2>
+            
             <table className='memberTable'>
                 <thead>
                     <tr>
@@ -87,7 +97,7 @@ export default function Members() {
                     <tr key={item.id} onMouseEnter = {() => {setDisplay(true)}} onMouseLeave = {() => {setDisplay(false)}}>
                         <td>{item.id}</td>
                         <td>{item.image}</td>
-                        <td>{item.name}</td>
+                        <td><Link to={`/members/${item.id}`}>{item.name}</Link></td>
                         <td>{item.role}</td>
                         <td>{item.expertise}</td>
                         <td> <a href = {item.from} target='_blank' rel="noopener noreferrer">{item.from}</a></td>

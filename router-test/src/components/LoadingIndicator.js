@@ -6,3 +6,4 @@ export default function LoadingIndicator() {
         <div className='loadingIndicator'></div>
     )
 }
+ 

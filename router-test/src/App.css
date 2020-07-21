@@ -301,3 +301,23 @@ input[type=file]{
   border: none;
   height: 25px;
 }
+
+.memberDetail{
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  /* text-align: center; */
+  margin: auto;
+  margin-top: 10%;
+}
+
+.personalDetails{
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  text-align: left;
+  padding-left: 50px;
+  justify-content: space-evenly;
+  width: fit-content;
+}

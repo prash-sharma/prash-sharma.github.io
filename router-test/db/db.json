@@ -32,14 +32,6 @@
       "id": 14
     },
     {
-      "name": "233sdfasdf",
-      "role": "",
-      "expertise": "",
-      "from": "",
-      "image": "",
-      "id": 17
-    },
-    {
       "name": "safsadasdfasdf",
       "role": "sdfasdfasdfas",
       "expertise": "sdfasd",
@@ -73,9 +65,9 @@
     },
     {
       "name": "sadfasdf",
-      "role": "sdfasdf",
+      "role": "sdfasdfasdf",
       "expertise": "sadfas",
-      "from": "",
+      "from": "asdfas",
       "image": "",
       "id": 51
     },
@@ -142,14 +134,6 @@
       "from": "",
       "image": "",
       "id": 59
-    },
-    {
-      "name": "asdfasdf",
-      "role": "asdfasdfa",
-      "expertise": "",
-      "from": "",
-      "image": "",
-      "id": 60
     },
     {
       "name": "sdfasd",
@@ -384,14 +368,6 @@
       "id": 91
     },
     {
-      "name": "Prashant",
-      "role": "",
-      "expertise": "",
-      "from": "",
-      "image": "",
-      "id": 92
-    },
-    {
       "name": "Epl",
       "role": "",
       "expertise": "",
@@ -414,14 +390,6 @@
       "from": "",
       "image": "",
       "id": 95
-    },
-    {
-      "name": "Prashant",
-      "role": "safdsf",
-      "expertise": "asdfasdf",
-      "from": "",
-      "image": "",
-      "id": 96
     },
     {
       "name": "dsfasdf",
@@ -470,6 +438,14 @@
       "from": "",
       "image": "",
       "id": 102
+    },
+    {
+      "name": "Kratos",
+      "role": "God of War",
+      "expertise": "Hack & Slash",
+      "from": "Sparta",
+      "image": "",
+      "id": 103
     }
   ]
 }
