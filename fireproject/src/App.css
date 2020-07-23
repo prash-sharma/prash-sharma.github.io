@@ -1,0 +1,304 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=Arsenal&display=swap'); */
+
+body{
+  font-family: 'Arsenal', sans-serif;
+
+}
+
+.App {
+  text-align: center;
+  
+}
+
+nav{
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  min-height: 5vh;
+  background: black;
+  position: sticky;
+  width: 100%;
+  /* margin: auto; */
+  top: 0;
+}
+
+footer{
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  min-height: 5vh;
+  background: black;
+  position: fixed;
+  width: 100%;
+  /* margin: auto; */
+  bottom: 0;
+  margin-left: 0px;
+  
+}
+
+.nav-links{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  height: 40px;
+}
+
+.footer-links{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  height: 40px;
+  text-decoration: none;
+}
+
+.members{
+  text-align: center;
+}
+
+input{
+  margin: 15px;
+}
+
+.updateBtn, .createBtn{
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  height: 25px;
+  font-size: medium;
+}
+
+button:hover{
+  background-color: rgb(153, 139, 130);
+  cursor: pointer;
+}
+
+.searchBar{
+  width: 400px;
+  height: 30px;
+  border-radius: 8px;
+  outline: none;
+  border-color: darkorange;
+  font-size: medium;
+  padding-left: 10px;
+}
+
+.roadmapDiv{
+  align-content: center;
+  height: 90vh;
+  overflow-y: scroll;
+  
+}
+.roadmap{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.roadmap h1 {
+  border-bottom: 1px solid darkorange;
+}
+
+
+.createMember{
+  margin: auto;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-content: left;
+  text-align: left;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+input[type=text]{
+  margin-top: 10px;
+  margin-left: 0px;
+  height: 30px;
+  border: 1px solid orange;
+  border-radius: 5px;
+}
+
+input[type=file]{
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  height: 20px;
+  
+}
+
+
+.loadingIndicator {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  border: 6px solid #3f3636;
+  border-radius: 50%;
+  border-top: 6px solid #be561a;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.notification{
+  position: absolute;
+  /* Perfectly center align an absolute div */
+  right: 0;
+  left: 0;
+  margin: auto;
+  /* Perfectly center align an absolute div */
+  width: fit-content;
+  z-index: 1;
+  text-align: center;
+  height: 30px;
+  background-color: rgb(14, 141, 14);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  animation: slider 0.5s;
+  animation-timing-function: linear;
+}
+
+@keyframes slider {
+  from {top: 0px;}
+  to {top: 100px;}
+}
+
+.closeNotificationBtn {
+  height: 20px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.msgNotification{
+  margin-top: 5px;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.promptDiv{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(8, 8, 8, 0.5);
+  z-index: 30;
+}
+
+
+.confirmationPrompt{
+  width: 300px;
+  height: 100px;
+  /* border: 1px solid black; */
+  position: fixed;
+  /* Perfectly center align an absolute div */
+  /* right: 0; */
+  left: 42.5%;
+  /* top: 50%; */
+  margin: auto;
+  margin-top: 300px;
+  /* Perfectly center align an absolute div */
+  z-index: 10;
+  background-color: rgb(62, 162, 243);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.promptBtns{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btnConfirm{
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  height: 25px;
+}
+
+.btnConfirm:hover{
+  background-color: red;
+}
+
+.btnCancel{
+  /* color: red; */
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  height: 25px;
+}
+
+.memberDetail{
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  /* text-align: center; */
+  margin: auto;
+  margin-top: 10%;
+}
+
+.personalDetails{
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  text-align: left;
+  padding-left: 50px;
+  justify-content: space-evenly;
+  width: fit-content;
+}
+
+
+
+.memberDiv{
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+  width: 400px;
+  margin: 10px;
+  text-align: left;
+  background: radial-gradient(rgb(212, 211, 127), rgb(182, 116, 41));
+  border-radius: 5px;
+  /* box-shadow: 10 10 10px 10 orange; */
+  box-shadow: 10px 10px 10px rgb(158, 143, 143);
+  padding: 10px;
+}
+
+.memberDetails{
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  /* flex-direction: column; */
+}
+
+.membersDiv{
+  /* border: 1px solid black; */
+  display: flex;
+  /* justify-content: space-evenly; */
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.operationDiv{
+  height: 30px;
+  /* border: 1px solid black; */
+  margin: 10px;
+}
