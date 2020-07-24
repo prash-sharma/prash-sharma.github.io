@@ -17,8 +17,9 @@ export default function Create() {
         const storageRef = firebase.storage().ref(`members/`);
         const fileRef = storageRef.child(Math.ceil( Math.random()*10000)+file.name);
         await fileRef.put(file)
+        console.log(fileRef.fullPath)
         setFileUrl(await fileRef.getDownloadURL());
-        setLoader(false)
+        setLoader(false);
         
     }
 

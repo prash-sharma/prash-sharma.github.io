@@ -88,7 +88,7 @@ export default function Members() {
                                 <h3>From: {member.from}</h3>
                             </div>    
                             <div>
-                                <img src={`${member.fileUrl}`} alt = {`${member.name}`} width={150} height={150}/>
+                                <img src={`${member.fileUrl}`} alt = {`${member.name}`} width={200} height={200}/>
                             </div>
                         </div>    
                         <div className='operationDiv'>
