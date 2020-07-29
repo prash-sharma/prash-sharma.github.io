@@ -60,6 +60,10 @@ footer{
   text-align: center;
 }
 
+h3{
+  margin: auto;
+}
+
 input{
   margin: 15px;
 }
@@ -135,7 +139,6 @@ input[type=file]{
   height: 20px;
   
 }
-
 
 .loadingIndicator {
   position: fixed;

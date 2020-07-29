@@ -40,13 +40,11 @@ export default function Members() {
 
     useEffect(()=>{
         setLoader(true)
-       const unsubscribe = firebase
-        .firestore()
-        .collection('members')
+        const unsubscribe = firebase.firestore().collection('members')
         .onSnapshot((snapshot)=>{
-        const res = snapshot.docs.map((doc)=>({
-            id: doc.id, ...doc.data()
-        }))
+            const res = snapshot.docs.map((doc)=>({
+                id: doc.id, ...doc.data()
+            }))
         setMembers(res);
         setLoader(false)
         })
@@ -83,9 +81,9 @@ export default function Members() {
                     <div key={member.id} className='memberDiv' onMouseEnter={(e)=>{setOperation(true); e.preventDefault()}} onMouseLeave={()=>{setOperation(false)}}>
                         <div className={'memberDetails'}>
                             <div>
-                                <h3>Name: {member.name}</h3>
-                                <h3>Expertise: {member.expertise}</h3>
-                                <h3>From: {member.from}</h3>
+                                <h3>Name:</h3> <p>{member.name}</p>
+                                <h3>Expertise:</h3> <p>{member.expertise}</p>
+                                <h3>From:</h3><p>{member.from}</p>
                             </div>    
                             <div>
                                 <img src={`${member.fileUrl}`} alt = {`${member.name}`} width={200} height={200}/>
