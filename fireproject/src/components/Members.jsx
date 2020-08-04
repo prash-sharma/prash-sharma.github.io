@@ -14,7 +14,8 @@ export default function Members() {
     const [memberName, setMemberName] = useState('');
     const [memberId, setMemberId] = useState('');
     const [memberImage, setMemberImage] = useState('');
-    const [loader, setLoader] = useState(false)
+    const [loader, setLoader] = useState(false);
+    const [bGScroll, setBgScroll] = useState(false)
     
     const operationStyle = {
         width: '30px',
@@ -22,21 +23,6 @@ export default function Members() {
         marginLeft: '10px',
         marginRight: '10px'
     }
-    
-    // useEffect(()=>{
-    //     const fetchData = async() => {
-    //         const db = firebase.firestore();
-    //         const data = await db.collection('members').get();
-    //         setMembers(data.docs.map((doc)=>(
-    //             {...doc.data(), id: doc.id})
-    //             ))
-    //     }
-    //     fetchData();
-
-    //     // return ()=>fetchData();
-
-    // }, [members.length])
-
 
     useEffect(()=>{
         setLoader(true)
@@ -56,8 +42,11 @@ export default function Members() {
         const db = firebase.firestore();
         db.collection('members').doc(id).delete();
 
-        const file = firebase.storage();
-        file.refFromURL(image).delete()
+        if(image){
+            const file = firebase.storage();
+            file.refFromURL(image).delete()
+        }
+        
 
         setTriggerDel(false);
     }
@@ -65,16 +54,27 @@ export default function Members() {
     return (
         <div className="App">
 
-            <h1>Hello fire members - {members.length}</h1>
+            <h1>{members.length} members and counting..</h1>
+
             {loader && (
                 <Loader />
             )}
             
             <Confirmation 
-                returnConfirmation = {triggerDel} 
+                returnConfirmation = {triggerDel}
+
+                bgScroll = {bGScroll}
                  
-                onConfirm = {()=>{deleteMember(memberId, memberImage)}}
-                onCancel = {()=>{setTriggerDel(false)}}>Are you sure you want to delete <b>{memberName}</b>?</Confirmation>
+                onConfirm = {()=>{
+                    deleteMember(memberId, memberImage);
+                    setTriggerDel(false)
+                    setBgScroll(false)
+                }}
+
+                onCancel = {()=>{
+                    setTriggerDel(false);
+                    setBgScroll(false)
+                }}>Yeah he doesn't have enough firepower, let's kick <b>{memberName}</b> out!!</Confirmation>
 
             <div className='membersDiv'>
                 {members.map((member)=>
@@ -93,10 +93,12 @@ export default function Members() {
                             {
                                 operation && (<> 
                                     <Link to={`/update/${member.id}`}><img src={editIcon} alt={'editIcon'} style={operationStyle}/></Link>
+
                                     <Link to={``} onClick={()=>{setTriggerDel(true); 
                                                                 setMemberName(member.name);
                                                                 setMemberId(member.id);
-                                                                setMemberImage(member.fileUrl)}}><img src={delIcon} alt={'delIcon'} style={operationStyle}/></Link>
+                                                                setMemberImage(member.fileUrl);
+                                                                setBgScroll(true)}}><img src={delIcon} alt={'delIcon'} style={operationStyle}/></Link>
                                     
                                 </>) 
                             }

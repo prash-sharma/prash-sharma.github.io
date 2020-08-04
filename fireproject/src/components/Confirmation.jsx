@@ -1,6 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 export default function Confirmation(props) {
+    
+    useEffect(() => {
+        if(props.bgScroll){
+            document.body.style.overflow = 'hidden' 
+        } else{
+            document.body.style.overflow = 'unset'
+        }
+        
+    }, [props.bgScroll, props.returnConfirmation])
+
     let prompt = (
         <div className='promptDiv'>
             <div className='confirmationPrompt'>
@@ -9,8 +19,8 @@ export default function Confirmation(props) {
                 </div>
                 
                 <div className='promptBtns'>
-                    <button className='btnConfirm' onClick={props.onConfirm}>Delete</button>
-                    <button className='btnCancel' onClick={props.onCancel}>Cancel</button>
+                    <button className='btnConfirm' onClick={props.onConfirm}>Kick out</button>
+                    <button className='btnCancel' onClick={props.onCancel}>Next time perhaps</button>
                 </div>
             </div>
         </div>

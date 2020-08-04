@@ -8,6 +8,7 @@ import Home from './components/Home';
 import Create from './components/Create';
 import Nav from './components/Nav';
 import Update from './components/Update'
+import Roadmap from './components/Roadmap'
 // import Footer from './components/Footer';
 
 // firebase.firestore().collection('members').add({
@@ -25,8 +26,8 @@ export default function App() {
           <Route exact path="/" component={Home} />
           <Route path="/create" component={Create} />
           <Route path="/update/:id" component={Update} />
-          {/* <Route path="/roadmap" component={Roadmap} />
-          <Route path='/members/:id' component={MemberDetail} /> */}
+          <Route path="/roadmap" component={Roadmap} />
+          {/* <Route path='/members/:id' component={MemberDetail} /> */}
         </Switch>
         {/* <Footer /> */}
       </div>
