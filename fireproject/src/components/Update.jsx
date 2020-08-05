@@ -4,25 +4,18 @@ import Loader from './Loader';
 import Notification from './Notification'
 
 export default function Create(props) {
-    // console.log(match)
     const memberId = props.match.params.id;
     const [memberDetails, setMemberDetails] = useState({id: memberId, fileUrl: ''});
     const [loader, setLoader] = useState(false);
     const [notificaiton, setNotification] = useState(false)
-    // const [memberId, setMemberID] = useState(`${props.match.params.id}`);
-    // const [name, setName] = useState('');
-    // const [expertise, setExpertise] = useState('');
-    // const [fileLink, setFileLink] = useState('')
 
     useEffect(()=>{
-        // console.log(props.match.params.id);
         setLoader(true)
         firebase
         .firestore()
         .collection('members')
         .doc(memberId)
         .get().then((res)=>{
-            // console.log(res.data());
             setMemberDetails(res.data());
             setLoader(false)            
         })
@@ -32,7 +25,6 @@ export default function Create(props) {
     const onFileChange = async(e)=>{
         setLoader(true)
         const file = e.target.files[0];
-
         const storageRef = firebase.storage().ref(`members/`);
         const fileRef = storageRef.child(file.name);
         await fileRef.put(file);
@@ -53,7 +45,6 @@ export default function Create(props) {
             setNotification(true)
         });
         setNotification(false)
-
     }
     
     return (

@@ -201,23 +201,22 @@ input[type=file]{
   height: 100%;
   top: 0;
   bottom: 0;
+  left: 0;
   background-color: rgb(8, 8, 8, 0.7);
   z-index: 30;
-  
 }
 
 
 .confirmationPrompt{
   width: 300px;
   height: 100px;
-  /* border: 1px solid black; */
-  position: fixed;
+  position: absolute;
   /* Perfectly center align an absolute div */
-  /* right: 0; */
-  left: 42.5%;
-  /* top: 50%; */
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
   margin: auto;
-  margin-top: 400px;
   /* Perfectly center align an absolute div */
   z-index: 10;
   background-color: rgb(239, 243, 247);

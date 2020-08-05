@@ -19,8 +19,8 @@ export default function Confirmation(props) {
                 </div>
                 
                 <div className='promptBtns'>
-                    <button className='btnConfirm' onClick={props.onConfirm}>Kick out</button>
-                    <button className='btnCancel' onClick={props.onCancel}>Next time perhaps</button>
+                    <button className='btnConfirm' onClick={props.onConfirm}>Ok</button>
+                    <button className='btnCancel' onClick={props.onCancel}>Not this time</button>
                 </div>
             </div>
         </div>
