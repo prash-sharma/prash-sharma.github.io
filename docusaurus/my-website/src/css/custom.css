@@ -1,0 +1,85 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+
+
+:root {
+    --primary-dark: #4b3895;
+    --primary: #6f58c4;
+    --primary-light: #9653d4;
+    --primary-faint: #f0eef9;
+    --secondary: #2363ae;
+    --success: #06a077;
+    /* ---success: #228665; */
+    --danger: #c33232;
+    --danger-dark: #a82c2c;
+    --warning: #ec6709;
+    --d-14905-warning: #d14905;
+    --white: #ffffff;
+    --info: #70c8ff;
+    --text: #061125;
+    --muted: #606774;
+    --background: #f5f6f6;
+    --background-light: #fafafb;
+    --neutral: #454d5c;
+  }
+  
+
+body {
+    color: #1c1e21;
+    color: var(--ifm-font-base-color);
+    
+    font-family: var(--ifm-font-family-base);
+    font-size: 15px;
+    font-size: var(--ifm-font-size-base);
+    line-height: 1.5;
+    line-height: var(--ifm-line-height-base);
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    word-wrap: break-word;
+}
+
+.docusaurus-highlight-code-line {
+    background-color: rgb(72, 77, 91);
+    display: block;
+    margin: 0 calc(-1 * var(--ifm-pre-padding));
+    padding: 0 var(--ifm-pre-padding);
+}
+
+.hero{
+    
+    height: 454px;
+    background-image: linear-gradient(to right, var(--primary), var(--secondary));
+    color: var(--white);
+}
+
+nav{
+    
+    
+    background-image: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.navbar__item, .navbar__title{
+    color: var(--white);
+}
+
+h1{
+    font-size: 2rem;
+}
+
+h2{
+    font-size: 24px;
+}
+
+h3{
+    font-size: 20px;
+}
+
+.navbar-sidebar{
+    width: 320px;
+}
