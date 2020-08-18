@@ -1,55 +1,44 @@
-import React, {useState, useEffect} from 'react';
-import firebase from '../firebase';
-import Loader from './Loader';
-import Member from './Member';
-
+import React, { useState, useEffect } from 'react'
+import firebase from '../firebase'
+import Loader from './Loader'
+import Member from './Member'
 
 export default function Members() {
-    const [members, setMembers] = useState([]);
-    const [loader, setLoader] = useState(false); 
+    const [members, setMembers] = useState([])
+    const [loader, setLoader] = useState(false)
 
-    useEffect(()=>{
+    useEffect(() => {
         setLoader(true)
-        const unsubscribe = firebase.firestore().collection('members')
-        .onSnapshot((snapshot)=>{
-            const res = snapshot.docs.map((doc)=>({
-                id: doc.id, ...doc.data()
-            }))
-        setMembers(res);
-        setLoader(false)
-        })
-        return () => unsubscribe();
+        const unsubscribe = firebase
+            .firestore()
+            .collection('members')
+            .onSnapshot((snapshot) => {
+                const res = snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }))
+                setMembers(res)
+                setLoader(false)
+            })
+        return () => unsubscribe()
     }, [])
 
     return (
         <div className="App">
-            {loader && (
-                <Loader />
-            )}
+            {loader && <Loader />}
 
             <h1>{members.length} members and counting..</h1>
 
-            <div className='membersDiv'>
-                {members.map((member)=>
-                    <div  key = {member.id}>
-                        <Member member = {member} />
+            <div className="membersDiv">
+                {members.map((member) => (
+                    <div key={member.id}>
+                        <Member member={member} />
                     </div>
-                    
-                )}
-                
+                ))}
             </div>
         </div>
-    );
+    )
 }
-
-
-
-
-
-
-
-
-
 
 // import React, {useState, useEffect} from 'react';
 // import firebase from '../firebase';
@@ -58,7 +47,6 @@ export default function Members() {
 // import delIcon from '../images/deleteIcon.png';
 // import editIcon from '../images/edit.png';
 // import Loader from './Loader';
-
 
 // export default function Members() {
 //     const [members, setMembers] = useState([]);
@@ -69,7 +57,7 @@ export default function Members() {
 //     const [memberImage, setMemberImage] = useState('');
 //     const [loader, setLoader] = useState(false);
 //     const [bGScroll, setBgScroll] = useState(false)
-    
+
 //     const operationStyle = {
 //         width: '30px',
 //         height: '30px',
@@ -99,11 +87,10 @@ export default function Members() {
 //             const file = firebase.storage();
 //             file.refFromURL(image).delete()
 //         }
-        
 
 //         setTriggerDel(false);
 //     }
-    
+
 //     return (
 //         <div className="App">
 
@@ -112,12 +99,12 @@ export default function Members() {
 //             {loader && (
 //                 <Loader />
 //             )}
-            
-//             <Confirmation 
+
+//             <Confirmation
 //                 returnConfirmation = {triggerDel}
 
 //                 bgScroll = {bGScroll}
-                 
+
 //                 onConfirm = {()=>{
 //                     deleteMember(memberId, memberImage);
 //                     setTriggerDel(false)
@@ -137,31 +124,30 @@ export default function Members() {
 //                                 <h3>Name:</h3> <p>{member.name}</p>
 //                                 <h3>Expertise:</h3> <p>{member.expertise}</p>
 //                                 <h3>From:</h3><p>{member.from}</p>
-//                             </div>    
+//                             </div>
 //                             <div>
 //                                 <img src={`${member.fileUrl}`} alt = {`${member.name}`} width={200} height={200}/>
 //                             </div>
-//                         </div>    
+//                         </div>
 //                         <div className='operationDiv'>
 //                             {
-//                                 operation && (<> 
+//                                 operation && (<>
 //                                     <Link to={`/update/${member.id}`}><img src={editIcon} alt={'editIcon'} style={operationStyle}/></Link>
 
-//                                     <Link to={``} onClick={()=>{setTriggerDel(true); 
+//                                     <Link to={``} onClick={()=>{setTriggerDel(true);
 //                                                                 setMemberName(member.name);
 //                                                                 setMemberId(member.id);
 //                                                                 setMemberImage(member.fileUrl);
 //                                                                 setBgScroll(true)}}><img src={delIcon} alt={'delIcon'} style={operationStyle}/></Link>
-                                    
-//                                 </>) 
+
+//                                 </>)
 //                             }
 //                         </div>
-                        
+
 //                     </div>
 //                 )}
 //             </div>
-            
-        
+
 //         </div>
 //     );
 // }
