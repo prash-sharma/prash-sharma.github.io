@@ -1,0 +1,8 @@
+version: 1
+org: da66a407-34ef-4f6e-a57e-8d4ec3ddeec5
+space: 26de5208-8567-4905-82a4-0f468e048c3a
+spaceKey: fire
+targets:
+- platform: browser
+  lang: js
+  out: src/mtspace/fire

@@ -30,6 +30,10 @@ export default function Nav() {
                 <NavLink to='/roadmap' activeStyle={{color: 'orange'}} style={navStyle}>
                     <li>Roadmap</li>
                 </NavLink>
+
+                <NavLink to='/colorpicker' activeStyle={{color: 'orange'}} style={navStyle}>
+                    <li>Color picker</li>
+                </NavLink>
             </ul>
         </nav>
     )

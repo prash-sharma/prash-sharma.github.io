@@ -5,6 +5,11 @@ import Confirmation from './Confirmation';
 import delIcon from '../images/deleteIcon.png';
 import editIcon from '../images/edit.png';
 import Loader from './Loader';
+// import { collections } from '../mtspace/fire';
+
+
+// console.log(collections.membercards.membercardexp)
+// collections.membercards.membercardexp
 
 export default function Member(props) {
 
