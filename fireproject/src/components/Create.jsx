@@ -11,6 +11,7 @@ export default function Create() {
     const [from, setFrom] = useState('');
     const [loader, setLoader] = useState(false);
     const [notification, setNotification] = useState(false);
+    const [email, setEmail] = useState('');
 
     const onFileChange = async(e)=>{
         setLoader(true)
@@ -21,18 +22,25 @@ export default function Create() {
         console.log(fileRef.fullPath)
         setFileUrl(await fileRef.getDownloadURL());
         setLoader(false);
+        setNotification(false);
     }
 
     function onSubmit(e){
         setLoader(true)
         e.preventDefault();
         firebase.firestore().collection('members').add({
-            name, expertise, fileUrl, from
+            name, email, expertise, fileUrl, from
         }).then(()=>{
             setLoader(false)
             setNotification(true)
-        })
-        setNotification(false)
+        });
+
+        (() => {
+            setNotification(false)
+        })()
+
+        
+
     }
     
     return (
@@ -42,7 +50,7 @@ export default function Create() {
             )}
 
             {notification && (
-                    <Notification msg = {'Member added successfully.'}/>
+                    <Notification msg = {'Member added successfully.'} />
             )}
             
             <h2>Add a member</h2>
@@ -51,6 +59,9 @@ export default function Create() {
                     
                         <label>Name:</label>
                         <input type='text' onChange={(e)=>{setName(e.target.value)}}/>
+
+                        <label>Email:</label>
+                        <input type='email' onChange={(e)=>{setEmail(e.target.value)}}/>
                     
                         <label>Expertise:</label>
                         <input type='text' onChange={(e)=>{setExpertise(e.target.value)}}/>

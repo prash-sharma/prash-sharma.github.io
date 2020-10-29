@@ -39,7 +39,7 @@ function Colorpicker() {
                         // type="text"
                         className="color__text"
                         value={color}
-                        // onClick={showhidepicker}
+                        onClick={showhidepicker}
                         style={{ textTransform: 'uppercase' }}
                         onChange={(e) => {
                             let inputHex = e.target.value
@@ -81,21 +81,13 @@ function Colorpicker() {
 
                 {displayPicker ? (
                     <>
-                        <div
-                            style={cover}
-                            onClick={() => {
-                                !displayPicker
-                                    ? setDisplayPicker(true)
-                                    : setDisplayPicker(false)
-                            }}
-                        />
+                        <div style={cover} onClick={showhidepicker} />
                         <ChromePicker
+                            className={'color_picker'}
                             color={rgba}
                             onChange={(selectedColor) => {
                                 setRGBA(selectedColor.rgb)
                                 setColor(selectedColor.hex)
-                                // setAlpha(selectedColor.rgb.a * 100)
-                                // setTransparency(selectedColor.rgb.a)
                                 console.log(rgba)
                             }}
                         />

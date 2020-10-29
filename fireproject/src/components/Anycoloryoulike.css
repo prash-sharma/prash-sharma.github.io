@@ -1,0 +1,40 @@
+.react-colorful {
+    width: 250px;
+    border-radius: 8px;
+    background-color: rgb(240, 242, 247);
+
+    margin-top: 20px;
+    margin-left: 50%;
+    margin-bottom: 20px;
+}
+.react-colorful__saturation {
+    border-radius: 3px 3px 0 0;
+    height: 8px;
+}
+.react-colorful__hue {
+    height: 12px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.react-colorful__alpha {
+    height: 12px;
+    margin-bottom: 16px;
+    border-radius: 0;
+}
+
+.react-colorful__saturation-pointer {
+    border-radius: 50px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid white;
+    background-color: rgb(230, 232, 238);
+}
+
+.react-colorful__hue-pointer,
+.react-colorful__alpha-pointer {
+    border-radius: 50px;
+    width: 8px;
+    height: 20px;
+    border: 1px solid white;
+}
