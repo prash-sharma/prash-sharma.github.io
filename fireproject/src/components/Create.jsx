@@ -28,7 +28,7 @@ export default function Create() {
     function onSubmit(e){
         setLoader(true)
         e.preventDefault();
-        firebase.firestore().collection('members').add({
+        const unsubscribe = firebase.firestore().collection('members').add({
             name, email, expertise, fileUrl, from
         }).then(()=>{
             setLoader(false)
@@ -39,8 +39,7 @@ export default function Create() {
             setNotification(false)
         })()
 
-        
-
+        return () => unsubscribe()
     }
     
     return (
@@ -56,7 +55,6 @@ export default function Create() {
             <h2>Add a member</h2>
             <form  onSubmit={onSubmit}>
                 <div className='createMember'>
-                    
                         <label>Name:</label>
                         <input type='text' onChange={(e)=>{setName(e.target.value)}}/>
 
@@ -71,7 +69,6 @@ export default function Create() {
                     
                         <label>Image:</label>
                         <input type="file" onChange={onFileChange}/>
-                    
                 </div>
                 <div >
                     <button className='submitBtn'>Submit</button>
