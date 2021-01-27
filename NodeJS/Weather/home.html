@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+            integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+            crossorigin="anonymous"
+        />
+        <title>Weather</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="box">
+            <div class="wave -one"></div>
+            <div class="wave -two"></div>
+            <div class="wave -three"></div>
+
+            <div id="weathercon">
+                <i class="fas fa-sun" style="color: darkgoldenrod"></i>
+            </div>
+            <div class="info">
+                <h2 class="location">
+                    <i
+                        class="fas fa-map-marker-alt"
+                        style="color: darkgreen"
+                    ></i>
+                    Sydney, AU
+                </h2>
+                <p id="date">THR | JAN 21 | 5:00PM</p>
+                <p id="time"></p>
+                <h1 class="temp">24.1°С</h1>
+                <h3 class="tempmin_max">Min 24.1°С | Max 28.1°С</h3>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
