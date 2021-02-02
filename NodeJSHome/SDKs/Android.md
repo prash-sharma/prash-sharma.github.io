@@ -1,3 +1,6 @@
+---
+id: "Android"
+---
 # Android SDK
 
 This guide explains how to integrate an mtribes Space into your Android application.

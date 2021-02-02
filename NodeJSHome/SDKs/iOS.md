@@ -1,3 +1,6 @@
+---
+id: "iOS"
+---
 # iOS SDK
 
 This guide explains how to integrate an mtribes Space into your iOS application.

@@ -9,7 +9,7 @@ module.exports = {
                 'orca/adr/session-management',
                 'orca/adr/error-normalization',
                 'orca/adr/logging',
-                'orca/adr/session-management2',
+                'orca/adr/session-management',
                 'orca/adr/circuit-breakers',
                 'orca/adr/service-error-tracking',
             ],

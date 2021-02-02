@@ -1,3 +1,6 @@
+---
+id: "Browser"
+---
 # Browser SDK
 
 This guide explains how to integrate an mtribes Space into your web application.
