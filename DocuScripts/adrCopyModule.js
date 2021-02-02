@@ -35,7 +35,7 @@ const adrCopyModule = (destDir, item, repoDirPath) => {
                         destAdrFilePath,
                         path.extname(destAdrFilePath)
                     )
-
+                    // sidebar_label: Concepts
                     fs.writeFileSync(
                         destAdrFilePath,
                         `---\nid: "${id.substring(
