@@ -57,5 +57,6 @@ button:hover{
 }
 
 .operator, .equals{
-    background-color: rgb(192, 200, 201);
+    /* background-color: rgb(192, 200, 201); */
+    background-color: rgb(192, 250, 101);
 }
